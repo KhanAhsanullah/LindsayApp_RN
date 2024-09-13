@@ -1,32 +1,72 @@
-import React, {useEffect, useState} from 'react';
-import {navigationRef} from './RootNavigation';
-import {useDispatch, useSelector} from 'react-redux';
-import Splash from '../containers/Splash';
-import {NavigationContainer} from '@react-navigation/native';
+// import React, {useEffect, useState} from 'react';
+// import {navigationRef} from './RootNavigation';
+// import {useDispatch, useSelector} from 'react-redux';
+// import Splash from '../containers/Splash';
+// import {NavigationContainer} from '@react-navigation/native';
+// import AppNavigator from './AppNavigator';
+// import { AuthStackNavigator } from './AuthStackNavigator';
+// import Login from '../screens/AuthScreen/Login';
+
+// const MainNavigation = () => {
+//   const dispatch = useDispatch();
+//   const [isloading, setIsLoadings] = useState(true);
+//   const {isLoggedIn} = useSelector((state: any) => state.user);
+
+//   useEffect(() => {
+//     setTimeout(() => {
+//       setIsLoadings(false);
+//     }, 3000);
+//   }, []);
+
+//   return isloading ? (
+//     <Splash />
+//   ) : (
+//     <>
+//       <NavigationContainer ref={navigationRef}>
+//         {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />}
+//       </NavigationContainer>
+//     </>
+//   );
+// };
+
+// export default MainNavigation;
+
+
+
+
+import React, { useEffect, useState } from 'react';
+import { navigationRef } from './RootNavigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './AppNavigator';
 import { AuthStackNavigator } from './AuthStackNavigator';
-import Login from '../screens/AuthScreen/Login';
 
 const MainNavigation = () => {
   const dispatch = useDispatch();
-  const [isloading, setIsLoadings] = useState(true);
-  const {isLoggedIn} = useSelector((state: any) => state.user);
+  const [isLoading, setIsLoading] = useState(true);
+  const { isLoggedIn } = useSelector((state: any) => state.user);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoadings(false);
-    }, 3000);
-  }, []);
+    const checkAuthStatus = async () => {
+    
+      // Simulating a delay
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    };
 
-  return isloading ? (
-    <Splash />
-  ) : (
-    <>
-      <NavigationContainer ref={navigationRef}>
-        {/* {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />} */}
-        <Login />
-      </NavigationContainer>
-    </>
+    checkAuthStatus();
+  }, [dispatch]);
+
+  if (isLoading) {
+    // You can show a loading indicator here if needed
+    return null; // or a spinner or any other loading indicator
+  }
+
+  return (
+    <NavigationContainer ref={navigationRef}>
+      {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />}
+    </NavigationContainer>
   );
 };
 

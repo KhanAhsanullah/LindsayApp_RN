@@ -9,7 +9,7 @@ const Splash = () => {
       <View style={styles.container}>
        
         <Image
-          source={IMAGES.SplashImg}
+          source={IMAGES.onBoardingImg}
           style={{width: '100%' , height: '100%'}}
           resizeMode="cover"
         />
