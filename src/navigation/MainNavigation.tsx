@@ -59,8 +59,7 @@ const MainNavigation = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    // You can show a loading indicator here if needed
-    return null; // or a spinner or any other loading indicator
+    return null; 
   }
 
   return (

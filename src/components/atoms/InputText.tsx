@@ -7,7 +7,7 @@ import { IMAGES, theme } from "../../constants";
 export const InputText = (props: any) => {
   const {
     placeholder = "",
-    placeholderTextColor = theme.color.black,
+    placeholderTextColor = theme.color.tgray,
     maxLength = 50,
     onChangeText = () => {},
     validationMessage = "Field is required",
@@ -51,7 +51,7 @@ export const InputText = (props: any) => {
       keyboardType={keyboardType}
       fieldStyle={{
         height: verticalScale(45),
-        marginVertical: 5,
+        marginTop: 5,
         paddingHorizontal: 10,
         paddingVertical: Platform.OS == "ios" ? 20 : 0,
         borderWidth: 0.2,

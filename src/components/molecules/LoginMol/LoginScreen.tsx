@@ -6,12 +6,15 @@ import { IMAGES, SCREENS, theme } from "../../../constants";
 import { Typography } from "../../atoms/Typography";
 import { CustomBtn } from "../../atoms/OnBoardingAtoms/OnBeardingBottomBtn";
 import { navigate } from "../../../navigation/RootNavigation";
+import { setLoggedIn } from "../../../redux/slice/user";
+import { useDispatch } from "react-redux";
 
 const LoginScreen = () => {
   const [hasValidated, setValidated] = useState(new Array(2).fill(false));
   const [email, setEmail] = useState("");
   const [passwordVal, setPasswordVal] = useState("");
   const [password, setPassword] = useState(true);
+  const dispatch = useDispatch();
   return (
     <>
       <LoginHeader />
@@ -58,7 +61,7 @@ const LoginScreen = () => {
           Forget Password?
         </Typography>
         <View marginV-40>
-          <CustomBtn label="Sign In" onPress={()=>navigate(SCREENS.SIGN_UP)}/>
+          <CustomBtn label="Sign In" onPress={() => dispatch(setLoggedIn(true))}/>
         </View>
       </View>
     </>

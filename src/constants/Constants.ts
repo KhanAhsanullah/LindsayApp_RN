@@ -69,26 +69,32 @@ export const CheckIfValid = (
   setState(copy);
 };
 
-// export const BOTTOMTABS = [
-//   {
-//     key: 0,
-//     navigateTo: SCREENS.HOME,
-//     image: IMAGES.trophy,
-//   },
-//   {
-//     key: 1,
-//     navigateTo: SCREENS.PAYMENT,
-//     image: IMAGES.euro,
-//   },
-//   {
-//     key: 2,
-//     navigateTo: SCREENS.ALL_CLUBS,
-//     image: IMAGES.club,
-//   },
-//   {
-//     key: 3,
-//     title: "Profile",
-//     navigateTo: SCREENS.PROFILE,
-//     image: IMAGES.profile,
-//   },
-// ];
+export const BOTTOMTABS = [
+  {
+    key: 0,
+    navigateTo: SCREENS.HOME,
+    image: IMAGES.avatar,
+  },
+  {
+    key: 1,
+    navigateTo: SCREENS.EXERCISE,
+    image: IMAGES.car1,
+  },
+  {
+    key: 2,
+    navigateTo: SCREENS.ZOOMCALL,
+    image: IMAGES.car1,
+  },
+  {
+    key: 3,
+    title: "Profile",
+    navigateTo: SCREENS.NOTIFICATION,
+    image: IMAGES.dummy,
+  },
+  {
+    key: 4,
+    title: "Profile",
+    navigateTo: SCREENS.PROFILE,
+    image: IMAGES.dummy,
+  },
+];

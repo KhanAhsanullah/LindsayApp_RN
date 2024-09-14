@@ -1,20 +1,24 @@
 import React, { useState } from "react";
-import LoginHeader from "../../atoms/LoginAtom/LoginHeader";
 import { InputText } from "../../atoms/InputText";
 import { Button, View } from "react-native-ui-lib";
-import { IMAGES, SCREENS, theme } from "../../../constants";
+import { IMAGES, theme } from "../../../constants";
 import { Typography } from "../../atoms/Typography";
 import { CustomBtn } from "../../atoms/OnBoardingAtoms/OnBeardingBottomBtn";
-import { navigate } from "../../../navigation/RootNavigation";
+import { useDispatch } from "react-redux";
+import { setLoggedIn } from "../../../redux/slice/user";
 
 const SignUpFields = () => {
-  const [hasValidated, setValidated] = useState(new Array(2).fill(false));
+  const [hasValidated, setValidated] = useState(new Array(6).fill(false));
+  const [fname, setFName] = useState("");
+  const [lname, setLName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [passwordVal, setPasswordVal] = useState("");
   const [password, setPassword] = useState(true);
+  const dispatch = useDispatch();
   return (
     <>
- <View marginH-20 style={{ marginTop: 100 }}>
+      <View marginH-20 style={{ marginTop: 100 }}>
         <Typography
           align="center"
           size={theme.fontSize.extraLarge}
@@ -35,7 +39,36 @@ const SignUpFields = () => {
       </View>
       <View margin-20>
         <InputText
-          label={"Email Address:"}
+          // label={"Email Address:"}
+          value={fname}
+          onValidationFailed={(isValid: boolean) => {
+            setValidated((prev) => {
+              let copy = [...prev];
+              copy[0] = isValid;
+              return copy;
+            });
+          }}
+          placeholder="First Name"
+          validate={["fname"]}
+          onChangeText={(text: string) => setFName(text)}
+        />
+         <InputText
+          // label={"Email Address:"}
+          value={lname}
+          onValidationFailed={(isValid: boolean) => {
+            setValidated((prev) => {
+              let copy = [...prev];
+              copy[0] = isValid;
+              return copy;
+            });
+          }}
+          placeholder="Last Name"
+          validate={["lname"]}
+          style={{marginTop:-10}}
+          onChangeText={(text: string) => setLName(text)}
+        />
+         <InputText
+          // label={"Email Address:"}
           value={email}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
@@ -44,14 +77,31 @@ const SignUpFields = () => {
               return copy;
             });
           }}
-          placeholder="Enter your email"
+          placeholder="Email Address"
           validate={["email"]}
+          style={{marginTop:-10}}
           validationMessage={["Email is invalid"]}
           onChangeText={(text: string) => setEmail(text)}
         />
+         <InputText
+          // label={"Email Address:"}
+          value={phone}
+          onValidationFailed={(isValid: boolean) => {
+            setValidated((prev) => {
+              let copy = [...prev];
+              copy[0] = isValid;
+              return copy;
+            });
+          }}
+          placeholder="Mobile Number"
+          validate={["phone"]}
+          style={{marginTop:-10}}
+          onChangeText={(text: string) => setPhone(text)}
+        />
         <InputText
-          label={"Password:"}
+          // label={"Password:"}
           value={passwordVal}
+          style={{marginTop:-10}}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
@@ -73,9 +123,10 @@ const SignUpFields = () => {
           onChangeText={(text: string) => setPasswordVal(text)}
         />
 
-<InputText
-          label={"Password:"}
+        <InputText
+          // label={"Password:"}
           value={passwordVal}
+          style={{marginTop:-10}}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
@@ -96,9 +147,12 @@ const SignUpFields = () => {
           ]}
           onChangeText={(text: string) => setPasswordVal(text)}
         />
-      
+
         <View marginV-40>
-          <CustomBtn label="Sign In" onPress={()=>navigate(SCREENS.SIGN_UP)}/>
+          <CustomBtn
+            label="Sign Up"
+            onPress={() => dispatch(setLoggedIn(true))}
+          />
         </View>
       </View>
     </>

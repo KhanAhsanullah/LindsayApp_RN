@@ -6,5 +6,9 @@ export const SCREENS = {
 
   // Bottom Screen
   HOME: "Home",
+  EXERCISE: "Exercise",
+  ZOOMCALL: "ZoomCall",
+  NOTIFICATION: "Notification",
+  PROFILE: "Profile",
 
 };

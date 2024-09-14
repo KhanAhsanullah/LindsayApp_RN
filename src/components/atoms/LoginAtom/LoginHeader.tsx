@@ -9,7 +9,7 @@ const LoginHeader = () => {
   return (
     <>
       <Image
-        source={IMAGES.LoginImg}
+        source={IMAGES.loginImg}
         style={styles.image}
         resizeMode="contain"
       />

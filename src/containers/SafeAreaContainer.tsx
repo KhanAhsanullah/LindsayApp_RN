@@ -4,10 +4,8 @@ import {
   View,
   SafeAreaView,
   Platform,
-  ImageBackground,
   useColorScheme,
 } from 'react-native';
-import { IMAGES } from '../constants';
 
 const SafeAreaContainer = (props: any) => {
   const {
