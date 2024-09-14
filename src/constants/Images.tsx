@@ -11,6 +11,13 @@ export const IMAGES = {
   // Home Images
   homeHeaderImg: require("../assets/images/homeHeaderImg.png"),
   healthCoach: require("../assets/images/healthCoach.png"),
+  homeMiddleImg: require("../assets/images/homeMiddleImg.png"),
+
+  home: require("../assets/images/home.png"),
+  gym: require("../assets/images/gym.png"),
+  zoom: require("../assets/images/zoom.png"),
+  notification: require("../assets/images/notification.png"),
+  user: require("../assets/images/user.png"),
 
   // Dummy Images
   avatar: require("../assets/images/avatar.png"),

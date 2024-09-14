@@ -45,6 +45,7 @@ export const theme = {
     primarybeta:'#ACA8FF',
     cyan:'#9DE5FF',
     tgray: '#7C8BA0',
+    
     facebook: '#3A589B',
     apple: '#2E2E2E',
     divider: '#E6E8EE',
@@ -72,29 +73,26 @@ export const CheckIfValid = (
 export const BOTTOMTABS = [
   {
     key: 0,
+    title: "Home",
     navigateTo: SCREENS.HOME,
-    image: IMAGES.avatar,
+    image: IMAGES.home,
   },
   {
     key: 1,
+    title: "Exercise",
     navigateTo: SCREENS.EXERCISE,
-    image: IMAGES.car1,
-  },
-  {
-    key: 2,
-    navigateTo: SCREENS.ZOOMCALL,
-    image: IMAGES.car1,
+    image: IMAGES.gym,
   },
   {
     key: 3,
-    title: "Profile",
+    title: "Notification",
     navigateTo: SCREENS.NOTIFICATION,
-    image: IMAGES.dummy,
+    image: IMAGES.notification,
   },
   {
     key: 4,
     title: "Profile",
     navigateTo: SCREENS.PROFILE,
-    image: IMAGES.dummy,
+    image: IMAGES.user,
   },
 ];

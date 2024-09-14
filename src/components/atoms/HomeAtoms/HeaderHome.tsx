@@ -7,27 +7,12 @@ import { Typography } from "../Typography";
 
 const HeaderHome = () => {
   return (
-    <View flex backgroundColor={theme.color.primarybeta}> 
+    <View flex>
       <Image
         source={IMAGES.homeHeaderImg}
         style={styles.image}
         resizeMode="contain"
       />
-       <Image
-        source={IMAGES.logo}
-        style={styles.image}
-        resizeMode="contain"
-      />
-      <Image
-        source={IMAGES.healthCoach}
-        style={{
-            width: verticalScale(320),
-            height: scale(320),
-        }}
-        resizeMode='cover'
-      />
-
-    
     </View>
   );
 };
@@ -35,7 +20,8 @@ const HeaderHome = () => {
 const styles = StyleSheet.create({
   image: {
     width: verticalScale(320),
-    height: scale(80),
+    height: scale(100),
+    marginTop: -25,
   },
 });
 
