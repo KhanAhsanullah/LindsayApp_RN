@@ -1,18 +1,15 @@
 import React from "react";
-import { StyleSheet, Image, ImageBackground } from "react-native";
-import { Text, View } from "react-native-ui-lib";
-import { IMAGES, theme } from "../../../constants";
-import { scale, verticalScale } from "react-native-size-matters";
+import { StyleSheet } from "react-native";
 import HeaderHome from "../../atoms/HomeAtoms/HeaderHome";
-import { Typography } from "../../atoms/Typography";
 import HealthCoaching from "../../atoms/HomeAtoms/HealthCoaching";
 import Fitness from "../../atoms/HomeAtoms/Fitness";
 import Nutrition from "../../atoms/HomeAtoms/Nutrition";
+import { theme } from "../../../constants";
 
 const HomeScreen = () => {
   return (
     <>
-      <HeaderHome />
+      <HeaderHome color={theme.color.white} headerBkColor={theme.color.black}/>
       <HealthCoaching />
       <Fitness />
       <Nutrition />

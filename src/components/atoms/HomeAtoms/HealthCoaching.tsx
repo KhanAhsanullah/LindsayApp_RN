@@ -15,11 +15,7 @@ const HealthCoaching = () => {
       }}
       resizeMode="cover"
     >
-      <Image
-        source={IMAGES.logo}
-        style={{ width: 35, height: 55, alignSelf: "center" }}
-        resizeMode="contain"
-      />
+     
       <View style={{ position: "absolute", bottom: 50, alignSelf: "center" }}>
         <Typography
           color={theme.color.white}

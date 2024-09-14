@@ -8,8 +8,12 @@ import { theme } from "../../constants";
 const Home = () => {
   return (
     <SafeAreaContainer safeArea={false}>
-      <ScrollView>
-        <View flex backgroundColor={theme.color.primarybeta} style={{opacity:0.9}}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          flex
+          backgroundColor={theme.color.primarybeta}
+          style={{ opacity: 0.9 }}
+        >
           <HomeScreen />
         </View>
       </ScrollView>
