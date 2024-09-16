@@ -9,23 +9,7 @@ const MainNavigation = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn } = useSelector((state: any) => state.user);
-
-  useEffect(() => {
-    const checkAuthStatus = async () => {
-    
-      // Simulating a delay
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
-    };
-
-    checkAuthStatus();
-  }, [dispatch]);
-
-  if (isLoading) {
-    return null; 
-  }
-
+  
   return (
     <NavigationContainer ref={navigationRef}>
       {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />}

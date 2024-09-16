@@ -43,19 +43,16 @@ export const theme = {
   color: {
     primary: '#AC73FF',
     primarybeta:'#ACA8FF',
+    secondry:'#6969691A',
     cyan:'#9DE5FF',
     tgray: '#7C8BA0',
-    
-    facebook: '#3A589B',
-    apple: '#2E2E2E',
+    descColor:'#8C8C8C',
+    inputTypeColor:'#F5F9FE',
+  
     divider: '#E6E8EE',
     black: '#000',
     white: '#fff',
-    messageColor: '#CCFFF0',
-    callColor: '#9DE4F6',
-    halfWhite: '#F9F9FC',
-    descColor:'#8C8C8C',
-    inputTypeColor:'#F5F9FE',
+  
   },
 };
 

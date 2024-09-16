@@ -23,7 +23,7 @@ export const OnBeardingContent = (props: any) => {
         style={[commonStyles.lineBar, { borderColor: theme.color.white }]}
       />
       <Typography
-        textType="semibold"
+        textType="semiBold"
         align="center"
         size={theme.fontSize.medium}
         color={ theme.color.white}

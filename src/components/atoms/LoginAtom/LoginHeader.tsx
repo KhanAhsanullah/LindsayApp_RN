@@ -18,7 +18,7 @@ const LoginHeader = () => {
         <Typography
           align="center"
           size={theme.fontSize.extraLarge}
-          textType="semibold"
+          textType="semiBold"
           color={theme.color.primary}
         >
           Sign In
@@ -26,7 +26,7 @@ const LoginHeader = () => {
         <Typography
           align="center"
           size={theme.fontSize.small}
-          textType="semibold"
+          textType="semiBold"
           color={theme.color.descColor}
         >
           As a Nationally Board Certified Health and Wellness Coach, Elite

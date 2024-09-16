@@ -100,8 +100,8 @@ export const commonStyles = StyleSheet.create({
   },
   lineBar: {
     width: "100%",
-    borderWidth: 0.5,
-    borderColor: theme.color.disable,
+    borderWidth: 1,
+    borderColor: theme.color.divider,
   },
 
   // Header
@@ -113,11 +113,13 @@ export const commonStyles = StyleSheet.create({
   // Footer
   footerContainer: {
     flex: 1,
-    marginTop: -15,
+    // marginTop: -15,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingHorizontal: 20,
-    borderColor: theme.color.white,
+    borderWidth:0.3,
+    borderColor: theme.color.descColor,
+    backgroundColor:theme.color.white
   },
   outerCircle: {
     width: 20,

@@ -3,7 +3,8 @@ import { View } from "react-native-ui-lib";
 import SafeAreaContainer from "../../containers/SafeAreaContainer";
 import { theme } from "../../constants";
 import HeaderHome from "../../components/atoms/HomeAtoms/HeaderHome";
-import DrawerTitle from "../../components/atoms/ExerciseAtoms/DrawerTitle";
+import DrawerTitle from "../../components/atoms/DrawerTitle";
+import ExerciseMol from "../../components/molecules/ExerciseMol";
 
 const Exercise = () => {
   return (
@@ -11,6 +12,7 @@ const Exercise = () => {
       <HeaderHome color={theme.color.primary} />
       <View marginH-20>
        <DrawerTitle title={"Exercise"}/>
+       <ExerciseMol />
       </View>
     </SafeAreaContainer>
   );

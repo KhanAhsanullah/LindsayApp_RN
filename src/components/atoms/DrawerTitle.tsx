@@ -1,16 +1,16 @@
 import React from "react";
 import { StyleSheet, Image, ImageBackground } from "react-native";
 import { Text, View } from "react-native-ui-lib";
-import { IMAGES, theme } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
-import { Typography } from "../Typography";
+import { Typography } from "./Typography";
+import { theme } from "../../constants";
 
 const DrawerTitle = (props: any) => {
   const { title } = props;
   return (
     <View row>
       <View style={styles.titleStyle} />
-      <Typography textType="semibold" size={theme.fontSize.large20}>
+      <Typography textType="semiBold" size={theme.fontSize.large20}>
         {title}
       </Typography>
     </View>

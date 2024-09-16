@@ -20,7 +20,7 @@ const Nutrition = () => {
         <Typography
           color={theme.color.white}
           align="center"
-          textType="semibold"
+          textType="semiBold"
           size={theme.fontSize.extraLarge}
         >
           Nutrition
