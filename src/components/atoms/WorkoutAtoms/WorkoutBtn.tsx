@@ -2,7 +2,8 @@ import React from "react";
 import { Button, View } from "react-native-ui-lib";
 import { CustomBtn } from "../OnBoardingAtoms/OnBeardingBottomBtn";
 import { StyleSheet } from "react-native";
-import { theme } from "../../../constants";
+import { SCREENS, theme } from "../../../constants";
+import { navigate } from "../../../navigation/RootNavigation";
 
 const WorkoutBtn = () => {
   return (
@@ -16,6 +17,7 @@ const WorkoutBtn = () => {
         label="Skip This"
         backgroundColor={theme.color.darkGray}
         style={styles.btnStyle}
+        onPress={()=>navigate(SCREENS.WORKOUT_RESULT)}
       />
     </View>
   );
