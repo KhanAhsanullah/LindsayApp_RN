@@ -9,6 +9,7 @@ import ZoomCall from "../screens/HomeScreen/ZoomCall";
 import Notification from "../screens/HomeScreen/Notification";
 import Profile from "../screens/HomeScreen/Profile";
 import ExerciseDetail from "../screens/HomeScreen/ExerciseDetail";
+import Workout from "../screens/HomeScreen/Workout";
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const AppNavigator = () => {
       }}>
      <Stack.Screen name={SCREENS.HOME} component={BottomTabNavigation} />
      <Stack.Screen name={SCREENS.EXERCISE_DETAIL} component={ExerciseDetail} />
+     <Stack.Screen name={SCREENS.WORKOUT} component={Workout} />
   
 
      

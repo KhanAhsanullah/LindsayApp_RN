@@ -7,7 +7,6 @@ import { commonStyles } from "../../../globalStyle";
 
 const VerticalItem = (props: any) => {
   const { onPress } = props;
-  const [selectedId, setSelectedId] = useState();
   const DATA = [
     { id: 1, title: "Exercises with Jumping Rope", image: IMAGES.ex1 },
     { id: 2, title: "Exercises with Holding Jumping Rope", image: IMAGES.ex2 },

@@ -12,6 +12,6 @@ export const SCREENS = {
   PROFILE: "Profile",
 
   // Detail Screen
-  EXERCISE_DETAIL:"ExerciseDetail",
-
+  EXERCISE_DETAIL: "ExerciseDetail",
+  WORKOUT: "Workout",
 };
