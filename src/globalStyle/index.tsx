@@ -117,9 +117,17 @@ export const commonStyles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingHorizontal: 20,
-    borderWidth:0.3,
+    // borderWidth:0.3,
     borderColor: theme.color.descColor,
-    backgroundColor:theme.color.white
+    backgroundColor:theme.color.white,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
   },
   outerCircle: {
     width: 20,

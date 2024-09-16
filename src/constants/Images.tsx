@@ -33,22 +33,23 @@ export const IMAGES = {
   ex3: require("../assets/images/ex3.png"),
   ex4: require("../assets/images/ex4.png"),
 
-    // Notification Image
-    no1: require("../assets/images/no1.png"),
-    no2: require("../assets/images/no2.png"),
-    no3: require("../assets/images/no3.png"),
-    no4: require("../assets/images/no4.png"),
-    no5: require("../assets/images/no5.png"),
-    no6: require("../assets/images/no6.png"),
+  // Notification Image
+  no1: require("../assets/images/no1.png"),
+  no2: require("../assets/images/no2.png"),
+  no3: require("../assets/images/no3.png"),
+  no4: require("../assets/images/no4.png"),
+  no5: require("../assets/images/no5.png"),
+  no6: require("../assets/images/no6.png"),
 
-     // Profile Image
-     pr1: require("../assets/images/pr1.png"),
-     pr2: require("../assets/images/pr2.png"),
-     pr3: require("../assets/images/pr3.png"),
-     pr4: require("../assets/images/pr4.png"),
-     pr5: require("../assets/images/pr5.png"),
-     pr6: require("../assets/images/pr6.png"),
-     profileImg: require("../assets/images/profileImg.png"),
-     rightIcon: require("../assets/images/rightIcon.png"),
+  // Profile Image
+  pr1: require("../assets/images/pr1.png"),
+  pr2: require("../assets/images/pr2.png"),
+  pr3: require("../assets/images/pr3.png"),
+  pr4: require("../assets/images/pr4.png"),
+  pr5: require("../assets/images/pr5.png"),
+  pr6: require("../assets/images/pr6.png"),
+  profileImg: require("../assets/images/profileImg.png"),
+  rightIcon: require("../assets/images/rightIcon.png"),
+  
+  yogaImg: require("../assets/images/yogaImg.png"),
 };
-

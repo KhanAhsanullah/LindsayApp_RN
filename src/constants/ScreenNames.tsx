@@ -11,4 +11,7 @@ export const SCREENS = {
   NOTIFICATION: "Notification",
   PROFILE: "Profile",
 
+  // Detail Screen
+  EXERCISE_DETAIL:"ExerciseDetail",
+
 };
