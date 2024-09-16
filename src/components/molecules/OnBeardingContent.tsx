@@ -20,7 +20,7 @@ export const OnBeardingContent = (props: any) => {
       </Typography>
       <View
         marginV-20
-        style={[commonStyles.lineBar, { borderColor: theme.color.white }]}
+        style={[commonStyles.lineBar, { borderColor: theme.color.white,borderWidth:0.4 }]}
       />
       <Typography
         textType="semiBold"

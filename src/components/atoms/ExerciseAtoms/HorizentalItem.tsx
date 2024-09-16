@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, FlatList, TouchableOpacity } from "react-native";
-import { Text, View } from "react-native-ui-lib";
+import {  TouchableOpacity } from "react-native";
 import { Typography } from "../Typography";
 import { theme } from "../../../constants";
 

@@ -15,7 +15,7 @@ const WorkoutResult = () => {
       <HeaderHome color={theme.color.primary} />
       <View marginV-20 style={commonStyles.footerContainer}>
        <WorkoutSummaryContent />
-       <Typography textType="bold">Workout Summary</Typography>
+       <Typography textType="bold" style={{marginLeft:20}}>Workout Summary</Typography>
        <WorkoutSummary />
       </View>
     </SafeAreaContainer>

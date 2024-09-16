@@ -8,7 +8,7 @@ import { Typography } from "../Typography";
 const Nutrition = () => {
   return (
     <ImageBackground
-    source={IMAGES.healthCoach}
+    source={IMAGES.Nutrition}
         style={{
           width: verticalScale(320),
           height: scale(320),

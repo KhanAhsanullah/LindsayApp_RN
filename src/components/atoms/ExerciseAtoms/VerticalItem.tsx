@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
-import { Text, View } from "react-native-ui-lib";
+import {  FlatList, TouchableOpacity, Image } from "react-native";
+import { View } from "react-native-ui-lib";
 import { Typography } from "../Typography";
 import { IMAGES, theme } from "../../../constants";
 import { commonStyles } from "../../../globalStyle";

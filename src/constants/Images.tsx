@@ -23,6 +23,7 @@ export const IMAGES = {
   avatar: require("../assets/images/avatar.png"),
   dummy: require("../assets/images/dummy.png"),
   car1: require("../assets/images/car1.png"),
+  Nutrition: require("../assets/images/Nutrition.jpg"),
 
   calories: require("../assets/images/calories.png"),
   clock: require("../assets/images/clock.png"),

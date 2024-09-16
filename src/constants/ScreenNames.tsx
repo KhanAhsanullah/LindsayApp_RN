@@ -14,5 +14,6 @@ export const SCREENS = {
   // Detail Screen
   EXERCISE_DETAIL: "ExerciseDetail",
   WORKOUT: "Workout",
-  WORKOUT_RESULT:"WorkoutResult"
+  WORKOUT_RESULT:"WorkoutResult",
+  HEALTH_COACHING:'HealthCoaching'
 };
