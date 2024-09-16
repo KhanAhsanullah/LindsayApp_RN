@@ -54,4 +54,7 @@ export const IMAGES = {
   
   yogaImg: require("../assets/images/yogaImg.png"),
   leftIconWithColor: require("../assets/images/leftIconWithColor.png"),
+
+  click: require("../assets/images/click.png"),
+  circle: require("../assets/images/circle.png"),
 };

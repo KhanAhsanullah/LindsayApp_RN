@@ -3,13 +3,13 @@ import {  FlatList, TouchableOpacity } from "react-native";
 import { Typography } from "../Typography";
 import { theme } from "../../../constants";
 
-const HorizentalItem = (props: any) => {
+const HealthItem = (props: any) => {
   const [selectedId, setSelectedId] = useState(1)
   const DATA = [
-    { id: 1, title: "Cardio" },
-    { id: 2, title: "Legs" },
-    { id: 3, title: "Back" },
-    { id: 4, title: "Chest" },
+    { id: 1, title: "Habits" },
+    { id: 2, title: "Goal Setting" },
+    { id: 3, title: "Mood Tracker" },
+    { id: 4, title: "Programs" },
   ];
 
   return (
@@ -30,7 +30,6 @@ const HorizentalItem = (props: any) => {
           }}
         >
           <Typography
-            textType="semiBold"
             size={theme.fontSize.extraSmall12}
             color={
               selectedId === item.id ? theme.color.white : theme.color.black
@@ -46,4 +45,4 @@ const HorizentalItem = (props: any) => {
     />
   );
 };
-export default HorizentalItem;
+export default HealthItem;

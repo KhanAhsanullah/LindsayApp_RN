@@ -7,17 +7,17 @@ import ExerciseDetailBottomContent from "../../atoms/ExerciseAtoms/ExerciseDetai
 import { Typography } from "../../atoms/Typography";
 import { commonStyles } from "../../../globalStyle";
 import HomeDetailTopView from "../../atoms/HomeAtoms/HomeDetailTopView";
+import HomeDetailBottomContent from "../../atoms/HomeAtoms/HomeDetailBottomContent";
+import HorizentalItem from "../../atoms/ExerciseAtoms/HorizentalItem";
+import HealthItem from "../../atoms/HomeAtoms/HealthItem";
 
 const HomeDetailMol = () => {
   return (
     <>
-      <HomeDetailTopView />
-      <View style={[commonStyles.footerContainer, { marginTop: -30 }]}>
-        <ExerciseDetailBottomView />
-        <ExerciseDetailBottomContent />
-        <Typography textType={"semiBold"}>Exercise Program</Typography>
-        <VerticalItem />
-      </View>
+
+        <HomeDetailBottomContent />
+        <Typography textType={"semiBold"}>Categories:</Typography>
+        <HealthItem />
     </>
   );
 };

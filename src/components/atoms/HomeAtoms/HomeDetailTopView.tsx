@@ -7,10 +7,11 @@ import { commonStyles } from "../../../globalStyle";
 import { scale, verticalScale } from "react-native-size-matters";
 
 const HomeDetailTopView = (props: any) => {
+
   return (
     <View style={{}}>
       <Image
-        source={IMAGES.healthCoach}
+        source={IMAGES.onBoardingImg}
         style={{ width: verticalScale(320), height: scale(350) }}
         resizeMode="cover"
       />
