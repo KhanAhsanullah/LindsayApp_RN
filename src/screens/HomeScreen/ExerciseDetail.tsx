@@ -9,7 +9,7 @@ const ExerciseDetail = () => {
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
-      <ScrollView showsVerticalScrollIndicator={false}> 
+      <ScrollView showsVerticalScrollIndicator={false} style={{top: -10}}> 
       <ExerciseDetailMol />
       </ScrollView>
     </SafeAreaContainer>

@@ -3,6 +3,8 @@ import { navigationRef } from './RootNavigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import Workout from '../screens/HomeScreen/Workout';
+import { AuthStackNavigator } from './AuthStackNavigator';
+import AppNavigator from './AppNavigator';
 
 const MainNavigation = () => {
   const dispatch = useDispatch();
@@ -11,8 +13,7 @@ const MainNavigation = () => {
   
   return (
     <NavigationContainer ref={navigationRef}>
-      {/* {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />} */}
-      <Workout />
+      {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />}
     </NavigationContainer>
   );
 };

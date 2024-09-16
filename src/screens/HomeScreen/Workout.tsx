@@ -9,29 +9,14 @@ import { Image, TouchableOpacity } from "react-native";
 import { onBack } from "../../navigation/RootNavigation";
 import { commonStyles } from "../../globalStyle";
 import { Typography } from "../../components/atoms/Typography";
+import ProgreeBar from "../../components/atoms/WorkoutAtoms/ProgressBar";
+import WorkOutTamplet from "../../components/templates/WorkOutTamplet";
 
 const Workout = () => {
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
-      <View margin-20>
-        <TouchableOpacity onPress={() => onBack()}>
-          <Image
-            source={IMAGES.leftIconWithColor}
-            style={{ width: 30, height: 30 }}
-          />
-        </TouchableOpacity>
-      </View>
-      <View style={commonStyles.footerContainer}>
-        <Typography
-          align="center"
-          textType="semiBold"
-          style={{marginVertical:20}}
-          size={theme.fontSize.large20}
-        >
-          Stretching Workout{"\n"}Length
-        </Typography>
-      </View>
+      <WorkOutTamplet />
     </SafeAreaContainer>
   );
 };

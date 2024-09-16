@@ -48,6 +48,7 @@ export const theme = {
     tgray: '#7C8BA0',
     descColor:'#8C8C8C',
     inputTypeColor:'#F5F9FE',
+    darkGray:'#454857',
   
     divider: '#E6E8EE',
     black: '#000',

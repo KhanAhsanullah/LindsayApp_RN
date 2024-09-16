@@ -9,11 +9,11 @@ import { scale, verticalScale } from "react-native-size-matters";
 const ExerciseDetailTopView = (props: any) => {
   const { onPress } = props;
   return (
-    <View style={{marginTop:-20}}>
+    <View style={{}}>
       <Image
-        source={IMAGES.car1}
+        source={IMAGES.yogaImg}
         style={{ width: verticalScale(320), height: scale(350) }}
-        resizeMode="contain"
+        resizeMode="cover"
       />
     </View>
   );
