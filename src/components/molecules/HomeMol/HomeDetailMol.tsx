@@ -14,7 +14,6 @@ import HealthItem from "../../atoms/HomeAtoms/HealthItem";
 const HomeDetailMol = () => {
   return (
     <>
-
         <HomeDetailBottomContent />
         <Typography textType={"semiBold"}>Categories:</Typography>
         <HealthItem />
