@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
 import { Switch, Text, View } from "react-native-ui-lib";
 import { Typography } from "../Typography";
-import { IMAGES, theme } from "../../../constants";
+import { IMAGES, SCREENS, theme } from "../../../constants";
 import { commonStyles } from "../../../globalStyle";
+import { navigate } from "../../../navigation/RootNavigation";
 
 const ProfileList = (props: any) => {
   const { onPress } = props;
@@ -11,17 +12,17 @@ const ProfileList = (props: any) => {
   const [toggleState, setToggleState] = useState(true);
 
   const DATA = [
-    { id: 1, title: "Edit Profile", image: IMAGES.pr1 },
-    { id: 2, title: "Notifications", image: IMAGES.pr2 },
-    { id: 3, title: "Subscription", image: IMAGES.pr3 },
-    { id: 4, title: "Order Placed", image: IMAGES.pr4 },
-    { id: 5, title: "Delete Account", image: IMAGES.pr5 },
-    { id: 6, title: "Logout", image: IMAGES.pr6 },
+    { id: 1, title: "Edit Profile", image: IMAGES.pr1 ,navigateTo:''},
+    { id: 2, title: "Notifications", image: IMAGES.pr2,navigateTo:'' },
+    { id: 3, title: "Subscription", image: IMAGES.pr3,navigateTo:SCREENS.SUBSCRIPTION },
+    { id: 4, title: "Order Placed", image: IMAGES.pr4,navigateTo:'' },
+    { id: 5, title: "Delete Account", image: IMAGES.pr5,navigateTo:'' },
+    { id: 6, title: "Logout", image: IMAGES.pr6,navigateTo:'' },
   ];
 
   const _renderItem = ({ item, index }: any) => {
     return (
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity onPress={() => navigate(item.navigateTo)}>
         <View row marginV-20>
           <Image
             source={item.image}
