@@ -37,6 +37,7 @@ const AppNavigator = () => {
 
      <Stack.Screen name={SCREENS.SUBSCRIPTION} component={Subscription} />
      <Stack.Screen name={SCREENS.PAYMENT_METHOD} component={PaymentMethod} />
+
   
 
      

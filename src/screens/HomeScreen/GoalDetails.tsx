@@ -1,22 +1,21 @@
-import React from "react";
-import { View } from "react-native-ui-lib";
-import SafeAreaContainer from "../../containers/SafeAreaContainer";
-import { IMAGES, theme } from "../../constants";
-import HeaderHome from "../../components/atoms/HomeAtoms/HeaderHome";
-import DrawerTitle from "../../components/atoms/DrawerTitle";
-import ExerciseMol from "../../components/molecules/ExerciseMol";
-import { Image } from "react-native";
-import { Typography } from "../../components/atoms/Typography";
+import React from 'react';
+import HealthCoachingDetails from '../../components/atoms/HealthCoachingDetails';
 
 const GoalDetails = () => {
+  const title = "Health Coaching\nPackages and Pricing";
+  const subtitle = "Starting with an Initial Consultation";
+  const details = [
+    "Every health coaching journey begins with an initial consultation session, priced at $125. This 1-hour session sets the foundation for your personalized health coaching plan.",
+    "Each follow-up session lasts up to 35 minutes, focusing on your health goals and strategies to achieve them.",
+    "One-hour follow-up sessions are available at $125 per 1-hour session for individuals who need more personalized attention."
+  ];
+
   return (
-    <SafeAreaContainer safeArea={false}>
-      <HeaderHome color={theme.color.primary} />
-      <View marginH-20>
-       <Image source={IMAGES.leftIconWithColor}/>
-       <Typography>Health Coaching{'\n'}Packages and Pricing</Typography>
-      </View>
-    </SafeAreaContainer>
+    <HealthCoachingDetails 
+      title={title} 
+      subtitle={subtitle} 
+      details={details} 
+    />
   );
 };
 

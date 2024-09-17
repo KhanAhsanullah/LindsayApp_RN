@@ -51,7 +51,10 @@ const CategoriesComp: React.FC<CategoriesCompProps> = ({
 
       {showGoalsDetails &&
         goalsDetails.map((detail) => (
-          <TouchableOpacity key={detail.id} onPress={() => navigate(detail.navigateTo)}>
+          <TouchableOpacity
+            key={detail.id}
+            onPress={() => navigate(detail.navigateTo)}
+          >
             <View
               spread
               row

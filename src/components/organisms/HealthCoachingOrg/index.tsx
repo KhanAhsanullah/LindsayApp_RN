@@ -11,13 +11,13 @@ const HealthCoachingOrg = () => {
     { id: 2, title: "Goal Progress Visualization" },
     { id: 3, title: "Milestone Celebrations" },
     { id: 4, title: "Goal Achievement History" },
-    { id: 5, title: "Integration with Fitness and Nutrition Goals"  },
+    { id: 5, title: "Integration with Fitness and Nutrition Goals" },
   ];
 
   const goalsDetails = [
-    { id: 1, title: "Health Coaching Packages and Pricing",  },
-    { id: 2, title: "Available Health Coaching Packages", },
-    { id: 3, title: "Other Health Coaching Packages"},
+    { id: 1, title: "Health Coaching Packages and Pricing", navigateTo:SCREENS.GOAL_DETAILS },
+    { id: 2, title: "Available Health Coaching Packages",navigateTo:SCREENS.GOAL_DETAILS },
+    { id: 3, title: "Other Health Coaching Packages",navigateTo:SCREENS.GOAL_DETAILS },
   ];
 
   return (
