@@ -19,5 +19,9 @@ export const SCREENS = {
   FITNESS_DETAIL:'FitnessDetail',
   NUTRITION_DETAIL:'NutrtionDetail',
 
-  SUBSCRIPTION:'Subscription'
+  SUBSCRIPTION:'Subscription',
+  PAYMENT_METHOD:'PaymentMethod',
+  PAYMENT_CONFIRM:'PaymentConfirm',
+
+  GOAL_DETAILS:"GoalDetails"
 };

@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Workout from '../screens/HomeScreen/Workout';
 import { AuthStackNavigator } from './AuthStackNavigator';
 import AppNavigator from './AppNavigator';
+import Subscription from '../screens/HomeScreen/SubscriptionScreen/Subscription';
 
 const MainNavigation = () => {
   const dispatch = useDispatch();

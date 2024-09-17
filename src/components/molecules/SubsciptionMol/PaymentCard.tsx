@@ -5,46 +5,45 @@ import { theme } from "../../../constants";
 import { Typography } from "../../atoms/Typography";
 import { IMAGES } from "../../../constants";
 
-const SubscriptionPackages = () => {
+const PaymentCard = () => {
   const [selectedId, setSelectedId] = useState(1);
   const SUBSCRIPTION_ITEM = [
     {
       id: 1,
-      title: "Per Horse Per Month",
-      price: "$10",
+      title: "Credit Card",
+      description: "Pay withh Master card Visa or Visa Electron",
     },
     {
       id: 2,
-      title: "Unlimited Horses Per Month",
-      price: "$50",
+      title: "Internet Banking",
+      description: "Pay directly from your bank account",
     },
     {
       id: 3,
-      title: "Unlimited Horses Per Month",
-      price: "$100",
+      title: "Paypal",
+      description: "Faster and safe way to send money",
+
+    },
+    {
+      id: 4,
+      title: "Bitcoin Wallet",
+      description: "Send the amount in our Bitcoin Wallet",
+
     },
   ];
-
   const SubscriptionCard = ({ item }: any) => {
     const isSelected = item.id === selectedId;
     return (
       <TouchableOpacity
         style={[styles.cardStyle, isSelected && styles.selectedCard]}
-        onPress={() => setSelectedId(item.id)} 
-      >
+        onPress={() => setSelectedId(item.id)} >
         <View style={styles.cardContent}>
-          <Typography textType="bold" size={theme.fontSize.large}>
-            {item.price}
+          <Typography textType="semiBold" size={theme.fontSize.large}>
+            {item.title}
           </Typography>
-          <Typography>{item.title}</Typography>
+          <Typography size={theme.fontSize.small}>{item.description}</Typography>
         </View>
-        {isSelected && (
-          <Image
-            source={IMAGES.click}
-            style={styles.iconStyle}
-            resizeMode="contain"
-          />
-        )}
+       
       </TouchableOpacity>
     );
   };
@@ -82,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SubscriptionPackages;
+export default PaymentCard;

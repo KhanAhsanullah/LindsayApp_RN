@@ -4,28 +4,32 @@ import { View } from "react-native-ui-lib";
 import { Typography } from "../../atoms/Typography";
 import { IMAGES, theme } from "../../../constants";
 import FitnessContent from "../HomeAtoms/FitnessContent";
+import { navigate } from "../../../navigation/RootNavigation";
 
 interface Goal {
   id: number;
   title: string;
+  navigateTo: string;
 }
 
 interface CategoriesCompProps {
   goals: Goal[];
   goalsDetails: Goal[];
   showFitnessContent?: boolean;
-  showGoalsDetails?: boolean;  
+  showGoalsDetails?: boolean;
+  onPress: () => {};
 }
 
 const CategoriesComp: React.FC<CategoriesCompProps> = ({
   goals,
   goalsDetails,
-  showGoalsDetails = true  
+  onPress,
+  showGoalsDetails = true,
 }) => {
   const [selectedId, setSelectedId] = useState<number>(1);
 
   return (
-    <>      
+    <>
       {goals.map((goal) => (
         <TouchableOpacity
           key={goal.id}
@@ -45,24 +49,27 @@ const CategoriesComp: React.FC<CategoriesCompProps> = ({
         </TouchableOpacity>
       ))}
 
-      {showGoalsDetails && goalsDetails.map((detail) => (
-        <TouchableOpacity key={detail.id}>
-          <View
-            spread
-            row
-            marginV-10
-            padding-15
-            backgroundColor={theme.color.inputTypeColor}
-          >
-            <Typography size={theme.fontSize.small}>{detail.title}</Typography>
-            <Image
-              source={IMAGES.rightIcon}
-              style={{ width: 20, height: 20 }}
-              resizeMode="contain"
-            />
-          </View>
-        </TouchableOpacity>
-      ))}
+      {showGoalsDetails &&
+        goalsDetails.map((detail) => (
+          <TouchableOpacity key={detail.id} onPress={() => navigate(detail.navigateTo)}>
+            <View
+              spread
+              row
+              marginV-10
+              padding-15
+              backgroundColor={theme.color.inputTypeColor}
+            >
+              <Typography size={theme.fontSize.small}>
+                {detail.title}
+              </Typography>
+              <Image
+                source={IMAGES.rightIcon}
+                style={{ width: 20, height: 20 }}
+                resizeMode="contain"
+              />
+            </View>
+          </TouchableOpacity>
+        ))}
     </>
   );
 };

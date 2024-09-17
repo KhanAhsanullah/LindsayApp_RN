@@ -15,6 +15,8 @@ import HealthCoaching from "../screens/HomeScreen/HealthCoaching";
 import FitnessDetail from "../screens/HomeScreen/FitnessDetail";
 import NutrtionDetail from "../screens/HomeScreen/NutrtionDetail";
 import Subscription from "../screens/HomeScreen/SubscriptionScreen/Subscription";
+import PaymentMethod from "../screens/HomeScreen/SubscriptionScreen/PaymentMethod";
+import GoalDetails from "../screens/HomeScreen/GoalDetails";
 
 const Stack = createStackNavigator();
 
@@ -31,8 +33,10 @@ const AppNavigator = () => {
      <Stack.Screen name={SCREENS.HEALTH_COACHING} component={HealthCoaching} />
      <Stack.Screen name={SCREENS.FITNESS_DETAIL} component={FitnessDetail} />
      <Stack.Screen name={SCREENS.NUTRITION_DETAIL} component={NutrtionDetail} />
+     <Stack.Screen name={SCREENS.GOAL_DETAILS} component={GoalDetails} />
 
      <Stack.Screen name={SCREENS.SUBSCRIPTION} component={Subscription} />
+     <Stack.Screen name={SCREENS.PAYMENT_METHOD} component={PaymentMethod} />
   
 
      
