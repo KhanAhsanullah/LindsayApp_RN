@@ -17,5 +17,6 @@ export const SCREENS = {
   WORKOUT_RESULT:"WorkoutResult",
   HEALTH_COACHING:'HealthCoaching',
 
-  FITNESS_DETAIL:'FitnessDetail'
+  FITNESS_DETAIL:'FitnessDetail',
+  NUTRITION_DETAIL:'NutrtionDetail',
 };

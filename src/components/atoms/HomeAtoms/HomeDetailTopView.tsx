@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
-import { Text, View } from "react-native-ui-lib";
-import { Typography } from "../Typography";
+import { TouchableOpacity, Image, ImageBackground } from "react-native";
 import { IMAGES, theme } from "../../../constants";
-import { commonStyles } from "../../../globalStyle";
 import { scale, verticalScale } from "react-native-size-matters";
+import { onBack } from "../../../navigation/RootNavigation";
 
 const HomeDetailTopView = (props: any) => {
-
   return (
-    <View style={{}}>
-      <Image
+      <ImageBackground
         source={IMAGES.onBoardingImg}
         style={{ width: verticalScale(320), height: scale(350) }}
         resizeMode="cover"
-      />
-    </View>
+      >
+        <TouchableOpacity onPress={()=>onBack()}>
+        <Image source={IMAGES.leftIconWithColor} style={{width:30,height:30,margin:20}}/>
+        </TouchableOpacity>
+      </ImageBackground>
   );
 };
 export default HomeDetailTopView;

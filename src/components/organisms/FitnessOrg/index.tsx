@@ -1,14 +1,16 @@
 import React from "react";
 import { View } from "react-native";
 import CategoriesComp from "../../atoms/GlobalComponents/CategoriesComp";
+import HomeDetailMol from "../../molecules/HomeMol/HomeDetailMol";
+import ContentComp from "../../atoms/GlobalComponents/ContentComp";
 
 const FitnessOrg = () => {
   const goals = [
-    { id: 1, title: "SMART Goals Framework" },
-    { id: 2, title: "Goal Progress Visualization" },
-    { id: 3, title: "Milestone Celebrations" },
-    { id: 4, title: "Goal Achievement History" },
-    { id: 5, title: "Integration with Fitness and Nutrition Goals" },
+    { id: 1, title: "Video Demonstrations" },
+    { id: 2, title: "Written Instructions" },
+    { id: 3, title: "Difficulty Levels and Modifications" },
+    { id: 4, title: "Muscle Group Focus" },
+    { id: 5, title: "Equipment Needed" },
   ];
 
   const goalsDetails = [
@@ -19,6 +21,10 @@ const FitnessOrg = () => {
 
   return (
     <View>
+     <ContentComp
+        title="Why choose an Elite Personal Trainer?"
+        content="An Elite Personal Trainer is a top-tier fitness professional known for their expertise, experience, and dedication to helping clients achieve their fitness goals. What sets them apart from other trainers are several key differentiators:"
+      />
       <CategoriesComp
         goals={goals}
         goalsDetails={goalsDetails}

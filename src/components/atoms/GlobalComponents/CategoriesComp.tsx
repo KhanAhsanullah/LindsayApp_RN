@@ -3,7 +3,6 @@ import { Image, TouchableOpacity } from "react-native";
 import { View } from "react-native-ui-lib";
 import { Typography } from "../../atoms/Typography";
 import { IMAGES, theme } from "../../../constants";
-import HomeDetailMol from "../../molecules/HomeMol/HomeDetailMol";
 import FitnessContent from "../HomeAtoms/FitnessContent";
 
 interface Goal {
@@ -21,15 +20,12 @@ interface CategoriesCompProps {
 const CategoriesComp: React.FC<CategoriesCompProps> = ({
   goals,
   goalsDetails,
-  showFitnessContent = false,
   showGoalsDetails = true  
 }) => {
   const [selectedId, setSelectedId] = useState<number>(1);
 
   return (
-    <>
-      {showFitnessContent && <FitnessContent />}
-      
+    <>      
       {goals.map((goal) => (
         <TouchableOpacity
           key={goal.id}

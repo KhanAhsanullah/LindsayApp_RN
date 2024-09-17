@@ -4,18 +4,26 @@ import { commonStyles } from "../../../globalStyle";
 import { View } from "react-native-ui-lib";
 import HomeDetailTopView from "../../atoms/HomeAtoms/HomeDetailTopView";
 import FitnessOrg from "../../organisms/FitnessOrg";
-import { Image } from "react-native";
+import { Image, ImageBackground, TouchableOpacity } from "react-native";
 import { IMAGES } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
+import { onBack } from "../../../navigation/RootNavigation";
 
 const FitnessTamplet = () => {
   return (
     <>
-       <Image
-        source={IMAGES.dummy}
+      <ImageBackground
+        source={IMAGES.fitnessGirl}
         style={{ width: verticalScale(320), height: scale(350) }}
-        resizeMode='contain'
-      />
+        resizeMode="cover"
+      >
+        <TouchableOpacity onPress={() => onBack()}>
+          <Image
+            source={IMAGES.leftIconWithColor}
+            style={{ width: 30, height: 30, margin: 20 }}
+          />
+        </TouchableOpacity>
+      </ImageBackground>
       <View style={[commonStyles.footerContainer, { marginTop: -30 }]}>
         <FitnessOrg />
       </View>

@@ -4,7 +4,7 @@ import HeaderHome from "../../atoms/HomeAtoms/HeaderHome";
 import Fitness from "../../atoms/HomeAtoms/Fitness";
 import Nutrition from "../../atoms/HomeAtoms/Nutrition";
 import { theme } from "../../../constants";
-import HealthCoachingHome from "../../atoms/HomeAtoms/HealthCoaching";
+import HealthCoachingHome from "../../atoms/HomeAtoms/HealthCoachingHome";
 
 const HomeScreen = () => {
   return (

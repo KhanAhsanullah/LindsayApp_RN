@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, Image, ImageBackground } from "react-native";
+import { StyleSheet, Image, ImageBackground, TouchableOpacity } from "react-native";
 import { Text, View } from "react-native-ui-lib";
-import { IMAGES, theme } from "../../../constants";
+import { IMAGES, SCREENS, theme } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
 import { Typography } from "../Typography";
+import { navigate } from "../../../navigation/RootNavigation";
 
 const Nutrition = () => {
   return (
@@ -16,7 +17,8 @@ const Nutrition = () => {
         resizeMode="cover"
     >
      
-      <View flex   style={{ justifyContent:"center", alignSelf: "center" }}>
+     <View flex center>
+     <TouchableOpacity onPress={() => navigate(SCREENS.NUTRITION_DETAIL)}>
         <Typography
           color={theme.color.white}
           align="center"
@@ -28,6 +30,7 @@ const Nutrition = () => {
         <Typography color={theme.color.white} size={theme.fontSize.small}>
           What is Nutrition Coachng ? 
         </Typography>
+      </TouchableOpacity>
       </View>
     </ImageBackground>
   );

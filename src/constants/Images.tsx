@@ -57,4 +57,8 @@ export const IMAGES = {
 
   click: require("../assets/images/click.png"),
   circle: require("../assets/images/circle.png"),
+
+  fitnessGirl: require("../assets/images/fitnessGirl.png"),
+  nutritionHeader: require("../assets/images/nutritionHeader.png"),
+  dishes: require("../assets/images/dishes.png"),
 };
