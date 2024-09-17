@@ -14,19 +14,22 @@ interface Goal {
 interface CategoriesCompProps {
   goals: Goal[];
   goalsDetails: Goal[];
-  showFitnessContent?: boolean; // New optional prop
+  showFitnessContent?: boolean;
+  showGoalsDetails?: boolean;  
 }
 
 const CategoriesComp: React.FC<CategoriesCompProps> = ({
   goals,
   goalsDetails,
-  showFitnessContent = false 
+  showFitnessContent = false,
+  showGoalsDetails = true  
 }) => {
   const [selectedId, setSelectedId] = useState<number>(1);
 
   return (
     <>
-      {showFitnessContent && <FitnessContent />} {/* Conditional rendering */}
+      {showFitnessContent && <FitnessContent />}
+      
       {goals.map((goal) => (
         <TouchableOpacity
           key={goal.id}
@@ -46,7 +49,7 @@ const CategoriesComp: React.FC<CategoriesCompProps> = ({
         </TouchableOpacity>
       ))}
 
-      {goalsDetails.map((detail) => (
+      {showGoalsDetails && goalsDetails.map((detail) => (
         <TouchableOpacity key={detail.id}>
           <View
             spread

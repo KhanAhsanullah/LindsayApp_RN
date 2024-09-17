@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import CategoriesComp from "../../atoms/GlobalComponents/CategoriesComp";
+import HomeDetailMol from "../../molecules/HomeMol/HomeDetailMol";
 
 const HealthCoachingOrg = () => {
   const goals = [
@@ -19,6 +20,7 @@ const HealthCoachingOrg = () => {
 
   return (
     <View>
+      <HomeDetailMol />
       <CategoriesComp goals={goals} goalsDetails={goalsDetails} />
     </View>
   );

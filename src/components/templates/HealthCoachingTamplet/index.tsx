@@ -9,7 +9,7 @@ const HealthCoachingTamplet = () => {
     <>
       <HomeDetailTopView />
       <View style={[commonStyles.footerContainer, { marginTop: -30 }]}>
-        <HealthCoachingOrg />
+      <HealthCoachingOrg />
       </View>
     </>
   );
