@@ -20,8 +20,8 @@ const PaymentMethod = () => {
       </View>
       <View style={[commonStyles.footerContainer,{paddingTop:40,}]}>
         <PaymentCard />
-        <View marginV-5s0>
-        <CustomBtn label="Process to Payment" onPress={() => navigate(SCREENS.PAYMENT_METHOD)} />
+        <View marginV-20>
+        <CustomBtn label="Process to Payment" onPress={() => navigate(SCREENS.PAYMENT_CONFIRM)} />
         </View>
       </View>
     </SafeAreaContainer>

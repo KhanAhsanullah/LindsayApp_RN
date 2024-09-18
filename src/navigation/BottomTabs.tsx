@@ -5,14 +5,13 @@ import { navigate } from "./RootNavigation";
 import { StyleSheet, TouchableOpacity, Image } from "react-native";
 import { scale } from "react-native-size-matters";
 import { IMAGES, SCREENS } from "../constants";
+import { Typography } from "../components/atoms/Typography";
 
 const BottomTabs = (props: any) => {
   return (
     <View style={[styles.tabContainer]}>
       {BOTTOMTABS.map((i, index) => {
         const isActive = i.key == props.state.index;
-        console.log('isActive',isActive);
-        
         return (
           <TouchableOpacity
             style={styles.tabView}
@@ -20,9 +19,10 @@ const BottomTabs = (props: any) => {
           >
             <Image
               source={i.image}
-              style={{ width: 26, height: 26 ,tintColor:isActive ? theme.color.primary: theme.color.tgray}}
+              style={{ marginVertical:5, width: 26, height: 25 ,tintColor:isActive ? theme.color.primary: theme.color.tgray}}
               resizeMode="contain"
             />
+            <Typography size={theme.fontSize.extraVSmall}>{i.title}</Typography>
           </TouchableOpacity>
         );
       })}
@@ -38,9 +38,10 @@ const BottomTabs = (props: any) => {
         <TouchableOpacity onPress={() => navigate(SCREENS.ZOOMCALL)}>
           <Image
             source={IMAGES.zoom}
-            style={{ width: 55, height: 55 }}
+            style={{ width: 55, height: 55 ,marginBottom:30}}
             resizeMode="cover"
           />
+                <Typography  size={theme.fontSize.extraVSmall}>Zoom Call</Typography>
         </TouchableOpacity>
       </View>
     </View>
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: 0,
+    // paddingBottom: 0,
     height: 80,
   },
   activeTabView: {

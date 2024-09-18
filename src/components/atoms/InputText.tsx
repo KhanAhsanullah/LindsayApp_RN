@@ -29,13 +29,14 @@ export const InputText = (props: any) => {
   return (
     <TextField
       black
-      extraSmall12
+      small
       allowFontScaling={false}
       label={label}
       labelStyle={{
-        fontSize: moderateScale(12),
+        fontSize: moderateScale(14),
+        marginBottom:10
       }}
-      labelColor={theme.color.descColor}
+      labelColor={theme.color.black}
       placeholder={placeholder}
       placeholderTextColor={placeholderTextColor}
       onChangeText={onChangeText}
@@ -50,11 +51,11 @@ export const InputText = (props: any) => {
       multiline={multiline}
       keyboardType={keyboardType}
       fieldStyle={{
-        height: verticalScale(45),
+        height: verticalScale(50),
         marginTop: 5,
         paddingHorizontal: 10,
         paddingVertical: Platform.OS == "ios" ? 20 : 0,
-        borderWidth: 0.2,
+        // borderWidth: 0.2,
         borderRadius: 10,
         backgroundColor: theme.color.inputTypeColor,
 

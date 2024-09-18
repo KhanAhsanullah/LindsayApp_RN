@@ -7,12 +7,14 @@ import { onBack } from '../../navigation/RootNavigation';
 import SafeAreaContainer from '../../containers/SafeAreaContainer';
 import HeaderHome from './HomeAtoms/HeaderHome';
 import { View } from 'react-native-ui-lib';
+import { commonStyles } from '../../globalStyle';
 
 const HealthCoachingDetails = ({ title, subtitle, details }:any) => {
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
-      <View marginH-20>
+      
+      <View marginH-20 marginV-20>
         <TouchableOpacity onPress={() => onBack()}>
           <Image
             source={IMAGES.leftIconWithColor}
@@ -20,6 +22,7 @@ const HealthCoachingDetails = ({ title, subtitle, details }:any) => {
             resizeMode="contain"
           />
         </TouchableOpacity>
+    
         <Typography
           align="center"
           textType="bold"
@@ -52,6 +55,7 @@ const HealthCoachingDetails = ({ title, subtitle, details }:any) => {
           </View>
         ))}
       </View>
+    
     </SafeAreaContainer>
   );
 };

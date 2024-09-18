@@ -14,7 +14,7 @@ const LoginHeader = () => {
         resizeMode="contain"
       />
 
-      <View marginH-20 style={{ marginTop: -80 }}>
+      <View marginH-40 style={{ marginTop: -60, }}>
         <Typography
           align="center"
           size={theme.fontSize.extraLarge}
@@ -25,8 +25,8 @@ const LoginHeader = () => {
         </Typography>
         <Typography
           align="center"
+          style={{marginVertical:20}}
           size={theme.fontSize.small}
-          textType="semiBold"
           color={theme.color.descColor}
         >
           As a Nationally Board Certified Health and Wellness Coach, Elite

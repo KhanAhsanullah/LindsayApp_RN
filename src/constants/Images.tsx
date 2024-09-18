@@ -61,4 +61,5 @@ export const IMAGES = {
   fitnessGirl: require("../assets/images/fitnessGirl.png"),
   nutritionHeader: require("../assets/images/nutritionHeader.png"),
   dishes: require("../assets/images/dishes.png"),
+  cross: require("../assets/images/cross.png"),
 };

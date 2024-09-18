@@ -17,7 +17,7 @@ const SignUpFields = () => {
   const [password, setPassword] = useState(true);
   const dispatch = useDispatch();
   return (
-    <>
+    <View backgroundColor={theme.color.white}>
       <View marginH-20 style={{ marginTop: 100 }}>
         <Typography
           align="center"
@@ -25,7 +25,7 @@ const SignUpFields = () => {
           textType="semiBold"
           color={theme.color.primary}
         >
-          Sign In
+          Sign Up
         </Typography>
         <Typography
           align="center"
@@ -52,7 +52,7 @@ const SignUpFields = () => {
           validate={["fname"]}
           onChangeText={(text: string) => setFName(text)}
         />
-         <InputText
+        <InputText
           // label={"Email Address:"}
           value={lname}
           onValidationFailed={(isValid: boolean) => {
@@ -64,10 +64,10 @@ const SignUpFields = () => {
           }}
           placeholder="Last Name"
           validate={["lname"]}
-          style={{marginTop:-10}}
+          style={{ marginTop: -10 }}
           onChangeText={(text: string) => setLName(text)}
         />
-         <InputText
+        <InputText
           // label={"Email Address:"}
           value={email}
           onValidationFailed={(isValid: boolean) => {
@@ -79,11 +79,11 @@ const SignUpFields = () => {
           }}
           placeholder="Email Address"
           validate={["email"]}
-          style={{marginTop:-10}}
+          style={{ marginTop: -10 }}
           validationMessage={["Email is invalid"]}
           onChangeText={(text: string) => setEmail(text)}
         />
-         <InputText
+        <InputText
           // label={"Email Address:"}
           value={phone}
           onValidationFailed={(isValid: boolean) => {
@@ -95,13 +95,13 @@ const SignUpFields = () => {
           }}
           placeholder="Mobile Number"
           validate={["phone"]}
-          style={{marginTop:-10}}
+          style={{ marginTop: -10 }}
           onChangeText={(text: string) => setPhone(text)}
         />
         <InputText
           // label={"Password:"}
           value={passwordVal}
-          style={{marginTop:-10}}
+          style={{ marginTop: -10 }}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
@@ -126,7 +126,7 @@ const SignUpFields = () => {
         <InputText
           // label={"Password:"}
           value={passwordVal}
-          style={{marginTop:-10}}
+          style={{ marginTop: -10 }}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
@@ -155,7 +155,7 @@ const SignUpFields = () => {
           />
         </View>
       </View>
-    </>
+    </View>
   );
 };
 

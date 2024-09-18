@@ -82,6 +82,13 @@ export const BOTTOMTABS = [
     image: IMAGES.gym,
   },
   {
+    key: 2,
+    title: "",
+    navigateTo: '',
+    image: '',
+  },
+  
+  {
     key: 3,
     title: "Notification",
     navigateTo: SCREENS.NOTIFICATION,

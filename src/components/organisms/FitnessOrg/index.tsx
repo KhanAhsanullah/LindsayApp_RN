@@ -3,6 +3,7 @@ import { View } from "react-native";
 import CategoriesComp from "../../atoms/GlobalComponents/CategoriesComp";
 import HomeDetailMol from "../../molecules/HomeMol/HomeDetailMol";
 import ContentComp from "../../atoms/GlobalComponents/ContentComp";
+import { SCREENS } from "../../../constants";
 
 const FitnessOrg = () => {
   const goals = [
@@ -14,9 +15,9 @@ const FitnessOrg = () => {
   ];
 
   const goalsDetails = [
-    { id: 1, title: "Health Coaching Packages and Pricing" },
-    { id: 2, title: "Available Health Coaching Packages" },
-    { id: 3, title: "Other Health Coaching Packages" },
+    { id: 1, title: "Health Coaching Packages and Pricing",navigateTo:SCREENS.GOAL_DETAILS },
+    { id: 2, title: "Available Health Coaching Packages",navigateTo:SCREENS.GOAL_DETAILS },
+    { id: 3, title: "Other Health Coaching Packages",navigateTo:SCREENS.GOAL_DETAILS },
   ];
 
   return (

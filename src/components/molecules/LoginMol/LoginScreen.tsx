@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import LoginHeader from "../../atoms/LoginAtom/LoginHeader";
 import { InputText } from "../../atoms/InputText";
-import { Button, View } from "react-native-ui-lib";
+import { Button, Text, View } from "react-native-ui-lib";
 import { IMAGES, SCREENS, theme } from "../../../constants";
 import { Typography } from "../../atoms/Typography";
 import { CustomBtn } from "../../atoms/OnBoardingAtoms/OnBeardingBottomBtn";
 import { navigate } from "../../../navigation/RootNavigation";
 import { setLoggedIn } from "../../../redux/slice/user";
 import { useDispatch } from "react-redux";
+import { TouchableOpacity } from "react-native";
 
 const LoginScreen = () => {
   const [hasValidated, setValidated] = useState(new Array(2).fill(false));
@@ -16,7 +17,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState(true);
   const dispatch = useDispatch();
   return (
-    <>
+    <View backgroundColor={theme.color.white}>
       <LoginHeader />
       <View margin-20>
         <InputText
@@ -63,8 +64,17 @@ const LoginScreen = () => {
         <View marginV-40>
           <CustomBtn label="Sign In" onPress={() => dispatch(setLoggedIn(true))}/>
         </View>
+        <Text center small marginV-20>
+              Don’t have an account?{" "}
+              <TouchableOpacity onPress={() => navigate(SCREENS.SIGN_UP)}>
+                <Text semiBold small marginT-5 color={theme.color.primary}>
+                  {" "}
+                  SIGN UP
+                </Text>
+              </TouchableOpacity>
+            </Text>
       </View>
-    </>
+    </View>
   );
 };
 

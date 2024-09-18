@@ -1,21 +1,232 @@
+// import {
+//   View,
+//   ScrollView,
+//   StyleSheet,
+//   KeyboardAvoidingView,
+//   Platform,
+//   Keyboard,
+//   TouchableOpacity,
+// } from "react-native";
+// import React, { useRef, useState } from "react";
+// import { LinearGradient } from "react-native-linear-gradient";
+// // import { formatWithMask } from "react-native-mask-input";
+// import SafeAreaContainer from "../../../containers/SafeAreaContainer";
+// import { InputText } from "../../../components/atoms/InputText";
+// import { onBack } from "../../../navigation/RootNavigation";
+// import { CustomBtn } from "../../../components/atoms/OnBoardingAtoms/OnBeardingBottomBtn";
+// import { Typography } from "../../../components/atoms/Typography";
+// import { theme } from "../../../constants";
+
+// const PaymentConfirm = () => {
+//   const [errors, setErrors] = useState({});
+//   const [name, setName] = useState("");
+//   const [cardNumber, setCardNumber] = useState("");
+//   const [expiry, setExpiry] = useState("");
+//   const [cvc, setCvc] = useState("");
+//   const inputRef = useRef([]);
+//   const cardMask = [
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     " ",
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     " ",
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     " ",
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//     " ",
+//     /\d/,
+//     /\d/,
+//     /\d/,
+//   ];
+//   const expiryMask = [/[0-1]/, /[0-9]/, "/", /[2]/, /[1-9]/];
+//   return (
+//     <SafeAreaContainer safeArea={false}>
+//      {/* Header yaha ayga  */}
+//       <KeyboardAvoidingView
+//         behavior={Platform.OS == "ios" ? "padding" : undefined}
+//         style={{ flex: 1 }}
+//       >
+//         <ScrollView
+//           style={{ flex: 1, marginVertical: 20 }}
+//           showsVerticalScrollIndicator={false}
+//           contentContainerStyle={styles.contentContainer}
+//         >
+//           <CreditCard
+//             expiry={expiry}
+//             number={cardNumber}
+//             holder={name}
+//             cvc={cvc}
+//           />
+
+//           <View style={styles.formContainer}>
+//             <InputText
+//               inputStyle={{ color: "#000" }}
+//               title={"Card Holder Name"}
+//               placeholder={"Enter card holder name"}
+//               onChangeText={(text:any) => {
+//                 setName(text)
+//               }}
+//               value={name}
+//               // error={errors.name}
+//               keyboardType={"default"}
+//               maxLength={50}
+//               returnKeyType={"next"}
+//               inputRef={(e) => (inputRef["name"] = e)}
+//               style={{ marginBottom: 20 }}
+//               onSubmitEditing={() => inputRef["cardNumber"]?.focus()}
+//             />
+
+//             <InputText
+//               inputStyle={{ color: "#000" }}
+//               title={"Card Number"}
+//               maxLength={23}
+//               placeholder={"**** **** **** 4242"}
+//               // onChangeText={(text) => {
+//               //   setCardNumber(
+//               //     formatWithMask({
+//               //       text: text,
+//               //       mask: cardMask,
+//               //     }).masked
+//               //   ),
+//               //     (errors.cardNumber = "");
+//               // }}
+//               value={cardNumber}
+//               error={errors.cardNumber}
+//               keyboardType={"number-pad"}
+//               returnKeyType={"done"}
+//               inputRef={(e) => (inputRef["cardNumber"] = e)}
+//               style={{ marginBottom: 20 }}
+//               onSubmitEditing={() => Keyboard.dismiss()}
+//             />
+
+//             <View style={{ flexDirection: "row" }}>
+
+//               <InputText
+//                 inputStyle={{ color: "#000" }}
+//                 title={"Expiry Date"}
+//                 placeholder={"Expiry - MM/YY"}
+//                 maxLength={5}
+//                 onChangeText={(text) => {
+//                   const exp = text.split("/");
+//                   const today = new Date();
+//                   let someday = new Date();
+//                   someday.setFullYear(`20${exp[1]}`, exp[0] - 1, 1);
+//                   console.log("exp", exp, someday);
+
+//                   // if (someday < today) {
+//                   //   errors.expiry = "Expiry Should be greater then this month";
+//                   //   errors.expiry = "Expiration date is incorrect";
+//                   // } else {
+//                   //   errors.expiry = "";
+//                   // }
+
+//                   // setExpiry(
+//                   //   formatWithMask({
+//                   //     text: text,
+//                   //     mask: expiryMask,
+//                   //   }).masked
+//                   // );
+//                 }}
+//                 value={expiry}
+//                 // error={errors.expiry}
+//                 keyboardType={"number-pad"}
+//                 returnKeyType={"done"}
+//                 inputRef={(e) => (inputRef["expiry"] = e)}
+//                 style={{ marginBottom: 20, flex: 1 }}
+//                 onSubmitEditing={() => inputRef["cvc"]?.focus()}
+//               />
+
+//               <InputText
+//                 inputStyle={{ color: "#000" }}
+//                 title={"CVV/CVC"}
+//                 placeholder={"***"}
+//                 maxLength={4}
+//                 onChangeText={(text) => {
+//                   setCvc(text)
+//                 }}
+//                 value={cvc}
+//                 // error={errors.cvc}
+//                 keyboardType={"number-pad"}
+//                 returnKeyType={"done"}
+//                 inputRef={(e) => (inputRef["cvc"] = e)}
+//                 style={{ marginBottom: 20, flex: 1, marginLeft: 10 }}
+//                 onSubmitEditing={() => Keyboard.dismiss()}
+//               />
+//             </View>
+//           </View>
+//           <View style={{ marginVertical: 20 }}>
+//             <CustomBtn label={"Save & Update"} onPress={() => onBack()} />
+
+//             <TouchableOpacity
+//               onPress={() => onBack()}
+//               style={{ marginTop: 10 }}
+//             >
+//               <Typography children={"Cancel"} size={16} align={"center"} />
+//             </TouchableOpacity>
+//           </View>
+//         </ScrollView>
+//       </KeyboardAvoidingView>
+//     </SafeAreaContainer>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+
+//   contentContainer: {
+//     paddingHorizontal: 30,
+//   },
+//   formContainer: {
+//     marginTop: 20,
+//   },
+//   container: {
+//     height: 80,
+//     backgroundColor: "#fff",
+//     borderTopEndRadius: 20,
+//     borderTopStartRadius: 20,
+//   },
+//   calenderPicker: {
+//     height: 55,
+//     width: "100%",
+//     borderWidth: 1.5,
+//     borderColor: 'red',
+//     // top: 10,
+//     justifyContent: "center",
+//     borderRadius: 5,
+//   },
+// });
+
+// export default PaymentConfirm;
+
+import React, { useEffect, useRef, useState } from "react";
 import {
-  View,
-  ScrollView,
+  Image,
+  ImageBackground,
+  Modal,
   StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard,
   TouchableOpacity,
 } from "react-native";
-import React, { useRef, useState } from "react";
-import { LinearGradient } from "react-native-linear-gradient";
-// import { formatWithMask } from "react-native-mask-input";
+import { View } from "react-native-ui-lib";
 import SafeAreaContainer from "../../../containers/SafeAreaContainer";
-import { InputText } from "../../../components/atoms/InputText";
-import { onBack } from "../../../navigation/RootNavigation";
+import HeaderHome from "../../../components/atoms/HomeAtoms/HeaderHome";
+import { IMAGES, theme } from "../../../constants";
 import { CustomBtn } from "../../../components/atoms/OnBoardingAtoms/OnBeardingBottomBtn";
 import { Typography } from "../../../components/atoms/Typography";
-import { theme } from "../../../constants";
+import { onBack } from "../../../navigation/RootNavigation";
+import LinearGradient from "react-native-linear-gradient";
+import { InputText } from "../../../components/atoms/InputText";
+import { scale, verticalScale } from "react-native-size-matters";
+import { useNavigation } from "@react-navigation/native";
 
 const PaymentConfirm = () => {
   const [errors, setErrors] = useState({});
@@ -24,164 +235,103 @@ const PaymentConfirm = () => {
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");
   const inputRef = useRef([]);
-  const cardMask = [
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    " ",
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    " ",
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    " ",
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    " ",
-    /\d/,
-    /\d/,
-    /\d/,
-  ];
-  const expiryMask = [/[0-1]/, /[0-9]/, "/", /[2]/, /[1-9]/];
+  const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
+  
   return (
     <SafeAreaContainer safeArea={false}>
-     {/* Header yaha ayga  */}
-      <KeyboardAvoidingView
-        behavior={Platform.OS == "ios" ? "padding" : undefined}
-        style={{ flex: 1 }}
-      >
-        <ScrollView
-          style={{ flex: 1, marginVertical: 20 }}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <CreditCard
-            expiry={expiry}
-            number={cardNumber}
-            holder={name}
-            cvc={cvc}
+      <HeaderHome color={theme.color.primary} />
+      <View flex backgroundColor="#fff">
+        <View marginH-20 marginV-10>
+          {/* <DrawerTitle title={"Payment Method"} /> */}
+          <View row style={{ gap: 10, alignItems: "center" }}>
+            <TouchableOpacity onPress={() => onBack()}>
+              <Image
+                source={IMAGES.leftIconWithColor}
+                style={{ width: 25, height: 25 }}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+            <Typography textType="semiBold" size={theme.fontSize.large20}>
+              Payment Method
+            </Typography>
+          </View>
+          <InputText
+            label={""}
+            value={name}
+            placeholder="Name on Card"
+            validate={["name"]}
+            onChangeText={(text: string) => setName(text)}
           />
 
-          <View style={styles.formContainer}>
+          <InputText
+            label={""}
+            value={cardNumber}
+            placeholder="Card Number"
+            validate={["name"]}
+            onChangeText={(text: string) => setCardNumber(text)}
+          />
+          <View row spread width={"100%"}>
             <InputText
-              inputStyle={{ color: "#000" }}
-              title={"Card Holder Name"}
-              placeholder={"Enter card holder name"}
-              onChangeText={(text:any) => {
-                setName(text)
-              }}
+              label={""}
               value={name}
-              // error={errors.name}
-              keyboardType={"default"}
-              maxLength={50}
-              returnKeyType={"next"}
-              inputRef={(e) => (inputRef["name"] = e)}
-              style={{ marginBottom: 20 }}
-              onSubmitEditing={() => inputRef["cardNumber"]?.focus()}
+              placeholder="Expiry Date"
+              validate={["name"]}
+              style={{ width: scale(150) }}
+              onChangeText={(text: string) => setName(text)}
             />
 
             <InputText
-              inputStyle={{ color: "#000" }}
-              title={"Card Number"}
-              maxLength={23}
-              placeholder={"**** **** **** 4242"}
-              // onChangeText={(text) => {
-              //   setCardNumber(
-              //     formatWithMask({
-              //       text: text,
-              //       mask: cardMask,
-              //     }).masked
-              //   ),
-              //     (errors.cardNumber = "");
-              // }}
+              label={""}
               value={cardNumber}
-              error={errors.cardNumber}
-              keyboardType={"number-pad"}
-              returnKeyType={"done"}
-              inputRef={(e) => (inputRef["cardNumber"] = e)}
-              style={{ marginBottom: 20 }}
-              onSubmitEditing={() => Keyboard.dismiss()}
+              placeholder="CVV"
+              validate={["name"]}
+              style={{ width: scale(150) }}
+              onChangeText={(text: string) => setCardNumber(text)}
             />
-
-            <View style={{ flexDirection: "row" }}>
-            
-              <InputText
-                inputStyle={{ color: "#000" }}
-                title={"Expiry Date"}
-                placeholder={"Expiry - MM/YY"}
-                maxLength={5}
-                onChangeText={(text) => {
-                  const exp = text.split("/");
-                  const today = new Date();
-                  let someday = new Date();
-                  someday.setFullYear(`20${exp[1]}`, exp[0] - 1, 1);
-                  console.log("exp", exp, someday);
-
-                  // if (someday < today) {
-                  //   errors.expiry = "Expiry Should be greater then this month";
-                  //   errors.expiry = "Expiration date is incorrect";
-                  // } else {
-                  //   errors.expiry = "";
-                  // }
-
-                  // setExpiry(
-                  //   formatWithMask({
-                  //     text: text,
-                  //     mask: expiryMask,
-                  //   }).masked
-                  // );
-                }}
-                value={expiry}
-                // error={errors.expiry}
-                keyboardType={"number-pad"}
-                returnKeyType={"done"}
-                inputRef={(e) => (inputRef["expiry"] = e)}
-                style={{ marginBottom: 20, flex: 1 }}
-                onSubmitEditing={() => inputRef["cvc"]?.focus()}
-              />
-
-              <InputText
-                inputStyle={{ color: "#000" }}
-                title={"CVV/CVC"}
-                placeholder={"***"}
-                maxLength={4}
-                onChangeText={(text) => {
-                  setCvc(text)
-                }}
-                value={cvc}
-                // error={errors.cvc}
-                keyboardType={"number-pad"}
-                returnKeyType={"done"}
-                inputRef={(e) => (inputRef["cvc"] = e)}
-                style={{ marginBottom: 20, flex: 1, marginLeft: 10 }}
-                onSubmitEditing={() => Keyboard.dismiss()}
-              />
+          </View>
+          <View row gap-10 style={{ alignItems: "center" }}>
+            <Image source={IMAGES.click} style={{ width: 15, height: 15 }} />
+            <Typography>Save this card for future payments.</Typography>
+          </View>
+          <View marginT-40>
+            <CustomBtn label="Pay Now" onPress={()=>(setModalVisible(true))}/>
+          </View>
+        </View>
+      </View>
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <View style={{ width: verticalScale(270) }}>
+                
+                <View center>
+                  <Typography textType="semiBold" size={theme.fontSize.large20}>
+                  Congratulations!
+                  </Typography>
+                  <Typography
+                    align="center"
+                    color={theme.color.descColor}
+                    size={theme.fontSize.extraSmall12}
+                    style={{marginVertical:20}}
+                  >
+                   In publishing and graphic design, Lorem ipsum is a placeholder text
+                  </Typography>
+                  <CustomBtn
+                    label="Done"
+                    style={{ width: "80%", marginVertical: 20 }}
+                    onPress={()=>setModalVisible(false)}
+                   
+                  />
+                </View>
+              </View>
             </View>
           </View>
-          <View style={{ marginVertical: 20 }}>
-            <CustomBtn label={"Save & Update"} onPress={() => onBack()} />
-
-            <TouchableOpacity
-              onPress={() => onBack()}
-              style={{ marginTop: 10 }}
-            >
-              <Typography children={"Cancel"} size={16} align={"center"} />
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+        </Modal>
     </SafeAreaContainer>
   );
 };
 
-const CreditCard = ({ expiry, number, holder, cvc }:any) => {
+const CreditCard = ({ expiry, number, holder, cvc }: any) => {
   return (
     <LinearGradient
       colors={[theme.color.primary, theme.color.primary]}
@@ -269,9 +419,7 @@ const CreditCard = ({ expiry, number, holder, cvc }:any) => {
     </LinearGradient>
   );
 };
-
 const styles = StyleSheet.create({
-  
   contentContainer: {
     paddingHorizontal: 30,
   },
@@ -288,10 +436,34 @@ const styles = StyleSheet.create({
     height: 55,
     width: "100%",
     borderWidth: 1.5,
-    borderColor: 'red',
+    borderColor: "red",
     // top: 10,
     justifyContent: "center",
     borderRadius: 5,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalView: {
+    backgroundColor: theme.color.white,
+    borderRadius: 20,
+    paddingTop: 100,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
   },
 });
 

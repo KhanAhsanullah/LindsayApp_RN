@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import CategoriesComp from "../../atoms/GlobalComponents/CategoriesComp";
 import NutrationMol from "../../molecules/NutrationMol/NutrationMol";
+import { SCREENS } from "../../../constants";
 
 const NutritionOrg = () => {
   const goals = [
@@ -13,9 +14,9 @@ const NutritionOrg = () => {
   ];
 
   const goalsDetails = [
-    { id: 1, title: "Nutrition Coaching Packages and Pricing" },
-    { id: 2, title: "Considering Follow-Up Sessions?" },
-    { id: 3, title: "Follow-Up Session Details" },
+    { id: 1, title: "Nutrition Coaching Packages and Pricing",navigateTo:SCREENS.GOAL_DETAILS },
+    { id: 2, title: "Considering Follow-Up Sessions?",navigateTo:SCREENS.GOAL_DETAILS },
+    { id: 3, title: "Follow-Up Session Details",navigateTo:SCREENS.GOAL_DETAILS},
   ];
 
   return (
