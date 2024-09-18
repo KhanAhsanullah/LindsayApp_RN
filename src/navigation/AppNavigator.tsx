@@ -19,6 +19,7 @@ import PaymentMethod from "../screens/HomeScreen/SubscriptionScreen/PaymentMetho
 import GoalDetails from "../screens/HomeScreen/GoalDetails";
 import PaymentConfirm from "../screens/HomeScreen/SubscriptionScreen/PaymentConfirm";
 import EditProfile from "../screens/HomeScreen/EditProfile";
+import Privacy from "../screens/HomeScreen/Privacy";
 
 const Stack = createStackNavigator();
 
@@ -41,6 +42,7 @@ const AppNavigator = () => {
      <Stack.Screen name={SCREENS.PAYMENT_METHOD} component={PaymentMethod} />
      <Stack.Screen name={SCREENS.PAYMENT_CONFIRM} component={PaymentConfirm} />
      <Stack.Screen name={SCREENS.EDIT_PROFILE} component={EditProfile} />
+     <Stack.Screen name={SCREENS.PRIVACY} component={Privacy} />
 
   
 

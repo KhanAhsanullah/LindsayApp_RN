@@ -62,4 +62,5 @@ export const IMAGES = {
   nutritionHeader: require("../assets/images/nutritionHeader.png"),
   dishes: require("../assets/images/dishes.png"),
   cross: require("../assets/images/cross.png"),
+  visa: require("../assets/images/visa.png"),
 };

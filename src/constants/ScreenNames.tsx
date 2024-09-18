@@ -24,5 +24,6 @@ export const SCREENS = {
   PAYMENT_CONFIRM:'PaymentConfirm',
 
   GOAL_DETAILS:"GoalDetails",
-  EDIT_PROFILE:'EditProfile'
+  EDIT_PROFILE:'EditProfile',
+  PRIVACY:'Privacy'
 };

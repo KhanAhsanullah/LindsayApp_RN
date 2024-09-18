@@ -32,7 +32,3 @@ export function reset(name:any) {
     }),
   );
 }
-
-// export function toggleDrawer() {
-//   navigationRef.current?.dispatch(DrawerActions.toggleDrawer());
-// }
