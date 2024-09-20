@@ -3,6 +3,7 @@ export const SCREENS = {
   ONBOARDING: "OnBoarding",
   LOGIN: "Login",
   SIGN_UP: "SignUp",
+  FORGOT:"ForgotPass",
 
   // Bottom Screen
   HOME: "Home",

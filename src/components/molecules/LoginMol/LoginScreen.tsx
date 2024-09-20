@@ -58,9 +58,11 @@ const LoginScreen = () => {
           ]}
           onChangeText={(text: string) => setPasswordVal(text)}
         />
+        <TouchableOpacity onPress={()=>navigate(SCREENS.FORGOT)}>
         <Typography align="right" color={theme.color.tgray}>
           Forget Password?
         </Typography>
+        </TouchableOpacity>
         <View marginV-40>
           <CustomBtn label="Sign In" onPress={() => dispatch(setLoggedIn(true))}/>
         </View>

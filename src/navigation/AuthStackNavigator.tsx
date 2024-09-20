@@ -4,6 +4,7 @@ import { SCREENS } from "../constants";
 import Login from "../screens/AuthScreen/Login";
 import OnBoarding from "../screens/AuthScreen/OnBoarding";
 import SignUp from "../screens/AuthScreen/SignUp";
+import ForgotPass from "../screens/AuthScreen/ForgotPass";
 
 
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,8 @@ export const AuthStackNavigator = () => {
 
       <Stack.Screen name={SCREENS.LOGIN} component={Login} />
       <Stack.Screen name={SCREENS.SIGN_UP} component={SignUp} />
+     <Stack.Screen name={SCREENS.FORGOT} component={ForgotPass} />
+
     </Stack.Navigator>
   );
 };

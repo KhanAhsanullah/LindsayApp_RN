@@ -4,6 +4,7 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import { Text, View } from "react-native-ui-lib";
 import { IMAGES, SCREENS, theme } from "../../../constants";
@@ -16,7 +17,7 @@ const HealthCoachingHome = () => {
     <ImageBackground
       source={IMAGES.healthCoach}
       style={{
-        width: verticalScale(320),
+        width: Platform.OS == 'ios' ? verticalScale(320) : verticalScale(350),
         height: scale(320),
       }}
       resizeMode="cover"

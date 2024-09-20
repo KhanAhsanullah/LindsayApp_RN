@@ -19,7 +19,7 @@ const SafeAreaContainer = (props: any) => {
 
   const isDarkMode = colorScheme === "dark";
   const statusBarMode = isDarkMode ? "light-content" : "dark-content";
-  const statusBarBgColor = isDarkMode ? "black" : "white";
+  const statusBarBgColor = isDarkMode ? "black" : theme.color.primarybeta;
 
   return (
     <View style={{ flex: 1, backgroundColor: backgroundColor }}>

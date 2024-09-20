@@ -1,10 +1,8 @@
 import React from "react";
-import HealthCoachingOrg from "../../organisms/HealthCoachingOrg";
 import { commonStyles } from "../../../globalStyle";
 import { View } from "react-native-ui-lib";
-import HomeDetailTopView from "../../atoms/HomeAtoms/HomeDetailTopView";
 import FitnessOrg from "../../organisms/FitnessOrg";
-import { Image, ImageBackground, TouchableOpacity } from "react-native";
+import { Image, ImageBackground, Platform, TouchableOpacity } from "react-native";
 import { IMAGES } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
 import { onBack } from "../../../navigation/RootNavigation";
@@ -14,7 +12,7 @@ const FitnessTamplet = () => {
     <>
       <ImageBackground
         source={IMAGES.fitnessGirl}
-        style={{ width: verticalScale(320), height: scale(350) }}
+        style={{  width: Platform.OS == 'ios' ? verticalScale(320) : verticalScale(350), height: scale(350) }}
         resizeMode="cover"
       >
         <TouchableOpacity onPress={() => onBack()}>

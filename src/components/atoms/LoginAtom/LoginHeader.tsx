@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image, ImageBackground } from "react-native";
+import { StyleSheet, Image, ImageBackground, Platform } from "react-native";
 import { Text, View } from "react-native-ui-lib";
 import { IMAGES, theme } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
@@ -39,8 +39,8 @@ const LoginHeader = () => {
 
 const styles = StyleSheet.create({
   image: {
-    marginTop: -20,
-    width: verticalScale(320),
+    marginTop: Platform.OS == 'ios' ? -20  : -40,
+    width: Platform.OS == 'ios' ? verticalScale(320) : verticalScale(350),
     height: scale(320),
   },
 });

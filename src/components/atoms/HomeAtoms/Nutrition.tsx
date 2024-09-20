@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image, ImageBackground, TouchableOpacity } from "react-native";
+import { StyleSheet, Image, ImageBackground, TouchableOpacity, Platform } from "react-native";
 import { Text, View } from "react-native-ui-lib";
 import { IMAGES, SCREENS, theme } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
@@ -11,7 +11,7 @@ const Nutrition = () => {
     <ImageBackground
     source={IMAGES.Nutrition}
         style={{
-          width: verticalScale(320),
+          width: Platform.OS == 'ios' ? verticalScale(320) : verticalScale(350),
           height: scale(320),
         }}
         resizeMode="cover"

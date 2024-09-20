@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, Image, ImageBackground } from "react-native";
+import { TouchableOpacity, Image, ImageBackground, Platform } from "react-native";
 import { IMAGES, theme } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
 import { onBack } from "../../../navigation/RootNavigation";
@@ -8,7 +8,7 @@ const HomeDetailTopView = (props: any) => {
   return (
       <ImageBackground
         source={IMAGES.onBoardingImg}
-        style={{ width: verticalScale(320), height: scale(350) }}
+        style={{  width: Platform.OS == 'ios' ? verticalScale(320) : verticalScale(350), height: scale(350) }}
         resizeMode="cover"
       >
         <TouchableOpacity onPress={()=>onBack()}>
