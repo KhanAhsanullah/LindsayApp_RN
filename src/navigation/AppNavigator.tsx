@@ -20,35 +20,38 @@ import GoalDetails from "../screens/HomeScreen/GoalDetails";
 import PaymentConfirm from "../screens/HomeScreen/SubscriptionScreen/PaymentConfirm";
 import EditProfile from "../screens/HomeScreen/EditProfile";
 import Privacy from "../screens/HomeScreen/Privacy";
+import ChangePassword from "../screens/HomeScreen/ChangePassword";
 
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
-  return(
-  <Stack.Navigator
+  return (
+    <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}>
-     <Stack.Screen name={SCREENS.HOME} component={BottomTabNavigation} />
-     <Stack.Screen name={SCREENS.EXERCISE_DETAIL} component={ExerciseDetail} />
-     <Stack.Screen name={SCREENS.WORKOUT} component={Workout} />
-     <Stack.Screen name={SCREENS.WORKOUT_RESULT} component={WorkoutResult} />
-     <Stack.Screen name={SCREENS.HEALTH_COACHING} component={HealthCoaching} />
-     <Stack.Screen name={SCREENS.FITNESS_DETAIL} component={FitnessDetail} />
-     <Stack.Screen name={SCREENS.NUTRITION_DETAIL} component={NutrtionDetail} />
-     <Stack.Screen name={SCREENS.GOAL_DETAILS} component={GoalDetails} />
+      }}
+    >
+      <Stack.Screen name={SCREENS.HOME} component={BottomTabNavigation} />
+      <Stack.Screen name={SCREENS.EXERCISE_DETAIL} component={ExerciseDetail} />
+      <Stack.Screen name={SCREENS.WORKOUT} component={Workout} />
+      <Stack.Screen name={SCREENS.WORKOUT_RESULT} component={WorkoutResult} />
+      <Stack.Screen name={SCREENS.HEALTH_COACHING} component={HealthCoaching} />
+      <Stack.Screen name={SCREENS.FITNESS_DETAIL} component={FitnessDetail} />
+      <Stack.Screen
+        name={SCREENS.NUTRITION_DETAIL}
+        component={NutrtionDetail}
+      />
+      <Stack.Screen name={SCREENS.GOAL_DETAILS} component={GoalDetails} />
 
-     <Stack.Screen name={SCREENS.SUBSCRIPTION} component={Subscription} />
-     <Stack.Screen name={SCREENS.PAYMENT_METHOD} component={PaymentMethod} />
-     <Stack.Screen name={SCREENS.PAYMENT_CONFIRM} component={PaymentConfirm} />
-     <Stack.Screen name={SCREENS.EDIT_PROFILE} component={EditProfile} />
-     <Stack.Screen name={SCREENS.PRIVACY} component={Privacy} />
-
-  
-
-     
+      <Stack.Screen name={SCREENS.SUBSCRIPTION} component={Subscription} />
+      <Stack.Screen name={SCREENS.PAYMENT_METHOD} component={PaymentMethod} />
+      <Stack.Screen name={SCREENS.PAYMENT_CONFIRM} component={PaymentConfirm} />
+      <Stack.Screen name={SCREENS.EDIT_PROFILE} component={EditProfile} />
+      <Stack.Screen name={SCREENS.CHANGE_PASS} component={ChangePassword} />
+      <Stack.Screen name={SCREENS.PRIVACY} component={Privacy} />
     </Stack.Navigator>
-)}
+  );
+};
 
 const BottomTabNavigation = (props: any) => {
   const Tab = createBottomTabNavigator();
@@ -57,7 +60,8 @@ const BottomTabNavigation = (props: any) => {
     <Tab.Navigator
       initialRouteName={SCREENS.HOME}
       tabBar={(e: any) => <BottomTabs {...e} {...props} />}
-      screenOptions={{headerShown: false}}>
+      screenOptions={{ headerShown: false }}
+    >
       <Tab.Screen name={SCREENS.HOME} component={Home} />
       <Tab.Screen name={SCREENS.EXERCISE} component={Exercise} />
       <Tab.Screen name={SCREENS.ZOOMCALL} component={ZoomCall} />
@@ -66,6 +70,5 @@ const BottomTabNavigation = (props: any) => {
     </Tab.Navigator>
   );
 };
-
 
 export default AppNavigator;

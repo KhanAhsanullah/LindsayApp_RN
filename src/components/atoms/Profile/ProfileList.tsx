@@ -26,6 +26,12 @@ const ProfileList = (props: any) => {
       image: IMAGES.pr1,
       navigateTo: SCREENS.EDIT_PROFILE,
     },
+    {
+      id: 1,
+      title: "Change Password",
+      image: IMAGES.pr1,
+      navigateTo: SCREENS.CHANGE_PASS,
+    },
     { id: 2, title: "Notifications", image: IMAGES.pr2, navigateTo: "" },
     {
       id: 3,
@@ -72,7 +78,7 @@ const ProfileList = (props: any) => {
           <View marginL-20 flex>
             <View row spread>
               <Typography size={theme.fontSize.medium}>{item.title}</Typography>
-              {index === 1 ? (
+              {index === 2 ? (
                 <Switch
                   value={toggleState}
                   onValueChange={(value) => setToggleState(value)}

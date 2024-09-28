@@ -14,10 +14,15 @@ const ForgotPass = () => {
 
   return (
     <SafeAreaContainer safeArea={false}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{ backgroundColor: "#fff" }}
+      >
         <View flex backgroundColor={theme.color.white}>
-          <View marginT-100 marginH-20> 
-          <Typography align="center" textType="bold" size={25}>Forgot Password</Typography>
+          <View marginT-100 marginH-20>
+            <Typography align="center" textType="bold" size={25}>
+              Forgot Password
+            </Typography>
           </View>
           <View margin-20>
             <InputText

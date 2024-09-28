@@ -23,7 +23,7 @@ export const IMAGES = {
   avatar: require("../assets/images/avatar.png"),
   dummy: require("../assets/images/dummy.png"),
   car1: require("../assets/images/car1.png"),
-  Nutrition: require("../assets/images/Nutrition.jpg"),
+  Nutrition: require("../assets/images/Nutrition.png"),
 
   calories: require("../assets/images/calories.png"),
   clock: require("../assets/images/clock.png"),
@@ -61,6 +61,7 @@ export const IMAGES = {
   fitnessGirl: require("../assets/images/fitnessGirl.png"),
   nutritionHeader: require("../assets/images/nutritionHeader.png"),
   dishes: require("../assets/images/dishes.png"),
+  dishes_back: require("../assets/images/dishes_back.png"),
   cross: require("../assets/images/cross.png"),
   visa: require("../assets/images/visa.png"),
 };

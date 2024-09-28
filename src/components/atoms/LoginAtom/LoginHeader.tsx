@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Image, ImageBackground, Platform } from "react-native";
 import { Text, View } from "react-native-ui-lib";
-import { IMAGES, theme } from "../../../constants";
+import { IMAGES, SCREEN_WIDTH, theme } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
 import { Typography } from "../Typography";
 
@@ -14,7 +14,7 @@ const LoginHeader = () => {
         resizeMode="contain"
       />
 
-      <View marginH-40 style={{ marginTop: -60, }}>
+      <View marginH-40 style={{ marginTop: -60 }}>
         <Typography
           align="center"
           size={theme.fontSize.extraLarge}
@@ -25,7 +25,7 @@ const LoginHeader = () => {
         </Typography>
         <Typography
           align="center"
-          style={{marginVertical:20}}
+          style={{ marginVertical: 20 }}
           size={theme.fontSize.small}
           color={theme.color.descColor}
         >
@@ -39,8 +39,8 @@ const LoginHeader = () => {
 
 const styles = StyleSheet.create({
   image: {
-    marginTop: Platform.OS == 'ios' ? -20  : -40,
-    width: Platform.OS == 'ios' ? verticalScale(320) : verticalScale(350),
+    marginTop: Platform.OS == "ios" ? -20 : -40,
+    width: SCREEN_WIDTH,
     height: scale(320),
   },
 });

@@ -10,8 +10,20 @@ const NutritionTamplet = () => {
   return (
     <>
       <NutrtionTopView />
-      <View style={[commonStyles.footerContainer, { marginTop: -80 }]}>
-      <NutritionOrg />
+      <View
+        style={{
+          ...commonStyles.footerContainer,
+          marginTop: -80,
+          elevation: 0,
+          shadowOffset: {
+            height: 0,
+            width: 0,
+          },
+          shadowOpacity: 0,
+          shadowRadius: 0,
+        }}
+      >
+        <NutritionOrg />
       </View>
     </>
   );

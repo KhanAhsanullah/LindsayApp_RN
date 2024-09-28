@@ -33,7 +33,7 @@ const HeaderHome = (props: any) => {
 const styles = StyleSheet.create({
   image: {
     width: SCREEN_WIDTH,
-     height: verticalScale(45),
+    height: verticalScale(45),
     // marginTop: -25,
   },
 });

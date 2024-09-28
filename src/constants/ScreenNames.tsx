@@ -26,5 +26,6 @@ export const SCREENS = {
 
   GOAL_DETAILS:"GoalDetails",
   EDIT_PROFILE:'EditProfile',
+  CHANGE_PASS:'ChangePassword',
   PRIVACY:'Privacy'
 };
