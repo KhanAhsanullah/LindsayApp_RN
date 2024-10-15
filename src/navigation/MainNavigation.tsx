@@ -6,16 +6,19 @@ import Workout from '../screens/HomeScreen/Workout';
 import { AuthStackNavigator } from './AuthStackNavigator';
 import AppNavigator from './AppNavigator';
 import Subscription from '../screens/HomeScreen/SubscriptionScreen/Subscription';
+import { KeyboardAvoidingView, Platform } from 'react-native';
 
 const MainNavigation = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn } = useSelector((state: any) => state.user);
-  
+
   return (
-    <NavigationContainer ref={navigationRef}>
-      {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />}
-    </NavigationContainer>
+    <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS == "ios" ? 'height' : undefined}>
+      <NavigationContainer ref={navigationRef}>
+        {!isLoggedIn ? <AuthStackNavigator /> : <AppNavigator />}
+      </NavigationContainer>
+    </KeyboardAvoidingView>
   );
 };
 
