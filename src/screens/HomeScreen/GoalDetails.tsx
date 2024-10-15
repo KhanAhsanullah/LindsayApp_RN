@@ -1,5 +1,6 @@
 import React from 'react';
 import HealthCoachingDetails from '../../components/atoms/HealthCoachingDetails';
+import { ScrollView } from 'react-native';
 
 const GoalDetails = () => {
   const title = "Health Coaching\nPackages and Pricing";
@@ -11,10 +12,10 @@ const GoalDetails = () => {
   ];
 
   return (
-    <HealthCoachingDetails 
-      title={title} 
-      subtitle={subtitle} 
-      details={details} 
+    <HealthCoachingDetails
+      title={title}
+      subtitle={subtitle}
+      details={details}
     />
   );
 };

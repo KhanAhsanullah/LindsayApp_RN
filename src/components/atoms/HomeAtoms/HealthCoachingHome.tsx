@@ -7,7 +7,7 @@ import {
   Platform,
 } from "react-native";
 import { Text, View } from "react-native-ui-lib";
-import { IMAGES, SCREEN_WIDTH, SCREENS, theme } from "../../../constants";
+import { IMAGES, SCREEN_HEIGHT, SCREEN_WIDTH, SCREENS, theme } from "../../../constants";
 import { scale, verticalScale } from "react-native-size-matters";
 import { Typography } from "../Typography";
 import { navigate } from "../../../navigation/RootNavigation";
@@ -18,7 +18,7 @@ const HealthCoachingHome = () => {
       source={IMAGES.healthCoach}
       style={{
         width: SCREEN_WIDTH,
-        flex:1
+        height:SCREEN_HEIGHT*0.4
       }}
       resizeMode="cover"
     >

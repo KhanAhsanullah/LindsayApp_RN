@@ -12,7 +12,7 @@ export const CustomBtn = (props: any) => {
         width={width}
         height={height}
         style={[style,{
-          paddingVertical:20,
+          paddingVertical:15,
      
           borderRadius:10
         }]}

@@ -7,13 +7,13 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { scale, verticalScale } from "react-native-size-matters";
-import { IMAGES } from "../../../constants";
+import { IMAGES, SCREEN_HEIGHT } from "../../../constants";
 
 export const OnBeardingTopCont = (props: any) => {
   return (
       <View
         width={'100%'}
-        height={verticalScale(400)}
+        height={SCREEN_HEIGHT*0.5}
         style={styles.container}
       >
         <ImageBackground

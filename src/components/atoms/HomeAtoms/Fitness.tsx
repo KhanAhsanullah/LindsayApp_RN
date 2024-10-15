@@ -12,7 +12,7 @@ const Fitness = () => {
       source={IMAGES.homeMiddleImg}
       style={{
         width: SCREEN_WIDTH,
-        height: SCREEN_HEIGHT*0.45,
+        height: SCREEN_HEIGHT*0.4,
        // backgroundColor:"red"
       }}
       resizeMode="stretch"

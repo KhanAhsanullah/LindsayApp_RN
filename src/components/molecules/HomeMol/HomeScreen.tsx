@@ -13,7 +13,7 @@ const HomeScreen = () => {
       <HeaderHome color={theme.color.white} headerBkColor={"rgba(0,0,0,0.9)"} />
       <HealthCoachingHome />
       <Nutrition />
-      <View absH style={{ top: "32%", left: 0, right: 0 }}>
+      <View absH style={{ top: "35%", left: 0, right: 0 }}>
         <Fitness />
       </View>
     </>

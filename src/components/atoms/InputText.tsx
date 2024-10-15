@@ -54,7 +54,7 @@ export const InputText = (props: any) => {
         height: verticalScale(50),
         marginTop: 5,
         paddingHorizontal: 10,
-        paddingVertical: Platform.OS == "ios" ? 20 : 0,
+        //paddingVertical: Platform.OS == "ios" ? 20 : 0,
         // borderWidth: 0.2,
         borderRadius: 10,
         backgroundColor: theme.color.inputTypeColor,
