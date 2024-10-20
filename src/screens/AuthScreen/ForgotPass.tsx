@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Image, ScrollView } from "react-native";
-import { Text, View } from "react-native-ui-lib";
+import { Text, ToastPresets, View } from "react-native-ui-lib";
 import SafeAreaContainer from "../../containers/SafeAreaContainer";
 import LoginScreen from "../../components/molecules/LoginMol/LoginScreen";
 import { CustomBtn } from "../../components/atoms/OnBoardingAtoms/OnBeardingBottomBtn";
@@ -8,9 +8,31 @@ import { InputText } from "../../components/atoms/InputText";
 import { theme } from "../../constants";
 import { onBack } from "../../navigation/RootNavigation";
 import { Typography } from "../../components/atoms/Typography";
+import { AuthActions } from "../../redux/actions/AuthActions";
+import { useDispatch } from "react-redux";
+import { showHideToast } from "../../redux/slices/OtherSlice";
 
 const ForgotPass = () => {
   const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+
+
+  const Forgot = async () => {
+    if (email) {
+      await dispatch(AuthActions.ForgotPass({
+        email: email.toLowerCase(),
+      })).then((v) => {
+        let status = v.meta.requestStatus;
+        if (status == "fulfilled") {
+          dispatch(showHideToast({
+            visible: true,
+            message: "Email has been sent to you, Please check inbox to change password",
+            preset: ToastPresets.SUCCESS
+          }))
+        }
+      });
+    }
+  }
 
   return (
     <SafeAreaContainer safeArea={false}>
@@ -42,7 +64,7 @@ const ForgotPass = () => {
             />
 
             <View marginV-40>
-              <CustomBtn label="Forget Password" onPress={() => onBack()} />
+              <CustomBtn label="Forget Password" onPress={() => Forgot()} />
             </View>
           </View>
         </View>

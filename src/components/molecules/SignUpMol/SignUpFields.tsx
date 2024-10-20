@@ -5,7 +5,8 @@ import { IMAGES, theme } from "../../../constants";
 import { Typography } from "../../atoms/Typography";
 import { CustomBtn } from "../../atoms/OnBoardingAtoms/OnBeardingBottomBtn";
 import { useDispatch } from "react-redux";
-import { setLoggedIn } from "../../../redux/slice/user";
+import { getDeviceInfo } from "../../../utils/Constants";
+import { AuthActions } from "../../../redux/actions/AuthActions";
 
 const SignUpFields = () => {
   const [hasValidated, setValidated] = useState(new Array(6).fill(false));
@@ -14,8 +15,35 @@ const SignUpFields = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [passwordVal, setPasswordVal] = useState("");
+  const [cpasswordVal, setCPasswordVal] = useState("");
   const [password, setPassword] = useState(true);
+  const [cpassword, setCPassword] = useState(true);
   const dispatch = useDispatch();
+
+
+  const SignupFunc = async () => {
+    if (!hasValidated.includes(false)) {
+      // const token = await messaging().getToken();
+      console.warn(getDeviceInfo())
+      await dispatch(AuthActions.Register({
+        first_name: fname,
+        last_name: lname,
+        mobile_number: phone,
+        email: email.toLowerCase(),
+        password: passwordVal,
+        device_token: "123456789",
+        ...getDeviceInfo(),
+        udid: "a1b2c3d4e5f67890123456789abcdef012345678"
+      })).then((v) => {
+        let status = v.meta.requestStatus;
+        if (status == "fulfilled") {
+
+        }
+      });
+    }
+  }
+
+
   return (
     <View backgroundColor={theme.color.white}>
       <View marginH-20 style={{ marginTop: 100 }}>
@@ -49,7 +77,8 @@ const SignUpFields = () => {
             });
           }}
           placeholder="First Name"
-          validate={["fname"]}
+          validationMessage={["First name is required"]}
+          validate={["required"]}
           onChangeText={(text: string) => setFName(text)}
         />
         <InputText
@@ -58,12 +87,13 @@ const SignUpFields = () => {
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
-              copy[0] = isValid;
+              copy[1] = isValid;
               return copy;
             });
           }}
           placeholder="Last Name"
-          validate={["lname"]}
+          validate={["required"]}
+          validationMessage={["Last name is required"]}
           style={{ marginTop: -10 }}
           onChangeText={(text: string) => setLName(text)}
         />
@@ -73,14 +103,14 @@ const SignUpFields = () => {
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
-              copy[0] = isValid;
+              copy[2] = isValid;
               return copy;
             });
           }}
           placeholder="Email Address"
-          validate={["email"]}
+          validate={["required", "email",]}
           style={{ marginTop: -10 }}
-          validationMessage={["Email is invalid"]}
+          validationMessage={["Email is required", "Email is invalid",]}
           onChangeText={(text: string) => setEmail(text)}
         />
         <InputText
@@ -89,12 +119,13 @@ const SignUpFields = () => {
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
-              copy[0] = isValid;
+              copy[3] = isValid;
               return copy;
             });
           }}
           placeholder="Mobile Number"
-          validate={["phone"]}
+          validate={["required"]}
+          validationMessage={["Mobile Number is required"]}
           style={{ marginTop: -10 }}
           onChangeText={(text: string) => setPhone(text)}
         />
@@ -105,7 +136,7 @@ const SignUpFields = () => {
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
-              copy[1] = isValid;
+              copy[4] = isValid;
               return copy;
             });
           }}
@@ -113,45 +144,54 @@ const SignUpFields = () => {
           secureTextEntry={password}
           rightImage={!password ? IMAGES.eyeOn : IMAGES.eyeOff}
           placeholder="Enter your password"
-          validate={[
+          validate={["required",
             (v) =>
               /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(v),
+            v => v == cpasswordVal
           ]}
           validationMessage={[
+            "Password is required",
             "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+            "Password must match"
           ]}
           onChangeText={(text: string) => setPasswordVal(text)}
         />
 
         <InputText
           // label={"Password:"}
-          value={passwordVal}
+          value={cpasswordVal}
           style={{ marginTop: -10 }}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
               let copy = [...prev];
-              copy[1] = isValid;
+              copy[5] = isValid;
               return copy;
             });
           }}
-          onPressRight={() => setPassword(!password)}
-          secureTextEntry={password}
-          rightImage={!password ? IMAGES.eyeOn : IMAGES.eyeOff}
-          placeholder="Enter your password"
+          onPressRight={() => setCPassword(!cpassword)}
+          secureTextEntry={cpassword}
+          rightImage={!cpassword ? IMAGES.eyeOn : IMAGES.eyeOff}
+          placeholder="Confirm password"
           validate={[
+            "required",
             (v) =>
               /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(v),
+            v => v == passwordVal
           ]}
           validationMessage={[
+            "Confirm Password is required",
             "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+            "Password must match"
           ]}
-          onChangeText={(text: string) => setPasswordVal(text)}
+          onChangeText={(text: string) => setCPasswordVal(text)}
         />
 
         <View marginV-40>
           <CustomBtn
             label="Sign Up"
-            onPress={() => dispatch(setLoggedIn(true))}
+            onPress={() => {
+              SignupFunc();
+            }}
           />
         </View>
       </View>

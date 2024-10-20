@@ -9,7 +9,7 @@ export const InputText = (props: any) => {
     placeholder = "",
     placeholderTextColor = theme.color.tgray,
     maxLength = 50,
-    onChangeText = () => {},
+    onChangeText = () => { },
     validationMessage = "Field is required",
     validate = "email",
     leftIcon = false,
@@ -18,31 +18,35 @@ export const InputText = (props: any) => {
     rightImage = false,
     showCharCounter = false,
     keyboardType = "default",
-    onValidationFailed = () => {},
+    onValidationFailed = () => { },
     secureTextEntry = false,
     style = {},
     label = true,
     multiline = false,
-    onPressRight = () => {},
+    onPressRight = () => { },
+    editable = true,
+    value
   } = props;
   const [secureEntry, setSecureEntry] = useState(true);
   return (
     <TextField
-      black
+      value={value}
+      black={editable}
+      color={"#aaa"}
       small
       allowFontScaling={false}
       label={label}
       labelStyle={{
         fontSize: moderateScale(14),
-        marginBottom:10
+        marginBottom: 10
       }}
       labelColor={theme.color.black}
       placeholder={placeholder}
       placeholderTextColor={placeholderTextColor}
       onChangeText={onChangeText}
       enableErrors
-      validate={[(value: any) => value.length > 6, ...validate]}
-      validationMessage={["", ...validationMessage]}
+      validate={[...validate]}
+      validationMessage={[...validationMessage]}
       showCharCounter={showCharCounter}
       validateOnChange
       onChangeValidity={onValidationFailed}
@@ -50,6 +54,7 @@ export const InputText = (props: any) => {
       secureTextEntry={secureTextEntry}
       multiline={multiline}
       keyboardType={keyboardType}
+      editable={editable}
       fieldStyle={{
         height: verticalScale(50),
         marginTop: 5,
@@ -63,35 +68,35 @@ export const InputText = (props: any) => {
       }}
       {...(leftIcon
         ? {
-            leadingAccessory: (
-              <Image
-                source={leftImage}
-                style={{
-                  width: 25,
-                  height: 25,
-                  marginRight: 10,
-                  resizeMode: "contain",
-                }}
-              />
-            ),
-          }
+          leadingAccessory: (
+            <Image
+              source={leftImage}
+              style={{
+                width: 25,
+                height: 25,
+                marginRight: 10,
+                resizeMode: "contain",
+              }}
+            />
+          ),
+        }
         : null)}
       {...(rightImage
         ? {
-            trailingAccessory: (
-              <TouchableOpacity onPress={onPressRight}>
-                <Image
-                  source={secureTextEntry ? IMAGES.eyeOn : IMAGES.eyeOff}
-                  style={{
-                    width: 20,
-                    height: 20,
-                    resizeMode: "contain",
-                    tintColor: theme.color.black,
-                  }}
-                />
-              </TouchableOpacity>
-            ),
-          }
+          trailingAccessory: (
+            <TouchableOpacity onPress={onPressRight}>
+              <Image
+                source={secureTextEntry ? IMAGES.eyeOn : IMAGES.eyeOff}
+                style={{
+                  width: 20,
+                  height: 20,
+                  resizeMode: "contain",
+                  tintColor: theme.color.black,
+                }}
+              />
+            </TouchableOpacity>
+          ),
+        }
         : null)}
     />
   );

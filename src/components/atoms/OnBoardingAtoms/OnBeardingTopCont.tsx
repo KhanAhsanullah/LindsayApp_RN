@@ -13,7 +13,7 @@ export const OnBeardingTopCont = (props: any) => {
   return (
       <View
         width={'100%'}
-        height={SCREEN_HEIGHT*0.5}
+        height={SCREEN_HEIGHT*0.6}
         style={styles.container}
       >
         <ImageBackground

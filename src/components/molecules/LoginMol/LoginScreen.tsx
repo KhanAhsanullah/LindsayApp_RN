@@ -6,9 +6,10 @@ import { IMAGES, SCREENS, theme } from "../../../constants";
 import { Typography } from "../../atoms/Typography";
 import { CustomBtn } from "../../atoms/OnBoardingAtoms/OnBeardingBottomBtn";
 import { navigate } from "../../../navigation/RootNavigation";
-import { setLoggedIn } from "../../../redux/slice/user";
 import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native";
+import { AuthActions } from "../../../redux/actions/AuthActions";
+import { getDeviceInfo } from "../../../utils/Constants";
 
 const LoginScreen = () => {
   const [hasValidated, setValidated] = useState(new Array(2).fill(false));
@@ -16,6 +17,23 @@ const LoginScreen = () => {
   const [passwordVal, setPasswordVal] = useState("");
   const [password, setPassword] = useState(true);
   const dispatch = useDispatch();
+
+  const LoginFunc = async () => {
+    if (!hasValidated.includes(false)) {
+      await dispatch(AuthActions.Login({
+        email: email.toLowerCase(),
+        password: passwordVal,
+        device_token: "123456788",
+        ...getDeviceInfo()
+      })).then((v) => {
+        let status = v.meta.requestStatus;
+        if (status == "fulfilled") {
+
+        }
+      });
+    }
+  }
+
   return (
     <View backgroundColor={theme.color.white}>
       <LoginHeader />
@@ -49,32 +67,35 @@ const LoginScreen = () => {
           secureTextEntry={password}
           rightImage={!password ? IMAGES.eyeOn : IMAGES.eyeOff}
           placeholder="Enter your password"
-          validate={[
-            (v) =>
-              /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(v),
+          validate={["required"
+            // (v) =>
+            //   /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(v),
           ]}
           validationMessage={[
-            "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+            "Password is required"
+            // "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
           ]}
           onChangeText={(text: string) => setPasswordVal(text)}
         />
-        <TouchableOpacity onPress={()=>navigate(SCREENS.FORGOT)}>
-        <Typography align="right" color={theme.color.tgray}>
-          Forget Password?
-        </Typography>
+        <TouchableOpacity onPress={() => navigate(SCREENS.FORGOT)}>
+          <Typography align="right" color={theme.color.tgray}>
+            Forget Password?
+          </Typography>
         </TouchableOpacity>
         <View marginV-40>
-          <CustomBtn label="Sign In" onPress={() => dispatch(setLoggedIn(true))}/>
+          <CustomBtn label="Sign In" onPress={() => {
+            LoginFunc();
+          }} />
         </View>
         <Text center small marginV-20>
-              Don’t have an account?{" "}
-              <TouchableOpacity onPress={() => navigate(SCREENS.SIGN_UP)}>
-                <Text semiBold small marginT-5 color={theme.color.primary}>
-                  {" "}
-                  SIGN UP
-                </Text>
-              </TouchableOpacity>
+          Don’t have an account?{" "}
+          <TouchableOpacity onPress={() => navigate(SCREENS.SIGN_UP)}>
+            <Text semiBold small marginT-5 color={theme.color.primary}>
+              {" "}
+              SIGN UP
             </Text>
+          </TouchableOpacity>
+        </Text>
       </View>
     </View>
   );

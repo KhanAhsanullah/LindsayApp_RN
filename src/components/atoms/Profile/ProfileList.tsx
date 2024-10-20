@@ -12,7 +12,7 @@ import { IMAGES, SCREENS, theme } from "../../../constants";
 import { commonStyles } from "../../../globalStyle";
 import { navigate } from "../../../navigation/RootNavigation";
 import { useDispatch } from "react-redux";
-import { setLoggedIn } from "../../../redux/slice/user";
+import { LogoutUser } from "../../../redux/slices/AuthSlice";
 
 const ProfileList = (props: any) => {
   const { onPress } = props;
@@ -65,8 +65,8 @@ const ProfileList = (props: any) => {
           item.id === 5
             ? deleteAccount()
             : item.navigateTo
-            ? navigate(item.navigateTo, item.params)
-            : logoutAlert()
+              ? navigate(item.navigateTo, item.params)
+              : logoutAlert()
         }
       >
         <View row marginV-20>
@@ -108,7 +108,7 @@ const ProfileList = (props: any) => {
       {
         text: "OK",
         onPress: () => {
-          dispatch(setLoggedIn(false));
+
         },
       },
     ]);
@@ -124,7 +124,7 @@ const ProfileList = (props: any) => {
       {
         text: "OK",
         onPress: () => {
-          dispatch(setLoggedIn(false));
+          dispatch(LogoutUser(null))
         },
       },
     ]);

@@ -5,15 +5,14 @@ import { Typography } from "../Typography";
 import { IMAGES, theme } from "../../../constants";
 import { commonStyles } from "../../../globalStyle";
 
-const ProfileImg = (props: any) => {
-  const { onPress } = props;
+const ProfileImg = ({ image }: { image: string }) => {
   return (
-    <View center marginV-10> 
-    <Image
-      source={IMAGES.profileImg}
-      style={{ width: 110, height: 100 }}
-      resizeMode="contain"
-    />
+    <View center marginV-10>
+      <Image
+        source={{ uri: image }}
+        style={{ width: 100, height: 100,borderRadius:100 }}
+        resizeMode="stretch"
+      />
     </View>
   );
 };
