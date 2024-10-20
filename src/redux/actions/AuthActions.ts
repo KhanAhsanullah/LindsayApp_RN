@@ -58,10 +58,9 @@ export const AuthActions = {
   ),
   ChangePass: createAsyncThunk(
     'auth/ChangePass',
-    async (data: { password: string; confirm_password: string }, thunkApi) => {
+    async (data: { new_password: string; old_password: string }, thunkApi) => {
       thunkApi.dispatch(setLoading(true));
-      let formData = convertDataToFormData(data);
-      let apiCall = await client.post(endpoints.ResetPassword, formData);
+      let apiCall = await client.post(endpoints.ResetPassword, data);
       return apiCall.data?.response?.data;
     },
   ),

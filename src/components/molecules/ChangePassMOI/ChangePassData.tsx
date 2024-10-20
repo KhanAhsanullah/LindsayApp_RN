@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import { View } from "react-native-ui-lib";
+import { ToastPresets, View } from "react-native-ui-lib";
 import { commonStyles } from "../../../globalStyle";
 import ProfileImg from "../../atoms/Profile/ProfileImg";
 import ProfileList from "../../atoms/Profile/ProfileList";
@@ -9,17 +9,41 @@ import { IMAGES } from "../../../constants";
 import { onBack } from "../../../navigation/RootNavigation";
 import { CustomBtn } from "../../atoms/OnBoardingAtoms/OnBeardingBottomBtn";
 import { InputText } from "../../atoms/InputText";
+import { AuthActions } from "../../../redux/actions/AuthActions";
+import { showHideToast } from "../../../redux/slices/OtherSlice";
 
 const ChangePassData = () => {
   const [hasValidated, setValidated] = useState(new Array(3).fill(false));
   const [current_pass, setCurrentPass] = useState("");
   const [new_pass, setNewPass] = useState("");
   const [confirm_pass, setConfirmPass] = useState("");
+  const dispatch = useDispatch();
+
+  const ChangePass = async () => {
+    if (!hasValidated.includes(false)) {
+      await dispatch(AuthActions.ChangePass({
+        old_password: current_pass,
+        new_password: new_pass
+      })).then((v) => {
+        let status = v.meta.requestStatus;
+        if (status == "fulfilled") {
+          dispatch(showHideToast({
+            visible: true,
+            message: "Password has been changed",
+            preset: ToastPresets.SUCCESS
+          }))
+          onBack();
+        }
+      });
+    }
+  }
+
   return (
     <View style={commonStyles.footerContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <InputText
           // label={"Email Address:"}
+          secureTextEntry
           value={current_pass}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
@@ -30,11 +54,12 @@ const ChangePassData = () => {
           }}
           placeholder="Current Password"
           validate={["required"]}
-          validationMessage={["Required"]}
+          validationMessage={["Current Password is required"]}
           onChangeText={(text: string) => setCurrentPass(text)}
         />
         <InputText
           // label={"Email Address:"}
+          secureTextEntry
           value={new_pass}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
@@ -44,13 +69,20 @@ const ChangePassData = () => {
             });
           }}
           placeholder="New Password"
-          validate={["required"]}
-          validationMessage={["Required"]}
+          validate={["required",
+            (v) =>
+              /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(v),
+          ]}
+          validationMessage={[
+            "Password is required",
+            "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+          ]}
           style={{ marginTop: -10 }}
           onChangeText={(text: string) => setNewPass(text)}
         />
         <InputText
           // label={"Email Address:"}
+          secureTextEntry
           value={confirm_pass}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
@@ -60,14 +92,22 @@ const ChangePassData = () => {
             });
           }}
           placeholder="Confirm Password"
-          validate={["required"]}
           style={{ marginTop: -10 }}
-          validationMessage={["Required"]}
+          validate={["required",
+            (v) =>
+              /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(v),
+            v => v == new_pass
+          ]}
+          validationMessage={[
+            "Password is required",
+            "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
+            "Password must match"
+          ]}
           onChangeText={(text: string) => setConfirmPass(text)}
         />
 
         <View marginV-40>
-          <CustomBtn label="Change Password" onPress={() => onBack()} />
+          <CustomBtn label="Change Password" onPress={() => ChangePass()} />
         </View>
       </ScrollView>
     </View>

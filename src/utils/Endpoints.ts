@@ -5,7 +5,7 @@ export const endpoints = {
   Register: 'user/register',
   Logout: 'user/logout',
   SocialLogin: 'social-login',
-  ResetPassword: 'reset-password',
+  ResetPassword: 'user/resetpassword',
   ForgotPassword: 'user/forgotpassword',
   VerifyCode: 'verify-code',
   CreatePost: '/user/posts',
