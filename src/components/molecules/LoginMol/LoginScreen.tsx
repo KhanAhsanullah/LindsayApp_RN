@@ -87,15 +87,17 @@ const LoginScreen = () => {
             LoginFunc();
           }} />
         </View>
-        <Text center small marginV-20>
-          Don’t have an account?{" "}
+        <View row center>
+          <Text center small marginV-20>
+            Don’t have an account?{" "}
+          </Text>
           <TouchableOpacity onPress={() => navigate(SCREENS.SIGN_UP)}>
-            <Text semiBold small marginT-5 color={theme.color.primary}>
+            <Text semiBold small color={theme.color.primary}>
               {" "}
               SIGN UP
             </Text>
           </TouchableOpacity>
-        </Text>
+        </View>
       </View>
     </View>
   );

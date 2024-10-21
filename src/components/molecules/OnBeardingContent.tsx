@@ -9,7 +9,7 @@ import { OnBoardingBtn } from "../atoms/OnBoardingAtoms/OnBoardingBtn";
 
 export const OnBeardingContent = (props: any) => {
   return (
-    <View center marginT-10 marginH-20>
+    <View center marginT-10 marginH-20 flex>
       <Typography
         textType="bold"
         align="center"

@@ -3,17 +3,17 @@ import {
   Image,
   ImageBackground,
   StyleSheet,
-  View,
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { scale, verticalScale } from "react-native-size-matters";
 import { IMAGES, SCREEN_HEIGHT } from "../../../constants";
+import { View } from "react-native-ui-lib";
 
 export const OnBeardingTopCont = (props: any) => {
   return (
       <View
         width={'100%'}
-        height={SCREEN_HEIGHT*0.6}
+        flex-1
         style={styles.container}
       >
         <ImageBackground

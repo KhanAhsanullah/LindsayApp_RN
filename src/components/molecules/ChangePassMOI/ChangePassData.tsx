@@ -17,6 +17,9 @@ const ChangePassData = () => {
   const [current_pass, setCurrentPass] = useState("");
   const [new_pass, setNewPass] = useState("");
   const [confirm_pass, setConfirmPass] = useState("");
+  const [current_pass_show, setCurrentPassShow] = useState(true);
+  const [new_pass_show, setNewPassShow] = useState(true);
+  const [confirm_pass_show, setConfirmPassShow] = useState(true);
   const dispatch = useDispatch();
 
   const ChangePass = async () => {
@@ -43,7 +46,7 @@ const ChangePassData = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <InputText
           // label={"Email Address:"}
-          secureTextEntry
+          secureTextEntry={current_pass_show}
           value={current_pass}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
@@ -56,10 +59,12 @@ const ChangePassData = () => {
           validate={["required"]}
           validationMessage={["Current Password is required"]}
           onChangeText={(text: string) => setCurrentPass(text)}
+          rightImage={!current_pass_show ? IMAGES.eyeOn : IMAGES.eyeOff}
+          onPressRight={() => setCurrentPassShow(!current_pass_show)}
         />
         <InputText
           // label={"Email Address:"}
-          secureTextEntry
+          secureTextEntry={new_pass_show}
           value={new_pass}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
@@ -79,10 +84,12 @@ const ChangePassData = () => {
           ]}
           style={{ marginTop: -10 }}
           onChangeText={(text: string) => setNewPass(text)}
+          rightImage={!new_pass_show ? IMAGES.eyeOn : IMAGES.eyeOff}
+          onPressRight={() => setNewPassShow(!new_pass_show)}
         />
         <InputText
           // label={"Email Address:"}
-          secureTextEntry
+          secureTextEntry={confirm_pass_show}
           value={confirm_pass}
           onValidationFailed={(isValid: boolean) => {
             setValidated((prev) => {
@@ -104,6 +111,8 @@ const ChangePassData = () => {
             "Password must match"
           ]}
           onChangeText={(text: string) => setConfirmPass(text)}
+          rightImage={!confirm_pass_show ? IMAGES.eyeOn : IMAGES.eyeOff}
+          onPressRight={() => setConfirmPassShow(!confirm_pass_show)}
         />
 
         <View marginV-40>

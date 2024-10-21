@@ -8,10 +8,12 @@ import AppNavigator from './AppNavigator';
 import Subscription from '../screens/HomeScreen/SubscriptionScreen/Subscription';
 import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { States } from '../utils/types';
-import { LoaderScreen, Toast } from 'react-native-ui-lib';
+import { LoaderScreen, Incubator } from 'react-native-ui-lib';
 import { theme } from '../constants';
 import { showHideToast } from '../redux/slices/OtherSlice';
 import { moderateScale } from 'react-native-size-matters';
+
+const Toast = Incubator.Toast;
 
 const MainNavigation = () => {
   const dispatch = useDispatch();
@@ -25,8 +27,12 @@ const MainNavigation = () => {
       </NavigationContainer>
       <Toast
         {...toast}
+        messageStyle={{
+          color: "#fff"
+        }}
+        elevation={10}
         autoDismiss={2000}
-        backgroundColor={theme.color.primary}
+        backgroundColor={theme.color.primarybeta}
         swipeable
         onDismiss={() => {
           dispatch(
@@ -38,7 +44,7 @@ const MainNavigation = () => {
       />
       {loading && (
         <LoaderScreen
-          loaderColor={theme.color.primary}
+          loaderColor={theme.color.primarybeta}
           message="Loading"
           messageStyle={{
             fontSize: moderateScale(theme.fontSize.regular),
