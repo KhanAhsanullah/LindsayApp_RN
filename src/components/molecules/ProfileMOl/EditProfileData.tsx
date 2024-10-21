@@ -33,7 +33,7 @@ const EditProfileData = () => {
         if (status == "fulfilled") {
           dispatch(showHideToast({
             visible: true,
-            message: "Profile has bee updated",
+            message: "Profile has been updated",
             preset: ToastPresets.SUCCESS
           }))
           onBack();

@@ -49,6 +49,7 @@ export const InputText = (props: any) => {
       validationMessage={[...validationMessage]}
       showCharCounter={showCharCounter}
       validateOnChange
+      validateOnBlur
       onChangeValidity={onValidationFailed}
       maxLength={maxLength}
       secureTextEntry={secureTextEntry}

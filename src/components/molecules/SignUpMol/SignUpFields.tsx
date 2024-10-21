@@ -147,12 +147,12 @@ const SignUpFields = () => {
           validate={["required",
             (v) =>
               /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(v),
-            v => v == cpasswordVal
+           // v => v == cpasswordVal
           ]}
           validationMessage={[
             "Password is required",
             "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
-            "Password must match"
+          //  "Password must match"
           ]}
           onChangeText={(text: string) => setPasswordVal(text)}
         />

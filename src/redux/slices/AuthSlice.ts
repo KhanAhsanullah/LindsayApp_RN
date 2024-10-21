@@ -63,7 +63,7 @@ const AuthSlice = createSlice({
     builder.addCase(AuthActions.Register.fulfilled, (state, action) => {
       state.user = action.payload;
       state.isLoggedIn = true;
-      state.token = action.payload.token;
+      state.token = action.payload.access_token;
     });
 
     builder.addCase(AuthActions.EditProfile.fulfilled, (state, action) => {
