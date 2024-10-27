@@ -4,17 +4,23 @@ import HealthItem from "../../atoms/HomeAtoms/HealthItem";
 import ContentComp from "../../atoms/GlobalComponents/ContentComp";
 import { View } from "react-native-ui-lib";
 
-const NutrationMol = () => {
+const content = [
+  { id: 1, title: "Nutrition Coaching Packages and Pricing" },
+  { id: 2, title: "Considering Follow-Up Sessions?" },
+  { id: 3, title: "Follow-Up Session Details" },
+];
+
+const NutrationMol = ({ data }) => {
   return (
     <View>
       <View paddingH-20>
         <ContentComp
-          title={`What is Nutritional \n Coaching?`}
-          content="Nutritional coaching holds paramount importance in our quest for better health and well-being. It serves as a compass, guiding individuals toward informed dietary choices and a sustainable relationship with food."
+          title={data?.title}
+          content={data?.description}
         />
       </View>
       <Typography textType={"semiBold"}>Categories:</Typography>
-      <HealthItem />
+      <HealthItem data={data?.sub_categories} content={content} />
     </View>
   );
 };

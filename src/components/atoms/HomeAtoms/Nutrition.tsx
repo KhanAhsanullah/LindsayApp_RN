@@ -22,7 +22,7 @@ const Nutrition = () => {
       }}
       resizeMode="cover"
     >
-      <View flex centerH style={{ paddingTop: "50%" }}>
+      <View flex centerH style={{ marginTop: "50%" }}>
         <TouchableOpacity onPress={() => navigate(SCREENS.NUTRITION_DETAIL)}>
           <Typography
             color={theme.color.white}

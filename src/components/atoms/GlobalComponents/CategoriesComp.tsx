@@ -6,31 +6,21 @@ import { IMAGES, theme } from "../../../constants";
 import FitnessContent from "../HomeAtoms/FitnessContent";
 import { navigate } from "../../../navigation/RootNavigation";
 
-interface Goal {
-  id: number;
-  title: string;
-  navigateTo: string;
-}
+
 
 interface CategoriesCompProps {
-  goals: Goal[];
-  goalsDetails: Goal[];
-  showFitnessContent?: boolean;
-  showGoalsDetails?: boolean;
-  onPress: () => {};
+  goals: Array<any>;
 }
 
 const CategoriesComp: React.FC<CategoriesCompProps> = ({
   goals,
-  goalsDetails,
-  onPress,
-  showGoalsDetails = true,
+  
 }) => {
   const [selectedId, setSelectedId] = useState<number>(1);
 
   return (
     <>
-      {goals.map((goal) => (
+      {goals && goals.map((goal) => (
         <TouchableOpacity
           key={goal.id}
           style={{
@@ -48,31 +38,6 @@ const CategoriesComp: React.FC<CategoriesCompProps> = ({
           <Typography style={{ marginLeft: 10 }}>{goal.title}</Typography>
         </TouchableOpacity>
       ))}
-
-      {showGoalsDetails &&
-        goalsDetails.map((detail) => (
-          <TouchableOpacity
-            key={detail.id}
-            onPress={() => navigate(detail.navigateTo)}
-          >
-            <View
-              spread
-              row
-              marginV-10
-              padding-15
-              backgroundColor={theme.color.inputTypeColor}
-            >
-              <Typography size={theme.fontSize.small}>
-                {detail.title}
-              </Typography>
-              <Image
-                source={IMAGES.rightIcon}
-                style={{ width: 20, height: 20 }}
-                resizeMode="contain"
-              />
-            </View>
-          </TouchableOpacity>
-        ))}
     </>
   );
 };

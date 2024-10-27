@@ -2,7 +2,10 @@ import React from "react";
 import { View } from "react-native";
 import CategoriesComp from "../../atoms/GlobalComponents/CategoriesComp";
 import NutrationMol from "../../molecules/NutrationMol/NutrationMol";
-import { SCREENS } from "../../../constants";
+import { IMAGES, SCREENS, theme } from "../../../constants";
+import { Image, TouchableOpacity, Typography } from "react-native-ui-lib";
+import { navigate } from "../../../navigation/RootNavigation";
+import { useSelector } from "react-redux";
 
 const NutritionOrg = () => {
   const goals = [
@@ -13,16 +16,12 @@ const NutritionOrg = () => {
     { id: 5, title: "Food Log History and Trends" },
   ];
 
-  const goalsDetails = [
-    { id: 1, title: "Nutrition Coaching Packages and Pricing",navigateTo:SCREENS.GOAL_DETAILS },
-    { id: 2, title: "Considering Follow-Up Sessions?",navigateTo:SCREENS.GOAL_DETAILS },
-    { id: 3, title: "Follow-Up Session Details",navigateTo:SCREENS.GOAL_DETAILS},
-  ];
+ 
+
+
 
   return (
     <View>
-      <NutrationMol />
-      <CategoriesComp goals={goals} goalsDetails={goalsDetails} />
     </View>
   );
 };

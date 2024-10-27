@@ -9,7 +9,6 @@ import { States } from "../../utils/types";
 
 const Home = () => {
   const { token,user } = useSelector((state: States) => state.Auth)
-  console.warn(user)
   return (
     <SafeAreaContainer safeArea={false}>
       <ScrollView showsVerticalScrollIndicator={false}>

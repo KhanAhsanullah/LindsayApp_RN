@@ -21,7 +21,7 @@ const AuthSlice = createSlice({
     LoginUser: (state, action) => {
       state.user = action.payload;
       state.isLoggedIn = true;
-      state.token = action.payload.token;
+      state.token = action.payload.access_token;
     },
     deleteNotification: (state, action) => {
       let data = [...state.notifications?.data];

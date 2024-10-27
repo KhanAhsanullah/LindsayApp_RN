@@ -6,10 +6,10 @@ import { scale, verticalScale } from "react-native-size-matters";
 import { Typography } from "../Typography";
 
 const HeaderHome = (props: any) => {
-  const { color = theme.color.primary, headerBkColor = theme.color.white } =
+  const { color = theme.color.primary, headerBkColor = "transparent", abs = false } =
     props;
   return (
-    <View backgroundColor={headerBkColor}>
+    <View backgroundColor={headerBkColor} style={abs ? { position: "absolute", left: 0, right: 0 } : {}}>
       <Image
         source={IMAGES.homeHeaderImg}
         style={styles.image}
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   image: {
     width: SCREEN_WIDTH,
     height: verticalScale(45),
+    backgroundColor: "transparent"
     // marginTop: -25,
   },
 });

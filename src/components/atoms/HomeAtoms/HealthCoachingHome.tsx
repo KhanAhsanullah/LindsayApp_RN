@@ -18,12 +18,12 @@ const HealthCoachingHome = () => {
       source={IMAGES.healthCoach}
       style={{
         width: SCREEN_WIDTH,
-        height:SCREEN_HEIGHT*0.4
+        height: SCREEN_HEIGHT * 0.45
       }}
       resizeMode="cover"
     >
       <View flex center>
-        <TouchableOpacity onPress={() => navigate(SCREENS.HEALTH_COACHING)}>
+        <TouchableOpacity onPress={() => navigate(SCREENS.HEALTH_COACHING, { index: 0 })}>
           <Typography
             color={theme.color.white}
             align="center"
@@ -32,10 +32,10 @@ const HealthCoachingHome = () => {
           >
             Health Coaching
           </Typography>
+          <Typography color={theme.color.white} size={theme.fontSize.extraSmall12}>
+            What is Board Certified Health Coaching
+          </Typography>
         </TouchableOpacity>
-        <Typography color={theme.color.white} size={theme.fontSize.extraSmall12}>
-          What is Board Certified Health Coaching
-        </Typography>
       </View>
     </ImageBackground>
   );

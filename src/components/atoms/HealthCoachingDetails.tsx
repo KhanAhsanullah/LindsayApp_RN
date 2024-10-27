@@ -8,8 +8,12 @@ import SafeAreaContainer from '../../containers/SafeAreaContainer';
 import HeaderHome from './HomeAtoms/HeaderHome';
 import { View } from 'react-native-ui-lib';
 import { commonStyles } from '../../globalStyle';
+import { useSelector } from 'react-redux';
+import { useRoute } from '@react-navigation/native';
 
 const HealthCoachingDetails = ({ title, subtitle, details }: any) => {
+  
+
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />

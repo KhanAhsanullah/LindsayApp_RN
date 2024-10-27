@@ -10,11 +10,12 @@ import { useDispatch } from "react-redux";
 import { TouchableOpacity } from "react-native";
 import { AuthActions } from "../../../redux/actions/AuthActions";
 import { getDeviceInfo } from "../../../utils/Constants";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = () => {
-  const [hasValidated, setValidated] = useState(new Array(2).fill(false));
-  const [email, setEmail] = useState("");
-  const [passwordVal, setPasswordVal] = useState("");
+  const [hasValidated, setValidated] = useState(new Array(2).fill(true));
+  const [email, setEmail] = useState("testing@test.com");
+  const [passwordVal, setPasswordVal] = useState("test");
   const [password, setPassword] = useState(true);
   const dispatch = useDispatch();
 
@@ -28,7 +29,7 @@ const LoginScreen = () => {
       })).then((v) => {
         let status = v.meta.requestStatus;
         if (status == "fulfilled") {
-
+          AsyncStorage.setItem("@LA-USER", JSON.stringify(v.payload))
         }
       });
     }

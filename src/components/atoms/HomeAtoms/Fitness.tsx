@@ -12,13 +12,13 @@ const Fitness = () => {
       source={IMAGES.homeMiddleImg}
       style={{
         width: SCREEN_WIDTH,
-        height: SCREEN_HEIGHT*0.4,
+        height: SCREEN_HEIGHT*0.5,
        // backgroundColor:"red"
       }}
       resizeMode="stretch"
     >
      <View flex center>
-     <TouchableOpacity onPress={()=>navigate(SCREENS.FITNESS_DETAIL)}>
+     <TouchableOpacity onPress={()=>navigate(SCREENS.HEALTH_COACHING, { index: 1 })}>
         <Typography
           color={theme.color.white}
           align="center"

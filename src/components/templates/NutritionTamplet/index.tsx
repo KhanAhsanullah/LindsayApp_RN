@@ -5,8 +5,12 @@ import { View } from "react-native-ui-lib";
 import HomeDetailTopView from "../../atoms/HomeAtoms/HomeDetailTopView";
 import NutrtionTopView from "../../atoms/HomeAtoms/NutrtionTopView";
 import NutritionOrg from "../../organisms/NutritionOrg";
+import NutrationMol from "../../molecules/NutrationMol/NutrationMol";
+import { useSelector } from "react-redux";
 
 const NutritionTamplet = () => {
+  const { AllCategoryData } = useSelector(state => state.Main)
+
   return (
     <>
       <NutrtionTopView />
@@ -23,7 +27,7 @@ const NutritionTamplet = () => {
           shadowRadius: 0,
         }}
       >
-        <NutritionOrg />
+        <NutrationMol data={AllCategoryData[2]} />
       </View>
     </>
   );
