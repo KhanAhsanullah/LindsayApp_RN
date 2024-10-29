@@ -9,6 +9,7 @@ import { OnBoardingBtn } from "../atoms/OnBoardingAtoms/OnBoardingBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { LoginUser } from "../../redux/slices/AuthSlice";
+import Animated, { SlideInDown, SlideInLeft } from "react-native-reanimated";
 
 export const OnBeardingContent = (props: any) => {
 
@@ -28,34 +29,38 @@ export const OnBeardingContent = (props: any) => {
 
   return (
     <View center marginT-10 marginH-20 flex>
-      <Typography
-        textType="bold"
-        align="center"
-        size={theme.fontSize.extraLarge}
-        color={theme.color.white}
-      >
-        Take Health{"\n"}into your own hands
-      </Typography>
-      <View
-        marginV-20
-        style={[commonStyles.lineBar, { borderColor: theme.color.white, borderWidth: 0.4 }]}
-      />
-      <Typography
-        textType="semiBold"
-        align="center"
-        size={theme.fontSize.medium}
-        color={theme.color.white}
-      >
-        As a Nationally Board Certified Health and Wellness Coach, Elite
-        Personal Trainer,
-      </Typography>
+      <Animated.View entering={SlideInLeft.duration(500)}>
+        <Typography
+          textType="bold"
+          align="center"
+          size={theme.fontSize.extraLarge}
+          color={theme.color.white}
+        >
+          Take Health{"\n"}into your own hands
+        </Typography>
+        <View
+          marginV-20
+          style={[commonStyles.lineBar, { borderColor: theme.color.white, borderWidth: 0.4 }]}
+        />
+        <Typography
+          textType="semiBold"
+          align="center"
+          size={theme.fontSize.medium}
+          color={theme.color.white}
+        >
+          As a Nationally Board Certified Health and Wellness Coach, Elite
+          Personal Trainer,
+        </Typography>
+      </Animated.View>
       {
         loading ?
           <View center marginT-20>
             <ActivityIndicator color={"#fff"} size={"large"} />
           </View>
           :
-          <OnBoardingBtn onPress={() => navigate(SCREENS.LOGIN)} />
+          <Animated.View entering={SlideInDown.duration(1000)}>
+            <OnBoardingBtn onPress={() => navigate(SCREENS.LOGIN)} />
+          </Animated.View>
       }
     </View>
   );

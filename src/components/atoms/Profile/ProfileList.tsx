@@ -13,6 +13,7 @@ import { commonStyles } from "../../../globalStyle";
 import { navigate } from "../../../navigation/RootNavigation";
 import { useDispatch } from "react-redux";
 import { LogoutUser } from "../../../redux/slices/AuthSlice";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ProfileList = (props: any) => {
   const { onPress } = props;
@@ -125,6 +126,7 @@ const ProfileList = (props: any) => {
         text: "OK",
         onPress: () => {
           dispatch(LogoutUser(null))
+          AsyncStorage.removeItem("@LA-USER",)
         },
       },
     ]);

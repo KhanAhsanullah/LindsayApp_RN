@@ -14,6 +14,7 @@ import { navigate } from "../../../navigation/RootNavigation";
 
 const Nutrition = () => {
   return (
+    <TouchableOpacity activeOpacity={0.9} onPress={() => navigate(SCREENS.NUTRITION_DETAIL)}>
     <ImageBackground
       source={IMAGES.Nutrition}
       style={{
@@ -22,7 +23,7 @@ const Nutrition = () => {
       }}
       resizeMode="cover"
     >
-      <View flex centerH style={{ marginTop: "50%" }}>
+      <View flex centerH style={{ marginTop: "55%",zIndex:1111111111 }}>
         <TouchableOpacity onPress={() => navigate(SCREENS.NUTRITION_DETAIL)}>
           <Typography
             color={theme.color.white}
@@ -41,6 +42,7 @@ const Nutrition = () => {
         </TouchableOpacity>
       </View>
     </ImageBackground>
+    </TouchableOpacity>
   );
 };
 export default Nutrition;

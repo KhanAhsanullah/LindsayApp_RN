@@ -14,8 +14,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = () => {
   const [hasValidated, setValidated] = useState(new Array(2).fill(true));
-  const [email, setEmail] = useState("testing@test.com");
-  const [passwordVal, setPasswordVal] = useState("test");
+  const [email, setEmail] = useState(__DEV__ ? "testing@test.com" : "");
+  const [passwordVal, setPasswordVal] = useState(__DEV__ ? "test" : "");
   const [password, setPassword] = useState(true);
   const dispatch = useDispatch();
 
