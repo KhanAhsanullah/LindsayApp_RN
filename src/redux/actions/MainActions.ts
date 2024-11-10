@@ -33,5 +33,23 @@ export const MainActions = {
       return apiCall.data?.response?.data;
     },
   ),
+  GetAllExcerciseCategory: createAsyncThunk(
+    'main/GetAllExcerciseCategory',
+    async (data, thunkApi) => {
+      let apiCall = await client.get(
+        endpoints.ExcerciseCategories,
+      );
+      return apiCall.data?.response?.data;
+    },
+  ),
+  GetAllExcercises: createAsyncThunk(
+    'main/GetAllExcercises',
+    async (data, thunkApi) => {
+      let apiCall = await client.get(
+        endpoints.ExcerciseCategories,
+      );
+      return apiCall.data?.response?.data;
+    },
+  ),
 
 };

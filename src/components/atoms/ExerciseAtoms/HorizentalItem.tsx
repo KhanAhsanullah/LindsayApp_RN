@@ -1,30 +1,27 @@
 import React, { useState } from "react";
-import {  FlatList, TouchableOpacity } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 import { Typography } from "../Typography";
 import { theme } from "../../../constants";
 
-const HorizentalItem = (props: any) => {
-  const [selectedId, setSelectedId] = useState(1)
-  const DATA = [
-    { id: 1, title: "Cardio" },
-    { id: 2, title: "Legs" },
-    { id: 3, title: "Back" },
-    { id: 4, title: "Chest" },
-  ];
+const HorizentalItem = ({ data = [], onSelect = (index: number) => { } }) => {
+  const [selectedId, setSelectedId] = useState(0)
 
   return (
     <FlatList
-      data={DATA}
-      renderItem={({ item }: any) => (
+      data={data}
+      renderItem={({ item, index }) => (
         <TouchableOpacity
-          onPress={() => setSelectedId(item.id)}
+          onPress={() => {
+            setSelectedId(index)
+            onSelect(index)
+          }}
           style={{
             borderRadius: 10,
             paddingVertical: 10,
             paddingHorizontal: 20,
             margin: 10,
             backgroundColor:
-              selectedId === item.id
+              selectedId === index
                 ? theme.color.primarybeta
                 : theme.color.secondry,
           }}
@@ -33,7 +30,7 @@ const HorizentalItem = (props: any) => {
             textType="semiBold"
             size={theme.fontSize.extraSmall12}
             color={
-              selectedId === item.id ? theme.color.white : theme.color.black
+              selectedId === index ? theme.color.white : theme.color.black
             }
           >
             {item.title}

@@ -9,8 +9,8 @@ const Workout = () => {
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
-      <ScrollView>
-      <WorkOutTamplet />
+      <ScrollView style={{ backgroundColor: "#ffff" }}>
+        <WorkOutTamplet />
       </ScrollView>
     </SafeAreaContainer>
   );

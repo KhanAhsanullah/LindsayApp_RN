@@ -4,14 +4,10 @@ import { View } from "react-native-ui-lib";
 import { Typography } from "../Typography";
 import { IMAGES, theme } from "../../../constants";
 
-const ExerciseDetailBottomView = (props: any) => {
-  const STATUS = [
-    { id: 1, title: "Level", status: "Beginner" },
-    { id: 1, title: "Category", status: "Cardio" },
-    { id: 1, title: "Weight", status: "Lose" },
-  ];
+const ExerciseDetailBottomView = ({ data }) => {
+
   return (
-   <>
+    <>
       <View row center marginV-20>
         <View row center>
           <Image
@@ -19,7 +15,7 @@ const ExerciseDetailBottomView = (props: any) => {
             style={{ width: 15, height: 15 }}
             resizeMode="contain"
           />
-          <Typography style={{ marginLeft: 10 }}>110 kcal</Typography>
+          <Typography style={{ marginLeft: 10 }}>{data?.work_calories} kcal</Typography>
         </View>
         <View
           style={{
@@ -36,28 +32,54 @@ const ExerciseDetailBottomView = (props: any) => {
             style={{ width: 15, height: 15 }}
             resizeMode="contain"
           />
-          <Typography style={{ marginLeft: 10 }}>10 min</Typography>
+          <Typography style={{ marginLeft: 10 }}>{data?.work_time} min</Typography>
         </View>
       </View>
       <View row center gap-30>
-        {STATUS.map((i) => (
-          <View center>
-            <Typography>{i.title}</Typography>
-            <View marginV-10
-              style={{
-            
-                borderRadius: 10,
-                paddingHorizontal: 20,
-                paddingVertical: 15,
-                backgroundColor: theme.color.inputTypeColor,
-              }}
-            >
-              <Typography textType="semiBold" fo>{i.status}</Typography>
-            </View>
+        <View center flex>
+          <Typography>{"Level"}</Typography>
+          <View marginV-10
+            style={{
+
+              borderRadius: 10,
+              paddingHorizontal: 20,
+              paddingVertical: 15,
+              backgroundColor: theme.color.inputTypeColor,
+            }}
+          >
+            <Typography textType="semiBold" size={theme.fontSize.extraSmall}>{data?.work_level}</Typography>
           </View>
-        ))}
+        </View>
+        <View center flex>
+          <Typography>{"Category"}</Typography>
+          <View marginV-10
+            style={{
+
+              borderRadius: 10,
+              paddingHorizontal: 20,
+              paddingVertical: 15,
+              backgroundColor: theme.color.inputTypeColor,
+            }}
+          >
+            <Typography textType="semiBold" size={theme.fontSize.extraSmall}>{data?.parent_category?.title}</Typography>
+          </View>
+        </View>
+        <View center flex>
+          <Typography>{"Weight"}</Typography>
+          <View marginV-10
+            style={{
+
+              borderRadius: 10,
+              paddingHorizontal: 20,
+              paddingVertical: 15,
+              backgroundColor: theme.color.inputTypeColor,
+            }}
+          >
+            <Typography textType="semiBold" size={theme.fontSize.extraSmall}>{data?.work_type}</Typography>
+          </View>
+        </View>
       </View>
-</>
+    </>
   );
 };
 export default ExerciseDetailBottomView;

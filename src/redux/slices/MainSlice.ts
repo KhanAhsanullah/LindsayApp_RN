@@ -5,7 +5,8 @@ import { MainActions } from '../actions/MainActions'
 
 const initialState: any = {
     categoryData: [],
-    AllCategoryData: []
+    AllCategoryData: [],
+    ExcerciseCategories: []
 }
 
 const MainSlice = createSlice({
@@ -26,6 +27,9 @@ const MainSlice = createSlice({
         })
         builder.addCase(MainActions.GetAllCategoryData.fulfilled, (state, action) => {
             state.AllCategoryData = action.payload
+        })
+        builder.addCase(MainActions.GetAllExcerciseCategory.fulfilled, (state, action) => {
+            state.ExcerciseCategories = action.payload
         })
 
     }
