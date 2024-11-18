@@ -5,11 +5,12 @@ import { StyleSheet } from "react-native";
 import { SCREENS, theme } from "../../../constants";
 import { navigate } from "../../../navigation/RootNavigation";
 
-const WorkoutBtn = () => {
+const WorkoutBtn = ({ onSkip, onPause, data, paused }) => {
   return (
     <View row center gap-20>
       <Button
-        label="Pause"
+        onPress={onPause}
+        label={paused ? "Resume" : "Pause"}
         backgroundColor={theme.color.primarybeta}
         style={styles.btnStyle}
       />
@@ -17,7 +18,10 @@ const WorkoutBtn = () => {
         label="Skip This"
         backgroundColor={theme.color.darkGray}
         style={styles.btnStyle}
-        onPress={()=>navigate(SCREENS.WORKOUT_RESULT)}
+        onPress={() => {
+          onSkip();
+          navigate(SCREENS.WORKOUT_RESULT, { data })
+        }}
       />
     </View>
   );
@@ -25,10 +29,10 @@ const WorkoutBtn = () => {
 
 const styles = StyleSheet.create({
   btnStyle: {
-    marginVertical:50,
+    marginVertical: 50,
     borderRadius: 10,
     height: 60,
-    flex:1
+    flex: 1
   },
 });
 export default WorkoutBtn;

@@ -21,6 +21,7 @@ import PaymentConfirm from "../screens/HomeScreen/SubscriptionScreen/PaymentConf
 import EditProfile from "../screens/HomeScreen/EditProfile";
 import Privacy from "../screens/HomeScreen/Privacy";
 import ChangePassword from "../screens/HomeScreen/ChangePassword";
+import Booking from "../screens/HomeScreen/Booking";
 
 const Stack = createStackNavigator();
 
@@ -64,7 +65,7 @@ const BottomTabNavigation = (props: any) => {
     >
       <Tab.Screen name={SCREENS.HOME} component={Home} />
       <Tab.Screen name={SCREENS.EXERCISE} component={Exercise} />
-      <Tab.Screen name={SCREENS.ZOOMCALL} component={ZoomCall} />
+      <Tab.Screen name={SCREENS.BOOKING} component={Booking} />
       <Tab.Screen name={SCREENS.NOTIFICATION} component={Notification} />
       <Tab.Screen name={SCREENS.PROFILE} component={Profile} />
     </Tab.Navigator>

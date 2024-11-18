@@ -51,5 +51,28 @@ export const MainActions = {
       return apiCall.data?.response?.data;
     },
   ),
+  GetAllAvailableDates: createAsyncThunk(
+    'main/GetAllAvailableDates',
+    async (data, thunkApi) => {
+      let apiCall = await client.get(
+        endpoints.Bookings(data?.date),
+      );
+      return apiCall.data?.response?.data;
+    },
+  ),
+  BookSlot: createAsyncThunk(
+    'main/BookSlot',
+    async (data, thunkApi) => {
+      thunkApi.dispatch(setLoading(true))
+      let apiCall = await client.post(
+        endpoints.BookSlot,
+        {
+          booking_id: data?.booking_id
+        }
+      );
+      thunkApi.dispatch(setLoading(false))
+      return apiCall.data?.response?.data;
+    },
+  ),
 
 };

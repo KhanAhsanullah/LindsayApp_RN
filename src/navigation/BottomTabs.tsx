@@ -40,13 +40,13 @@ const BottomTabs = (props: any) => {
           bottom: scale(0),
         }}
       >
-        <TouchableOpacity onPress={() => navigate(SCREENS.ZOOMCALL)}>
+        <TouchableOpacity style={{ justifyContent: "center", alignItems: 'center', }} onPress={() => navigate(SCREENS.BOOKING)}>
           <Image
             source={IMAGES.zoom}
             style={{ width: 55, height: 55, marginBottom: 20 }}
             resizeMode="cover"
           />
-          <Typography size={theme.fontSize.extraVSmall}>Zoom Call</Typography>
+          <Typography size={theme.fontSize.extraVSmall} >Book</Typography>
         </TouchableOpacity>
       </View>
     </View>

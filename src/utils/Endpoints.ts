@@ -12,5 +12,6 @@ export const endpoints = {
   FilterCategoryByTitle: (title: string) => 'category/list?filter_by_title=' + title,
   AllCategory: 'category/list?parent_id=eyJpdiI6ImNDT0g3M0Rxd25zdGJcL0lPU1hiUHNnPT0iLCJ2YWx1ZSI6IkcydkpXZlwvam1Ed3NDSGdEeGV5OHJ3PT0iLCJtYWMiOiJjY2FjYTI0M2MwN2UyZjA3NjJjNmM4NmZjNzExN2RhYjhkYjc0ODUwNGE0NTQ1M2UyNmU4MTRlZTg0NTA3ZjNiIn0=',
   ExcerciseCategories: 'work/list?is_parent=0',
-
+  Bookings: (date) => "booking/list?filter_by_date=" + date,
+  BookSlot:"booking/user/add"
 };
