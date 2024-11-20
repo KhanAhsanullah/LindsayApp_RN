@@ -29,7 +29,7 @@ const WorkOutTamplet = () => {
 
   useEffect(() => {
     if (paused == false)
-      startTime(false);
+      startTime(true, data);
     return () => {
       clearInterval(timer.current);
     }
@@ -38,29 +38,29 @@ const WorkOutTamplet = () => {
 
   useEffect(() => {
     const tseconds = 10//data?.work_time * 60;
-    if (!params?.list[nextIndex]) {
+    if (seconds == tseconds) {
+
       clearInterval(timer.current);
       setSeconds(0)
-      navigate(SCREENS.WORKOUT_RESULT, { data: summary })
-    }
-    else {
-      if (seconds == tseconds) {
-        clearInterval(timer.current);
-        setSeconds(0)
-        setNextIndex(pre => {
-          setData(params?.list[pre + 1])
-          return pre + 1
-        })
-        setTimeout(() => {
-          startTime()
-        }, 100)
-      }
+      setNextIndex(pre => {
+        if (!params?.list[pre + 1]) {
+          navigate(SCREENS.WORKOUT_RESULT, { data: summary })
+        }
+        else {
+          setTimeout(() => {
+            startTime(true, params?.list[pre + 1])
+          }, 100)
+        }
+        setData(params?.list[pre + 1])
+        return pre + 1
+      })
+
     }
   }, [seconds])
 
-  const startTime = (Isfirst = true) => {
+  const startTime = (Isfirst = true, dt) => {
     if (Isfirst)
-      setSummary({ ...summary, excercises: summary.excercises + data?.title + ",", sets: summary?.sets ? parseInt(summary?.sets) + parseInt(data?.work_sets) : parseInt(data?.work_sets) })
+      setSummary({ ...summary, excercises: summary.excercises + dt?.title + ",", sets: summary?.sets ? parseInt(summary?.sets) + parseInt(dt?.work_sets) : parseInt(dt?.work_sets) })
 
 
     timer.current = setInterval(() => {

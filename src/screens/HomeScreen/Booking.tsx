@@ -7,12 +7,13 @@ import HeaderHome from "../../components/atoms/HomeAtoms/HeaderHome";
 import DrawerTitle from "../../components/atoms/DrawerTitle";
 import ChangePassData from "../../components/molecules/ChangePassMOI/ChangePassData";
 import { Calendar } from "react-native-calendars";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MainActions } from "../../redux/actions/MainActions";
 import { showHideToast } from "../../redux/slices/OtherSlice";
 import { FlatList } from "react-native-gesture-handler";
 import { SCREEN_WIDTH } from "../../utils/Constants";
 import { Typography } from "../../components/atoms/Typography";
+import { States } from "../../utils/types";
 
 const Booking = () => {
 
@@ -20,13 +21,19 @@ const Booking = () => {
     const [selectedBookDate, setSelectedBookDate] = useState(null);
     const [loading, setLoading] = useState(false);
     const [slots, setSlots] = useState([]);
+    const { user } = useSelector((state: States) => state.Auth);
+
     const dispatch = useDispatch();
+
 
     const GetBookings = async (date) => {
         await dispatch(MainActions.GetAllAvailableDates({ date })).then((v) => {
             let status = v.meta.requestStatus;
             if (status == "fulfilled") {
-                setSlots(v?.payload)
+                setSlots(v?.payload?.filter(f => Object.entries(f?.booking_details)?.length == 0))
+                // console.warn(v?.payload[0]?.booking_details?.id)
+                // console.warn(v?.payload?.find(f => f.booking_details?.id == user?.id))
+                //setSelectedBookDate(v?.payload.find())
                 // dispatch(showHideToast({
                 //     visible: true,
                 //     message: "Slot has been booked successfully",
@@ -41,6 +48,9 @@ const Booking = () => {
         await dispatch(MainActions.BookSlot({ booking_id: selectedBookDate })).then((v) => {
             let status = v.meta.requestStatus;
             if (status == "fulfilled") {
+                setSlots(prev => {
+                    return [...prev].filter(f => f.id != selectedBookDate)
+                })
                 dispatch(showHideToast({
                     visible: true,
                     message: "Slot has been booked successfully",
@@ -75,6 +85,7 @@ const Booking = () => {
         <SafeAreaContainer safeArea={false}>
             <HeaderHome color={theme.color.primary} />
             <Calendar
+                minDate={new Date().toISOString()}
                 markedDates={{
                     [selectedDate]: { selected: true, selectedColor: theme.color.primary },
                 }}

@@ -30,7 +30,7 @@ const HomeScreen = () => {
     <>
       <HealthCoachingHome />
       <Nutrition />
-      <View absH style={{ top: "25%", left: 0, right: 0 }}>
+      <View absH style={{ top: "25%", left: 0, right: 0,borderBottomLeftRadius:1000,borderTopRightRadius:1000 }}>
         <Fitness />
       </View>
       <HeaderHome color={theme.color.white} headerBkColor={"rgba(0,0,0,0)"} abs />
