@@ -6,7 +6,7 @@ import {
   Image,
   Alert,
 } from "react-native";
-import { Switch, View } from "react-native-ui-lib";
+import { Switch, ToastPresets, View } from "react-native-ui-lib";
 import { Typography } from "../Typography";
 import { IMAGES, SCREENS, theme } from "../../../constants";
 import { commonStyles } from "../../../globalStyle";
@@ -14,6 +14,8 @@ import { navigate } from "../../../navigation/RootNavigation";
 import { useDispatch } from "react-redux";
 import { LogoutUser } from "../../../redux/slices/AuthSlice";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { MainActions } from "../../../redux/actions/MainActions";
+import { showHideToast } from "../../../redux/slices/OtherSlice";
 
 const ProfileList = (props: any) => {
   const { onPress } = props;
@@ -66,8 +68,8 @@ const ProfileList = (props: any) => {
           item.id === 5
             ? deleteAccount()
             : item.navigateTo
-              ? navigate(item.navigateTo, item.params)
-              : logoutAlert()
+            ? navigate(item.navigateTo, item.params)
+            : logoutAlert()
         }
       >
         <View row marginV-20>
@@ -103,13 +105,30 @@ const ProfileList = (props: any) => {
     Alert.alert("Delete Account", "Do you want to delete your account?", [
       {
         text: "Cancel",
-        onPress: null,
+        onPress: () => {},
         style: "cancel",
       },
       {
         text: "OK",
-        onPress: () => {
-
+        onPress: async () => {
+          try {
+            await dispatch(MainActions.DeleteAccount()).then((v) => {
+              let status = v.meta.requestStatus;
+              if (status == "fulfilled") {
+                console.log(v?.payload);
+                dispatch(
+                  showHideToast({
+                    visible: true,
+                    message:
+                     v?.payload?.messages,
+                    preset: ToastPresets.FAILURE,
+                  })
+                );
+                dispatch(LogoutUser(null));
+                AsyncStorage.removeItem("@LA-USER");
+              }
+            });
+          } catch (error) {}
         },
       },
     ]);
@@ -125,8 +144,8 @@ const ProfileList = (props: any) => {
       {
         text: "OK",
         onPress: () => {
-          dispatch(LogoutUser(null))
-          AsyncStorage.removeItem("@LA-USER",)
+          dispatch(LogoutUser(null));
+          AsyncStorage.removeItem("@LA-USER");
         },
       },
     ]);
