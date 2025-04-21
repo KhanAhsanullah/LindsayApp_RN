@@ -3,8 +3,10 @@ import { store } from './src/redux/store';
 import { Provider } from 'react-redux';
 import MainNavigation from './src/navigation/MainNavigation';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AddMood from './src/screens/HomeScreen/AddMood';
 
 const App = () => {
+
   return (
     <GestureHandlerRootView>
       <Provider store={store}>

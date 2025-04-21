@@ -22,6 +22,10 @@ import EditProfile from "../screens/HomeScreen/EditProfile";
 import Privacy from "../screens/HomeScreen/Privacy";
 import ChangePassword from "../screens/HomeScreen/ChangePassword";
 import Booking from "../screens/HomeScreen/Booking";
+import AddDiet from "../screens/HomeScreen/AddDiet";
+import Diet from "../screens/HomeScreen/Diet";
+import AddMood from "../screens/HomeScreen/AddMood";
+import Mood from "../screens/HomeScreen/Moods";
 
 const Stack = createStackNavigator();
 
@@ -50,6 +54,10 @@ const AppNavigator = () => {
       <Stack.Screen name={SCREENS.EDIT_PROFILE} component={EditProfile} />
       <Stack.Screen name={SCREENS.CHANGE_PASS} component={ChangePassword} />
       <Stack.Screen name={SCREENS.PRIVACY} component={Privacy} />
+      <Stack.Screen name={SCREENS.ADD_DIET} component={AddDiet} />
+      <Stack.Screen name={SCREENS.DIET} component={Diet} />
+      <Stack.Screen name={SCREENS.ADD_MOOD} component={AddMood} />
+      <Stack.Screen name={SCREENS.MOOD} component={Mood} />
     </Stack.Navigator>
   );
 };

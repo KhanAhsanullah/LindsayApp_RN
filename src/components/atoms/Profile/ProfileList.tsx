@@ -34,6 +34,8 @@ const ProfileList = (props: any) => {
       navigateTo: SCREENS.CHANGE_PASS,
     },
     { id: 2, title: "Notifications", image: IMAGES.pr2, navigateTo: "" },
+    { id: 2, title: "Diet Plan", image: IMAGES.pr2, navigateTo: SCREENS.DIET },
+    { id: 2, title: "Moods", image: IMAGES.pr2, navigateTo: SCREENS.MOOD },
     {
       id: 3,
       title: "Subscription",
@@ -66,8 +68,8 @@ const ProfileList = (props: any) => {
           item.id === 5
             ? deleteAccount()
             : item.navigateTo
-              ? navigate(item.navigateTo, item.params)
-              : logoutAlert()
+            ? navigate(item.navigateTo, item.params)
+            : logoutAlert()
         }
       >
         <View row marginV-20>
@@ -108,9 +110,7 @@ const ProfileList = (props: any) => {
       },
       {
         text: "OK",
-        onPress: () => {
-
-        },
+        onPress: () => {},
       },
     ]);
   };
@@ -125,8 +125,8 @@ const ProfileList = (props: any) => {
       {
         text: "OK",
         onPress: () => {
-          dispatch(LogoutUser(null))
-          AsyncStorage.removeItem("@LA-USER",)
+          dispatch(LogoutUser(null));
+          AsyncStorage.removeItem("@LA-USER");
         },
       },
     ]);
