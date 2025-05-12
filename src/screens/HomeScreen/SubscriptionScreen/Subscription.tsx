@@ -15,13 +15,13 @@ const Subscription = () => {
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
-      <View marginH-20 marginV-10>
+      {/* <View marginH-20 marginV-10>
         <DrawerTitle title={"Subscription"} />
-      </View>
+      </View> */}
       <View style={[commonStyles.footerContainer,{paddingTop:40,}]}>
         <SubscriptionPackages />
         <CustomBtn label="Subscribe" onPress={()=>navigate(SCREENS.PAYMENT_METHOD)}/>
-        <Typography align="center" style={{marginVertical:20}}>Cancel</Typography>
+        {/* <Typography align="center" style={{marginVertical:20}}>Cancel</Typography> */}
       </View>
     </SafeAreaContainer>
   );

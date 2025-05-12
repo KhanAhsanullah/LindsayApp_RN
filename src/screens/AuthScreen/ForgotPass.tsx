@@ -64,7 +64,7 @@ const ForgotPass = () => {
             />
 
             <View marginV-40>
-              <CustomBtn label="Forget Password" onPress={() => Forgot()} />
+              <CustomBtn label="Forgot Password" onPress={() => Forgot()} />
             </View>
           </View>
         </View>

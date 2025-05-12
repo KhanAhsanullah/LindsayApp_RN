@@ -1,8 +1,8 @@
-import {ReactNode} from 'react';
-import {Dimensions} from 'react-native';
-import {SCREENS} from './ScreenNames';
-import {navigate} from '../navigation/RootNavigation';
-import {IMAGES} from '.';
+import { ReactNode } from "react";
+import { Dimensions } from "react-native";
+import { SCREENS } from "./ScreenNames";
+import { navigate } from "../navigation/RootNavigation";
+import { IMAGES } from ".";
 interface Tab {
   key: number;
   title: string;
@@ -11,19 +11,19 @@ interface Tab {
   imageActive: ReactNode;
   vector: string;
 }
-const {height, width} = Dimensions.get('screen');
+const { height, width } = Dimensions.get("screen");
 
 export const SCREEN_HEIGHT = height;
 export const SCREEN_WIDTH = width;
 
-const fontRegularName = 'Poppins';
+const fontRegularName = "Poppins";
 
 export const theme = {
   font: {
-    regular: fontRegularName + '-Regular',
-    semibold: fontRegularName + '-SemiBold',
-    bold: fontRegularName + '-Bold',
-    medium: fontRegularName + '-Medium',
+    regular: fontRegularName + "-Regular",
+    semibold: fontRegularName + "-SemiBold",
+    bold: fontRegularName + "-Bold",
+    medium: fontRegularName + "-Medium",
   },
   fontSize: {
     tiny: 8,
@@ -41,19 +41,18 @@ export const theme = {
     extraLarge: 28,
   },
   color: {
-    primary: '#AC73FF',
-    primarybeta:'#ACA8FF',
-    secondry:'#6969691A',
-    cyan:'#9DE5FF',
-    tgray: '#7C8BA0',
-    descColor:'#8C8C8C',
-    inputTypeColor:'#F5F9FE',
-    darkGray:'#454857',
-  
-    divider: '#E6E8EE',
-    black: '#000',
-    white: '#fff',
-  
+    primary: "#67AE6E",
+    primarybeta: "#67AE6E",
+    secondry: "#6969691A",
+    cyan: "#9DE5FF",
+    tgray: "#7C8BA0",
+    descColor: "#8C8C8C",
+    inputTypeColor: "#F5F9FE",
+    darkGray: "#454857",
+
+    divider: "#E6E8EE",
+    black: "#000",
+    white: "#fff",
   },
 };
 
@@ -61,7 +60,7 @@ export const CheckIfValid = (
   index: number,
   isValid: boolean,
   state: boolean[],
-  setState: React.Dispatch<React.SetStateAction<boolean[]>>,
+  setState: React.Dispatch<React.SetStateAction<boolean[]>>
 ) => {
   const copy = [...state];
   copy[index] = isValid;
@@ -71,33 +70,32 @@ export const CheckIfValid = (
 export const BOTTOMTABS = [
   {
     key: 0,
-    title: "Home",
-    navigateTo: SCREENS.HOME,
-    image: IMAGES.home,
+    title: "Health",
+    navigateTo: SCREENS.HEALTH_COACHING,
+    image: require("../assets/images/health.png"),
   },
   {
     key: 1,
-    title: "Exercise",
-    navigateTo: SCREENS.EXERCISE,
-    image: IMAGES.gym,
+    title: "Fitness",
+    navigateTo: SCREENS.FITNESS_DETAIL,
+    image: require("../assets/images/fit.png"),
   },
   {
     key: 2,
-    title: "",
-    navigateTo: '',
-    image: '',
+    title: "Nutrition",
+    navigateTo: SCREENS.NUTRITION_DETAIL,
+    image: require("../assets/images/nutri.png"),
   },
-  
   {
     key: 3,
-    title: "Notification",
-    navigateTo: SCREENS.NOTIFICATION,
-    image: IMAGES.notification,
+    title: "Pricing",
+    navigateTo: SCREENS.SUBSCRIPTION,
+    image: require("../assets/images/pricing.png"),
   },
   {
     key: 4,
-    title: "Profile",
+    title: "Account",
     navigateTo: SCREENS.PROFILE,
-    image: IMAGES.user,
+    image: require("../assets/images/account.png"),
   },
 ];

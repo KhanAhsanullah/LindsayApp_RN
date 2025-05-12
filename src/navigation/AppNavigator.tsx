@@ -40,15 +40,15 @@ const AppNavigator = () => {
       <Stack.Screen name={SCREENS.EXERCISE_DETAIL} component={ExerciseDetail} />
       <Stack.Screen name={SCREENS.WORKOUT} component={Workout} />
       <Stack.Screen name={SCREENS.WORKOUT_RESULT} component={WorkoutResult} />
-      <Stack.Screen name={SCREENS.HEALTH_COACHING} component={HealthCoaching} />
-      <Stack.Screen name={SCREENS.FITNESS_DETAIL} component={FitnessDetail} />
-      <Stack.Screen
+      {/* <Stack.Screen name={SCREENS.HEALTH_COACHING} component={HealthCoaching} /> */}
+      {/* <Stack.Screen name={SCREENS.FITNESS_DETAIL} component={FitnessDetail} /> */}
+      {/* <Stack.Screen
         name={SCREENS.NUTRITION_DETAIL}
         component={NutrtionDetail}
-      />
+      /> */}
       <Stack.Screen name={SCREENS.GOAL_DETAILS} component={GoalDetails} />
 
-      <Stack.Screen name={SCREENS.SUBSCRIPTION} component={Subscription} />
+      {/* <Stack.Screen name={SCREENS.SUBSCRIPTION} component={Subscription} /> */}
       <Stack.Screen name={SCREENS.PAYMENT_METHOD} component={PaymentMethod} />
       <Stack.Screen name={SCREENS.PAYMENT_CONFIRM} component={PaymentConfirm} />
       <Stack.Screen name={SCREENS.EDIT_PROFILE} component={EditProfile} />
@@ -67,14 +67,22 @@ const BottomTabNavigation = (props: any) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={SCREENS.HOME}
+      initialRouteName={SCREENS.HEALTH_COACHING}
       tabBar={(e: any) => <BottomTabs {...e} {...props} />}
       screenOptions={{ headerShown: false }}
     >
-      <Tab.Screen name={SCREENS.HOME} component={Home} />
-      <Tab.Screen name={SCREENS.EXERCISE} component={Exercise} />
-      <Tab.Screen name={SCREENS.BOOKING} component={Booking} />
-      <Tab.Screen name={SCREENS.NOTIFICATION} component={Notification} />
+      <Tab.Screen
+        name={SCREENS.HEALTH_COACHING}
+        component={HealthCoaching}
+        initialParams={{ index: 0 }}
+      />
+      <Tab.Screen
+        name={SCREENS.FITNESS_DETAIL}
+        component={HealthCoaching}
+        initialParams={{ index: 1 }}
+      />
+      <Tab.Screen name={SCREENS.NUTRITION_DETAIL} component={NutrtionDetail} />
+      <Tab.Screen name={SCREENS.SUBSCRIPTION} component={Subscription} />
       <Tab.Screen name={SCREENS.PROFILE} component={Profile} />
     </Tab.Navigator>
   );

@@ -16,12 +16,12 @@ const HomeDetailTopView = ({data}: any) => {
       style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT*0.5 }}
       resizeMode="cover"
     >
-      <TouchableOpacity onPress={() => onBack()}>
+      {/* <TouchableOpacity onPress={() => onBack()}>
         <Image
           source={IMAGES.leftIconWithColor}
           style={{ width: 30, height: 30, margin: 20,marginTop:70 }}
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </ImageBackground>
   );
 };

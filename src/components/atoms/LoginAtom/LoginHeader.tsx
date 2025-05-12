@@ -23,7 +23,7 @@ const LoginHeader = () => {
         >
           Sign In
         </Typography>
-        <Typography
+        {/* <Typography
           align="center"
           style={{ marginVertical: 20 }}
           size={theme.fontSize.small}
@@ -31,7 +31,7 @@ const LoginHeader = () => {
         >
           As a Nationally Board Certified Health and Wellness Coach, Elite
           Personal Trainer, In
-        </Typography>
+        </Typography> */}
       </View>
     </>
   );

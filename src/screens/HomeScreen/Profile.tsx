@@ -12,7 +12,7 @@ const Profile = () => {
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
       <View marginH-20 marginV-10>
-        <DrawerTitle title={"My Profile"} />
+        {/* <DrawerTitle title={"My Profile"} /> */}
       </View>
       <ProfileData />
     </SafeAreaContainer>

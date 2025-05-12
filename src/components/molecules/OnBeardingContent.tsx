@@ -42,7 +42,7 @@ export const OnBeardingContent = (props: any) => {
           marginV-20
           style={[commonStyles.lineBar, { borderColor: theme.color.white, borderWidth: 0.4 }]}
         />
-        <Typography
+        {/* <Typography
           textType="semiBold"
           align="center"
           size={theme.fontSize.medium}
@@ -50,7 +50,7 @@ export const OnBeardingContent = (props: any) => {
         >
           As a Nationally Board Certified Health and Wellness Coach, Elite
           Personal Trainer,
-        </Typography>
+        </Typography> */}
       </Animated.View>
       {
         loading ?

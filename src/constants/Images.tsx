@@ -49,6 +49,8 @@ export const IMAGES = {
   pr4: require("../assets/images/pr4.png"),
   pr5: require("../assets/images/pr5.png"),
   pr6: require("../assets/images/pr6.png"),
+  pr7: require("../assets/images/pr7.png"),
+  pr8: require("../assets/images/pr8.png"),
   profileImg: require("../assets/images/profileImg.png"),
   rightIcon: require("../assets/images/rightIcon.png"),
   

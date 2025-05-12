@@ -48,7 +48,7 @@ const NutrtionTopView = (props: any) => {
       </View>
       <TouchableOpacity onPress={() => onBack()}>
         <Image
-          source={IMAGES.leftIconWithColor}
+         // source={IMAGES.leftIconWithColor}
           style={{
             width: 30,
             height: 30,

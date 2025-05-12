@@ -34,14 +34,14 @@ const ProfileList = (props: any) => {
       navigateTo: SCREENS.CHANGE_PASS,
     },
     { id: 2, title: "Notifications", image: IMAGES.pr2, navigateTo: "" },
-    { id: 2, title: "Diet Plan", image: IMAGES.pr2, navigateTo: SCREENS.DIET },
-    { id: 2, title: "Moods", image: IMAGES.pr2, navigateTo: SCREENS.MOOD },
-    {
-      id: 3,
-      title: "Subscription",
-      image: IMAGES.pr3,
-      navigateTo: SCREENS.SUBSCRIPTION,
-    },
+    { id: 2, title: "Diet Plan", image: IMAGES.pr7, navigateTo: SCREENS.DIET },
+    { id: 2, title: "Moods", image: IMAGES.pr8, navigateTo: SCREENS.MOOD },
+    // {
+    //   id: 3,
+    //   title: "Subscription",
+    //   image: IMAGES.pr3,
+    //   navigateTo: SCREENS.SUBSCRIPTION,
+    // },
     // { id: 4, title: "Order Placed", image: IMAGES.pr4, navigateTo: "" },
     {
       id: 7,

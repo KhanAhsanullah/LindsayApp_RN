@@ -80,7 +80,7 @@ const LoginScreen = () => {
         />
         <TouchableOpacity onPress={() => navigate(SCREENS.FORGOT)}>
           <Typography align="right" color={theme.color.tgray}>
-            Forget Password?
+            Forgot Password?
           </Typography>
         </TouchableOpacity>
         <View marginV-40>

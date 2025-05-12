@@ -15,7 +15,7 @@ const BottomTabs = (props: any) => {
         return (
           <TouchableOpacity
             style={styles.tabView}
-            onPress={() => navigate(i.navigateTo)}
+            onPress={() => navigate(i.navigateTo, { index: i.key })}
           >
             <Image
               source={i.image}
@@ -27,11 +27,13 @@ const BottomTabs = (props: any) => {
               }}
               resizeMode="contain"
             />
-            <Typography size={theme.fontSize.extraVSmall}>{i.title}</Typography>
+            <Typography size={theme.fontSize.extraVSmall} align="center">
+              {i.title}
+            </Typography>
           </TouchableOpacity>
         );
       })}
-      <View
+      {/* <View
         style={{
           position: "absolute",
           top: scale(-25),
@@ -48,7 +50,7 @@ const BottomTabs = (props: any) => {
           />
           <Typography size={theme.fontSize.extraVSmall} >Book</Typography>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 };

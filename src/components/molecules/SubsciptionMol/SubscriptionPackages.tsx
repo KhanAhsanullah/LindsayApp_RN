@@ -53,7 +53,7 @@ const SubscriptionPackages = () => {
     <FlatList
       data={SUBSCRIPTION_ITEM}
       renderItem={({ item }) => <SubscriptionCard item={item} />}
-      keyExtractor={(item) => item.id.toString()} 
+      // keyExtractor={(item) => item?.id} 
       showsHorizontalScrollIndicator={false}
     />
   );

@@ -55,7 +55,7 @@ const SignUpFields = () => {
         >
           Sign Up
         </Typography>
-        <Typography
+        {/* <Typography
           align="center"
           size={theme.fontSize.small}
           textType="semiBold"
@@ -63,7 +63,7 @@ const SignUpFields = () => {
         >
           As a Nationally Board Certified Health and Wellness Coach, Elite
           Personal Trainer, In
-        </Typography>
+        </Typography> */}
       </View>
       <View margin-20>
         <InputText
