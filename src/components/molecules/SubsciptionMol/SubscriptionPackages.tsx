@@ -10,18 +10,23 @@ const SubscriptionPackages = () => {
   const SUBSCRIPTION_ITEM = [
     {
       id: 1,
-      title: "Per Horse Per Month",
+      title: "Package 1",
       price: "$10",
     },
     {
       id: 2,
-      title: "Unlimited Horses Per Month",
+      title: "Package 2",
       price: "$50",
     },
     {
       id: 3,
-      title: "Unlimited Horses Per Month",
+      title: "Package 3",
       price: "$100",
+    },
+    {
+      id: 4,
+      title: "Package 4",
+      price: "$300",
     },
   ];
 

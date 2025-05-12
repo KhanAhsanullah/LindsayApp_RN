@@ -32,7 +32,7 @@ const CategoriesComp: React.FC<CategoriesCompProps> = ({
         >
           <Image
             source={selectedId === goal.id ? IMAGES.click : IMAGES.circle}
-            style={{ width: 20, height: 20 }}
+            style={{ width: 20, height: 20,tintColor:theme.color.primary }}
             resizeMode="contain"
           />
           <Typography style={{ marginLeft: 10 }}>{goal.title}</Typography>

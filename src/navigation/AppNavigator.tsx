@@ -58,6 +58,7 @@ const AppNavigator = () => {
       <Stack.Screen name={SCREENS.DIET} component={Diet} />
       <Stack.Screen name={SCREENS.ADD_MOOD} component={AddMood} />
       <Stack.Screen name={SCREENS.MOOD} component={Mood} />
+      <Stack.Screen name={SCREENS.BOOKING} component={Booking} />
     </Stack.Navigator>
   );
 };

@@ -7,9 +7,12 @@ import NutrtionTopView from "../../atoms/HomeAtoms/NutrtionTopView";
 import NutritionOrg from "../../organisms/NutritionOrg";
 import NutrationMol from "../../molecules/NutrationMol/NutrationMol";
 import { useSelector } from "react-redux";
+import { CustomBtn } from "../../atoms/OnBoardingAtoms/OnBeardingBottomBtn";
+import { navigate } from "../../../navigation/RootNavigation";
+import { SCREENS } from "../../../constants";
 
 const NutritionTamplet = () => {
-  const { AllCategoryData } = useSelector(state => state.Main)
+  const { AllCategoryData } = useSelector((state) => state.Main);
 
   return (
     <>
