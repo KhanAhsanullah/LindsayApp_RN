@@ -11,11 +11,10 @@ export const CustomBtn = (props: any) => {
         onPress={onPress}
         width={width}
         height={height}
-        style={[style,{
+        style={[{
           paddingVertical:15,
-     
           borderRadius:10
-        }]}
+        },style]}
       />
   );
 };

@@ -10,23 +10,34 @@ const SubscriptionPackages = () => {
   const SUBSCRIPTION_ITEM = [
     {
       id: 1,
-      title: "Package 1",
-      price: "$10",
+      title: `"Reset & Refocus" – 1 Month Starter Package`,
+      price: "$375 (value = $380 — small incentive to commit)",
+      description: `Perfect for: New clients looking for a short-term jumpstart or trial of coaching.
+•	1 x 60-minute initial consultation
+•	3 x 35-minute weekly follow-up sessions
+•	Unlimited text/email support between sessions
+•	Personalized action plan`,
     },
     {
       id: 2,
-      title: "Package 2",
-      price: "$50",
+      title: ` "Momentum Builder" – 3 Month Coaching Package`,
+      price: "$1,095 (value = $1,160 – save $65)",
+      description:`Perfect for: Clients ready to build sustainable habits and see meaningful change over 90 days.
+•	1 x 60-minute initial consultation
+•	9 x 35-minute weekly follow-up sessions (3/month)
+•	Unlimited text/email support
+•	Nutrition and movement suggestions`
     },
     {
       id: 3,
-      title: "Package 3",
-      price: "$100",
-    },
-    {
-      id: 4,
-      title: "Package 4",
-      price: "$300",
+      title: `"Total Transformation" – 6 Month Premium Coaching Plan`,
+      price: "$2,050 (value = $2,240 – save $190)",
+      description:`Perfect for: Clients committed to long-term transformation and accountability.
+•	1 x 60-minute initial consultation
+•	18 x 35-minute follow-ups (3/month)
+•	Unlimited text/email support
+•	Nutrition and movement integration support
+•	Priority scheduling`
     },
   ];
 
@@ -35,14 +46,17 @@ const SubscriptionPackages = () => {
     return (
       <TouchableOpacity
         style={[styles.cardStyle, isSelected && styles.selectedCard]}
-        onPress={() => setSelectedId(item.id)} 
+        onPress={() => setSelectedId(item.id)}
       >
         <View style={styles.cardContent}>
-          <Typography textType="bold" size={theme.fontSize.large}>
+          <Typography textType="semiBold">{item.title}</Typography>
+          
+          <Typography size={theme.fontSize.extraSmall}>{item.description}</Typography>
+          <Typography textType="medium">
             {item.price}
           </Typography>
-          <Typography>{item.title}</Typography>
         </View>
+        
         {isSelected && (
           <Image
             source={IMAGES.click}
@@ -58,7 +72,7 @@ const SubscriptionPackages = () => {
     <FlatList
       data={SUBSCRIPTION_ITEM}
       renderItem={({ item }) => <SubscriptionCard item={item} />}
-      // keyExtractor={(item) => item?.id} 
+      // keyExtractor={(item) => item?.id}
       showsHorizontalScrollIndicator={false}
     />
   );
@@ -70,16 +84,17 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: theme.color.inputTypeColor,
     marginVertical: 10,
-    flexDirection: 'row',
-    alignItems: 'center', 
-    borderWidth: 1, 
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
     borderColor: theme.color.inputTypeColor,
   },
   selectedCard: {
-    borderColor:theme.color.primary,
+    borderColor: theme.color.primary,
   },
   cardContent: {
-    flex: 1, 
+    flex: 1,
+    gap:10
   },
   iconStyle: {
     width: 20,

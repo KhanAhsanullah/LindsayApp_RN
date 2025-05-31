@@ -13,7 +13,7 @@ const HomeDetailTopView = ({data}: any) => {
   return (
     <ImageBackground
       source={{uri:data?.image_urls}}
-      style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT*0.5 }}
+      style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT*0.4 }}
       resizeMode="cover"
     >
       {/* <TouchableOpacity onPress={() => onBack()}>

@@ -49,7 +49,7 @@ const HealthItem = ({ data,content }: any) => {
       />
       <CategoriesComp goals={selected?.content_list} />
 
-      {content.map((detail) => (
+      {/* {content.map((detail) => (
         <TouchableOpacity
           key={detail.id}
           onPress={() => navigate(SCREENS.GOAL_DETAILS)}
@@ -71,7 +71,7 @@ const HealthItem = ({ data,content }: any) => {
             />
           </View>
         </TouchableOpacity>
-      ))}
+      ))} */}
 
     </View>
   );

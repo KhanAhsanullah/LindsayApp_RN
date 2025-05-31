@@ -120,14 +120,14 @@ export const commonStyles = StyleSheet.create({
     // borderWidth:0.3,
     borderColor: theme.color.descColor,
     backgroundColor:theme.color.white,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.29,
+    // shadowRadius: 4.65,
+    // elevation: 7,
   },
   outerCircle: {
     width: 20,
