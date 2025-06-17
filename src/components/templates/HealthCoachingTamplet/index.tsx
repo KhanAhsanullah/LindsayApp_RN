@@ -35,11 +35,11 @@ const HealthCoachingTamplet = () => {
               backgroundColor: theme.color.primary,
               borderBottomEndRadius: 10,
               borderBottomStartRadius: 10,
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              zIndex: 11111111,
+              // position: "absolute",
+              // top: 0,
+              // left: 0,
+              // right: 0,
+              // zIndex: 11111111,
             }}
           >
             <Typography
