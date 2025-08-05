@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FlatList, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { View } from "react-native-ui-lib";
+import { useDispatch, useSelector } from "react-redux";
 import { theme } from "../../../constants";
 import { Typography } from "../../atoms/Typography";
 import { IMAGES } from "../../../constants";
+import { MainActions } from "../../../redux/actions/MainActions";
+import { setSelectedPackageId } from "../../../redux/slices/MainSlice";
 
 const SubscriptionPackages = () => {
-  const [selectedId, setSelectedId] = useState(1);
-  const SUBSCRIPTION_ITEM = [
+  const dispatch = useDispatch<any>();
+  const { subscriptionPackages, selectedPackageId } = useSelector((state: any) => state.Main);
+  
+  // Static data as fallback - keeping the existing data structure
+  const STATIC_SUBSCRIPTION_ITEMS = [
     {
       id: 1,
       title: `"Reset & Refocus" – 1 Month Starter Package`,
@@ -41,12 +47,32 @@ const SubscriptionPackages = () => {
     },
   ];
 
-  const SubscriptionCard = ({ item }: any) => {
-    const isSelected = item.id === selectedId;
+  // Set initial selected ID
+  const [localSelectedId, setLocalSelectedId] = useState(selectedPackageId || null);
+
+  useEffect(() => {
+    // Fetch subscription packages from API
+    dispatch(MainActions.GetSubscriptionPackages());
+  }, [dispatch]);
+
+  useEffect(() => {
+    // Update local state when Redux state changes
+    if (selectedPackageId !== null) {
+      setLocalSelectedId(selectedPackageId);
+    }
+  }, [selectedPackageId]);
+
+  const handlePackageSelection = (id: number) => {
+    setLocalSelectedId(id);
+    dispatch(setSelectedPackageId(id));
+  };
+
+  const SubscriptionCard = ({ item,index }: any) => {
+    const isSelected = subscriptionPackages[index].id === localSelectedId;
     return (
       <TouchableOpacity
         style={[styles.cardStyle, isSelected && styles.selectedCard]}
-        onPress={() => setSelectedId(item.id)}
+        onPress={() => handlePackageSelection(subscriptionPackages[index].id)}
       >
         <View style={styles.cardContent}>
           <Typography textType="semiBold">{item.title}</Typography>
@@ -70,9 +96,9 @@ const SubscriptionPackages = () => {
 
   return (
     <FlatList
-      data={SUBSCRIPTION_ITEM}
-      renderItem={({ item }) => <SubscriptionCard item={item} />}
-      // keyExtractor={(item) => item?.id}
+      data={STATIC_SUBSCRIPTION_ITEMS}
+      renderItem={({ item,index }) => <SubscriptionCard item={item} index={index} />}
+      keyExtractor={(item) => item?.id?.toString()}
       showsHorizontalScrollIndicator={false}
     />
   );

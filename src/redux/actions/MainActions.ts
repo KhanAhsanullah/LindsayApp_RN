@@ -43,12 +43,12 @@ export const MainActions = {
   ),
   GetAllAvailableDates: createAsyncThunk(
     "main/GetAllAvailableDates",
-    async (data, thunkApi) => {
+    async (data: { date: string }, thunkApi) => {
       let apiCall = await client.get(endpoints.Bookings(data?.date));
       return apiCall.data?.response?.data;
     }
   ),
-  BookSlot: createAsyncThunk("main/BookSlot", async (data, thunkApi) => {
+  BookSlot: createAsyncThunk("main/BookSlot", async (data: { booking_id: string }, thunkApi) => {
     thunkApi.dispatch(setLoading(true));
     let apiCall = await client.post(endpoints.BookSlot, {
       booking_id: data?.booking_id,
@@ -84,6 +84,27 @@ export const MainActions = {
     async (data, thunkApi) => {
       thunkApi.dispatch(setLoading(true));
       let apiCall = await client.post(endpoints.MoodAdd, data);
+      thunkApi.dispatch(setLoading(false));
+      return apiCall.data?.response?.data;
+    }
+  ),
+  // Subscription actions
+  GetSubscriptionPackages: createAsyncThunk(
+    "main/GetSubscriptionPackages",
+    async (data, thunkApi) => {
+      thunkApi.dispatch(setLoading(true));
+      let apiCall = await client.get(endpoints.GetPackages);
+      thunkApi.dispatch(setLoading(false));
+      return apiCall.data?.response?.data;
+    }
+  ),
+  SubscribeToPackage: createAsyncThunk(
+    "main/SubscribeToPackage",
+    async (data: { package_id: number }, thunkApi) => {
+      thunkApi.dispatch(setLoading(true));
+      let apiCall = await client.post(endpoints.SubscribePackage, {
+        package_id: data.package_id,
+      });
       thunkApi.dispatch(setLoading(false));
       return apiCall.data?.response?.data;
     }

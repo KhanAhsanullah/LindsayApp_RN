@@ -15,10 +15,13 @@ export const endpoints = {
   AllCategory:
     "category/list?parent_id=eyJpdiI6ImNDT0g3M0Rxd25zdGJcL0lPU1hiUHNnPT0iLCJ2YWx1ZSI6IkcydkpXZlwvam1Ed3NDSGdEeGV5OHJ3PT0iLCJtYWMiOiJjY2FjYTI0M2MwN2UyZjA3NjJjNmM4NmZjNzExN2RhYjhkYjc0ODUwNGE0NTQ1M2UyNmU4MTRlZTg0NTA3ZjNiIn0=",
   ExcerciseCategories: "work/list?is_parent=0",
-  Bookings: (date) => "booking/list?filter_by_date=" + date,
+  Bookings: (date: string) => "booking/list?filter_by_date=" + date,
   BookSlot: "booking/user/add",
   DietAdd: "food/user/add",
   GetDiet: "food/list",
   MoodAdd: "mood/user/add",
   GetMood: "mood/list",
+  // Subscription endpoints
+  GetPackages: "package/list",
+  SubscribePackage: "package/user/add",
 };

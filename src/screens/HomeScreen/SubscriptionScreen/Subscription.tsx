@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { View } from "react-native-ui-lib";
+import { useSelector } from "react-redux";
 import SafeAreaContainer from "../../../containers/SafeAreaContainer";
 import HeaderHome from "../../../components/atoms/HomeAtoms/HeaderHome";
 import { SCREENS, theme } from "../../../constants";
@@ -12,6 +13,13 @@ import { Typography } from "../../../components/atoms/Typography";
 import { navigate } from "../../../navigation/RootNavigation";
 
 const Subscription = () => {
+  const { selectedPackageId } = useSelector((state: any) => state.Main);
+
+  const handleSubscribe = () => {
+    // Navigate directly to payment confirmation screen, skipping payment method selection
+    navigate(SCREENS.PAYMENT_CONFIRM, { packageId: selectedPackageId });
+  };
+
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
@@ -20,7 +28,11 @@ const Subscription = () => {
       </View> */}
       <View style={[commonStyles.footerContainer,{paddingTop:40,}]}>
         <SubscriptionPackages />
-        <CustomBtn label="Subscribe" onPress={()=>navigate(SCREENS.PAYMENT_METHOD)}/>
+        <CustomBtn 
+          label="Subscribe" 
+          onPress={handleSubscribe}
+          disabled={!selectedPackageId}
+        />
         {/* <Typography align="center" style={{marginVertical:20}}>Cancel</Typography> */}
       </View>
     </SafeAreaContainer>

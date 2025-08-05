@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { View } from "react-native-ui-lib";
+import { useSelector } from "react-redux";
+import { useRoute } from "@react-navigation/native";
 import SafeAreaContainer from "../../../containers/SafeAreaContainer";
 import HeaderHome from "../../../components/atoms/HomeAtoms/HeaderHome";
 import { SCREENS, theme } from "../../../constants";
@@ -12,6 +14,16 @@ import { navigate } from "../../../navigation/RootNavigation";
 import PaymentCard from "../../../components/molecules/SubsciptionMol/PaymentCard";
 
 const PaymentMethod = () => {
+  const route = useRoute();
+  const { selectedPackageId } = useSelector((state: any) => state.Main);
+  
+  // Get package ID from route params or Redux state
+  const packageId = (route.params as any)?.packageId || selectedPackageId;
+
+  const handleProceedToPayment = () => {
+    navigate(SCREENS.PAYMENT_CONFIRM, { packageId });
+  };
+
   return (
     <SafeAreaContainer safeArea={false}>
       <HeaderHome color={theme.color.primary} />
@@ -21,7 +33,11 @@ const PaymentMethod = () => {
       <View style={[commonStyles.footerContainer,{paddingTop:40,}]}>
         <PaymentCard />
         <View marginV-20>
-        <CustomBtn label="Process to Payment" onPress={() => navigate(SCREENS.PAYMENT_CONFIRM)} />
+        <CustomBtn 
+          label="Process to Payment" 
+          onPress={handleProceedToPayment}
+          disabled={!packageId}
+        />
         </View>
       </View>
     </SafeAreaContainer>

@@ -8,6 +8,8 @@ const initialState: any = {
   ExcerciseCategories: [],
   Diets: {},
   Moods: {},
+  subscriptionPackages: [],
+  selectedPackageId: null,
 };
 
 const MainSlice = createSlice({
@@ -16,6 +18,9 @@ const MainSlice = createSlice({
   reducers: {
     emptyData: (state, action) => {
       state.categoryData = null;
+    },
+    setSelectedPackageId: (state, action) => {
+      state.selectedPackageId = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -60,8 +65,12 @@ const MainSlice = createSlice({
         };
       }
     });
+    // Subscription package reducers
+    builder.addCase(MainActions.GetSubscriptionPackages.fulfilled, (state, action) => {
+      state.subscriptionPackages = action.payload;
+    });
   },
 });
 
-export const { emptyData } = MainSlice.actions;
+export const { emptyData, setSelectedPackageId } = MainSlice.actions;
 export default MainSlice.reducer;
