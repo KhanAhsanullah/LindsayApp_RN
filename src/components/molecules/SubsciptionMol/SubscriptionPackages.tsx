@@ -68,11 +68,11 @@ const SubscriptionPackages = () => {
   };
 
   const SubscriptionCard = ({ item,index }: any) => {
-    const isSelected = subscriptionPackages[index].id === localSelectedId;
+    const isSelected = subscriptionPackages[index]?.id === localSelectedId;
     return (
       <TouchableOpacity
         style={[styles.cardStyle, isSelected && styles.selectedCard]}
-        onPress={() => handlePackageSelection(subscriptionPackages[index].id)}
+        onPress={() => handlePackageSelection(subscriptionPackages[index]?.id)}
       >
         <View style={styles.cardContent}>
           <Typography textType="semiBold">{item.title}</Typography>

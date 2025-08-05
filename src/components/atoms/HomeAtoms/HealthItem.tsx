@@ -13,7 +13,7 @@ import { navigate } from "../../../navigation/RootNavigation";
 
 
 const HealthItem = ({ data,content }: any) => {
-  const [selected, setSelectedId] = useState(data[0])
+  const [selected, setSelectedId] = useState(data?data[0]:null)
 
   return (
     <View>
