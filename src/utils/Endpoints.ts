@@ -1,5 +1,5 @@
 export const BASE_URL =
-  "https://alsayafelectromechanical.com/lindsayandre/api/";
+  "https://backend.latrainingandwellness.com/public/api/";
 
 export const endpoints = {
   Login: "user/login",
